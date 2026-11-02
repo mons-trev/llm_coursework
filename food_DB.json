@@ -1,0 +1,1582 @@
+[
+  {
+    "food_code": "F001",
+    "name": "불고기피자",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 253,
+      "protein_g": 13.7,
+      "fat_g": 8.35,
+      "carbs_g": 30.6,
+      "sodium_mg": 458
+    },
+    "serving": {
+      "amount": 200,
+      "unit": "g"
+    },
+    "price_krw": 6000,
+    "allergy": [
+      "밀",
+      "우유",
+      "대두",
+      "쇠고기",
+      "토마토"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "피자류",
+      "패스트푸드"
+    ]
+  },
+  {
+    "food_code": "F002",
+    "name": "페퍼로니피자",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 301,
+      "protein_g": 15,
+      "fat_g": 8.6,
+      "carbs_g": 40.9,
+      "sodium_mg": 306
+    },
+    "serving": {
+      "amount": 1277,
+      "unit": "g"
+    },
+    "price_krw": 38300,
+    "allergy": [
+      "밀",
+      "우유",
+      "대두",
+      "돼지고기",
+      "쇠고기",
+      "토마토"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "피자류",
+      "패스트푸드"
+    ]
+  },
+  {
+    "food_code": "F003",
+    "name": "햄치즈토스트",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 304,
+      "protein_g": 11,
+      "fat_g": 13.7,
+      "carbs_g": 34.2,
+      "sodium_mg": 506
+    },
+    "serving": {
+      "amount": 157,
+      "unit": "g"
+    },
+    "price_krw": 4400,
+    "allergy": [
+      "밀",
+      "우유",
+      "알류",
+      "대두",
+      "돼지고기"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "토스트류",
+      "빵류",
+      "간편식"
+    ]
+  },
+  {
+    "food_code": "F004",
+    "name": "탕수육",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 160,
+      "protein_g": 10.6,
+      "fat_g": 6.86,
+      "carbs_g": 13.14,
+      "sodium_mg": 110
+    },
+    "serving": {
+      "amount": 108.6,
+      "unit": "ml"
+    },
+    "price_krw": 6500,
+    "allergy": [
+      "돼지고기",
+      "밀",
+      "알류",
+      "대두"
+    ],
+    "cuisine_type": "중식",
+    "tags": [
+      "튀김류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F005",
+    "name": "우유생크림빵",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 327,
+      "protein_g": 4.81,
+      "fat_g": 18.5,
+      "carbs_g": 35.4,
+      "sodium_mg": 183
+    },
+    "serving": {
+      "amount": 104,
+      "unit": "g"
+    },
+    "price_krw": 3200,
+    "allergy": [
+      "밀",
+      "우유",
+      "알류",
+      "대두"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "빵류",
+      "디저트"
+    ]
+  },
+  {
+    "food_code": "F006",
+    "name": "표고버섯볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 35,
+      "protein_g": 1.7,
+      "fat_g": 2.11,
+      "carbs_g": 3.96,
+      "sodium_mg": 143
+    },
+    "serving": {
+      "amount": 110,
+      "unit": "ml"
+    },
+    "price_krw": 2800,
+    "allergy": [
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "반찬류",
+      "버섯요리"
+    ]
+  },
+  {
+    "food_code": "F007",
+    "name": "콩비지찌개",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 42,
+      "protein_g": 4,
+      "fat_g": 1.44,
+      "carbs_g": 3.11,
+      "sodium_mg": 117
+    },
+    "serving": {
+      "amount": 481,
+      "unit": "ml"
+    },
+    "price_krw": 8700,
+    "allergy": [
+      "대두",
+      "돼지고기",
+      "새우"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찌개류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F008",
+    "name": "콩나물국밥",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 60,
+      "protein_g": 2.66,
+      "fat_g": 0.73,
+      "carbs_g": 10.69,
+      "sodium_mg": 58
+    },
+    "serving": {
+      "amount": 830,
+      "unit": "ml"
+    },
+    "price_krw": 8500,
+    "allergy": [
+      "대두",
+      "알류",
+      "오징어",
+      "새우",
+      "생선"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "밥류",
+      "국밥류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F009",
+    "name": "콩나물무침",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 69,
+      "protein_g": 3.86,
+      "fat_g": 4.54,
+      "carbs_g": 3.2,
+      "sodium_mg": 387
+    },
+    "serving": {
+      "amount": 50,
+      "unit": "g"
+    },
+    "price_krw": 1000,
+    "allergy": [
+      "대두",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "나물류",
+      "반찬류"
+    ]
+  },
+  {
+    "food_code": "F010",
+    "name": "콩국수",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 100,
+      "protein_g": 4.61,
+      "fat_g": 3.83,
+      "carbs_g": 11.69,
+      "sodium_mg": 97
+    },
+    "serving": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "price_krw": 1600,
+    "allergy": [
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "면류",
+      "찬음식"
+    ]
+  },
+  {
+    "food_code": "F011",
+    "name": "코다리조림",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 86,
+      "protein_g": 16.46,
+      "fat_g": 0.4,
+      "carbs_g": 4.16,
+      "sodium_mg": 466
+    },
+    "serving": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "price_krw": 6000,
+    "allergy": [
+      "생선",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "조림류",
+      "생선요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F012",
+    "name": "추어탕",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 30,
+      "protein_g": 3.09,
+      "fat_g": 1.05,
+      "carbs_g": 2.28,
+      "sodium_mg": 184
+    },
+    "serving": {
+      "amount": 160,
+      "unit": "ml"
+    },
+    "price_krw": 3500,
+    "allergy": [
+      "생선",
+      "대두",
+      "밀"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "탕류",
+      "국물요리",
+      "생선요리"
+    ]
+  },
+  {
+    "food_code": "F013",
+    "name": "청국장찌개",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 47,
+      "protein_g": 5.03,
+      "fat_g": 2.11,
+      "carbs_g": 1.92,
+      "sodium_mg": 242
+    },
+    "serving": {
+      "amount": 200,
+      "unit": "g"
+    },
+    "price_krw": 4500,
+    "allergy": [
+      "대두",
+      "돼지고기",
+      "새우"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찌개류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F014",
+    "name": "쫄면",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 121,
+      "protein_g": 3.44,
+      "fat_g": 0.8,
+      "carbs_g": 24.73,
+      "sodium_mg": 601
+    },
+    "serving": {
+      "amount": 320,
+      "unit": "ml"
+    },
+    "price_krw": 6400,
+    "allergy": [
+      "밀",
+      "대두",
+      "알류",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "면류",
+      "분식",
+      "매운맛",
+      "찬음식"
+    ]
+  },
+  {
+    "food_code": "F015",
+    "name": "차돌박이구이",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 488,
+      "protein_g": 17.94,
+      "fat_g": 45.69,
+      "carbs_g": 1.31,
+      "sodium_mg": 93
+    },
+    "serving": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "price_krw": 14000,
+    "allergy": [
+      "쇠고기"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "구이류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F016",
+    "name": "짜장면",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 117,
+      "protein_g": 4,
+      "fat_g": 2.06,
+      "carbs_g": 22.06,
+      "sodium_mg": 371
+    },
+    "serving": {
+      "amount": 550,
+      "unit": "ml"
+    },
+    "price_krw": 8000,
+    "allergy": [
+      "밀",
+      "대두",
+      "돼지고기"
+    ],
+    "cuisine_type": "중식",
+    "tags": [
+      "면류",
+      "소스요리"
+    ]
+  },
+  {
+    "food_code": "F017",
+    "name": "짬뽕",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 58,
+      "protein_g": 2.79,
+      "fat_g": 1.54,
+      "carbs_g": 8.26,
+      "sodium_mg": 181
+    },
+    "serving": {
+      "amount": 800,
+      "unit": "g"
+    },
+    "price_krw": 10000,
+    "allergy": [
+      "밀",
+      "대두",
+      "돼지고기",
+      "새우",
+      "오징어",
+      "조개류"
+    ],
+    "cuisine_type": "중식",
+    "tags": [
+      "면류",
+      "국물요리",
+      "해산물요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F018",
+    "name": "족발",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 220,
+      "protein_g": 28.91,
+      "fat_g": 11.65,
+      "carbs_g": 0,
+      "sodium_mg": 332
+    },
+    "serving": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "price_krw": 6300,
+    "allergy": [
+      "돼지고기",
+      "대두",
+      "밀"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찜류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F019",
+    "name": "쭈꾸미볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 106,
+      "protein_g": 9.16,
+      "fat_g": 2.6,
+      "carbs_g": 11.41,
+      "sodium_mg": 459
+    },
+    "serving": {
+      "amount": 200,
+      "unit": "g"
+    },
+    "price_krw": 10400,
+    "allergy": [
+      "주꾸미",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "해산물요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F020",
+    "name": "제육볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 148,
+      "protein_g": 15.4,
+      "fat_g": 3.7,
+      "carbs_g": 13.71,
+      "sodium_mg": 476
+    },
+    "serving": {
+      "amount": 136.4,
+      "unit": "ml"
+    },
+    "price_krw": 5500,
+    "allergy": [
+      "돼지고기",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "육류요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F021",
+    "name": "전복죽",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 120,
+      "protein_g": 3.1,
+      "fat_g": 3,
+      "carbs_g": 19.12,
+      "sodium_mg": 217
+    },
+    "serving": {
+      "amount": 200.9,
+      "unit": "ml"
+    },
+    "price_krw": 5600,
+    "allergy": [
+      "조개류",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "죽류",
+      "해산물요리"
+    ]
+  },
+  {
+    "food_code": "F022",
+    "name": "장어 덮밥",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 95,
+      "protein_g": 3.5,
+      "fat_g": 1.99,
+      "carbs_g": 15.04,
+      "sodium_mg": 80
+    },
+    "serving": {
+      "amount": 500,
+      "unit": "ml"
+    },
+    "price_krw": 20000,
+    "allergy": [
+      "생선",
+      "대두",
+      "밀"
+    ],
+    "cuisine_type": "일식",
+    "tags": [
+      "밥류",
+      "덮밥류",
+      "생선요리"
+    ]
+  },
+  {
+    "food_code": "F023",
+    "name": "잡채밥",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 102,
+      "protein_g": 2.9,
+      "fat_g": 1.31,
+      "carbs_g": 18.82,
+      "sodium_mg": 86
+    },
+    "serving": {
+      "amount": 449.2,
+      "unit": "ml"
+    },
+    "price_krw": 9500,
+    "allergy": [
+      "대두",
+      "밀",
+      "돼지고기",
+      "조개류",
+      "참깨"
+    ],
+    "cuisine_type": "중식",
+    "tags": [
+      "밥류",
+      "볶음류"
+    ]
+  },
+  {
+    "food_code": "F024",
+    "name": "잔치국수",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 67,
+      "protein_g": 2.35,
+      "fat_g": 0.83,
+      "carbs_g": 12.19,
+      "sodium_mg": 308
+    },
+    "serving": {
+      "amount": 400,
+      "unit": "ml"
+    },
+    "price_krw": 4700,
+    "allergy": [
+      "밀",
+      "알류",
+      "대두",
+      "생선",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "면류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F025",
+    "name": "육개장",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 47,
+      "protein_g": 3,
+      "fat_g": 3.14,
+      "carbs_g": 1.58,
+      "sodium_mg": 331
+    },
+    "serving": {
+      "amount": 119.39,
+      "unit": "ml"
+    },
+    "price_krw": 2400,
+    "allergy": [
+      "쇠고기",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "탕류",
+      "국물요리",
+      "육류요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F026",
+    "name": "우동",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 61,
+      "protein_g": 1.86,
+      "fat_g": 0.72,
+      "carbs_g": 11.22,
+      "sodium_mg": 246
+    },
+    "serving": {
+      "amount": 630,
+      "unit": "ml"
+    },
+    "price_krw": 8000,
+    "allergy": [
+      "밀",
+      "대두",
+      "생선"
+    ],
+    "cuisine_type": "일식",
+    "tags": [
+      "면류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F027",
+    "name": "오징어볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 82,
+      "protein_g": 8.5,
+      "fat_g": 2,
+      "carbs_g": 7.65,
+      "sodium_mg": 270
+    },
+    "serving": {
+      "amount": 270,
+      "unit": "ml"
+    },
+    "price_krw": 10800,
+    "allergy": [
+      "오징어",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "해산물요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F028",
+    "name": "양상추 샐러드",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 78,
+      "protein_g": 1.1,
+      "fat_g": 6.29,
+      "carbs_g": 4.84,
+      "sodium_mg": 87
+    },
+    "serving": {
+      "amount": 85,
+      "unit": "ml"
+    },
+    "price_krw": 1500,
+    "allergy": [
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "샐러드류",
+      "채소요리",
+      "찬음식"
+    ]
+  },
+  {
+    "food_code": "F029",
+    "name": "쌀국수",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 53,
+      "protein_g": 2.6,
+      "fat_g": 0.7,
+      "carbs_g": 9.18,
+      "sodium_mg": 275
+    },
+    "serving": {
+      "amount": 600,
+      "unit": "g"
+    },
+    "price_krw": 11000,
+    "allergy": [
+      "쇠고기",
+      "생선",
+      "대두",
+      "밀"
+    ],
+    "cuisine_type": "동남아식",
+    "tags": [
+      "면류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F030",
+    "name": "연어구이",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 223,
+      "protein_g": 26.8,
+      "fat_g": 11.68,
+      "carbs_g": 0.32,
+      "sodium_mg": 1370
+    },
+    "serving": {
+      "amount": 53.9,
+      "unit": "ml"
+    },
+    "price_krw": 5400,
+    "allergy": [
+      "생선",
+      "우유"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "구이류",
+      "생선요리"
+    ]
+  },
+  {
+    "food_code": "F031",
+    "name": "순대볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 101,
+      "protein_g": 3.16,
+      "fat_g": 4.53,
+      "carbs_g": 12.3,
+      "sodium_mg": 260
+    },
+    "serving": {
+      "amount": 130,
+      "unit": "ml"
+    },
+    "price_krw": 4300,
+    "allergy": [
+      "돼지고기",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "분식",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F032",
+    "name": "순대국",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 68,
+      "protein_g": 5.44,
+      "fat_g": 4.13,
+      "carbs_g": 2.16,
+      "sodium_mg": 188
+    },
+    "serving": {
+      "amount": 800,
+      "unit": "g"
+    },
+    "price_krw": 10000,
+    "allergy": [
+      "돼지고기",
+      "새우"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "국류",
+      "국물요리",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F033",
+    "name": "소시지볶음",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 280,
+      "protein_g": 11.94,
+      "fat_g": 19.38,
+      "carbs_g": 14.41,
+      "sodium_mg": 887
+    },
+    "serving": {
+      "amount": 200,
+      "unit": "g"
+    },
+    "price_krw": 6500,
+    "allergy": [
+      "돼지고기",
+      "닭고기",
+      "대두",
+      "밀",
+      "우유",
+      "알류",
+      "토마토"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "볶음류",
+      "반찬류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F034",
+    "name": "소등심구이",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 318,
+      "protein_g": 15.9,
+      "fat_g": 26.71,
+      "carbs_g": 0,
+      "sodium_mg": 486
+    },
+    "serving": {
+      "amount": 176,
+      "unit": "ml"
+    },
+    "price_krw": 26400,
+    "allergy": [
+      "쇠고기"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "구이류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F035",
+    "name": "생선까스",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 198,
+      "protein_g": 15.3,
+      "fat_g": 9.57,
+      "carbs_g": 10.89,
+      "sodium_mg": 413
+    },
+    "serving": {
+      "amount": 68,
+      "unit": "ml"
+    },
+    "price_krw": 4100,
+    "allergy": [
+      "생선",
+      "밀",
+      "알류",
+      "우유",
+      "대두"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "튀김류",
+      "생선요리"
+    ]
+  },
+  {
+    "food_code": "F036",
+    "name": "닭가슴살샐러드",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 120,
+      "protein_g": 9.63,
+      "fat_g": 8.03,
+      "carbs_g": 2.31,
+      "sodium_mg": 312
+    },
+    "serving": {
+      "amount": 205,
+      "unit": "g"
+    },
+    "price_krw": 7500,
+    "allergy": [
+      "닭고기",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "샐러드류",
+      "육류요리",
+      "찬음식"
+    ]
+  },
+  {
+    "food_code": "F037",
+    "name": "쉬림프에그샐러드",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 83,
+      "protein_g": 6.92,
+      "fat_g": 5.4,
+      "carbs_g": 1.6,
+      "sodium_mg": 302
+    },
+    "serving": {
+      "amount": 159,
+      "unit": "g"
+    },
+    "price_krw": 6500,
+    "allergy": [
+      "새우",
+      "알류",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "샐러드류",
+      "해산물요리",
+      "찬음식"
+    ]
+  },
+  {
+    "food_code": "F038",
+    "name": "햄치즈샌드위치",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 378,
+      "protein_g": 12.08,
+      "fat_g": 17.3,
+      "carbs_g": 43.4,
+      "sodium_mg": 703
+    },
+    "serving": {
+      "amount": 77,
+      "unit": "g"
+    },
+    "price_krw": 2300,
+    "allergy": [
+      "밀",
+      "우유",
+      "알류",
+      "대두",
+      "돼지고기"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "샌드위치류",
+      "빵류",
+      "간편식"
+    ]
+  },
+  {
+    "food_code": "F039",
+    "name": "시리얼 및 우유",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 85,
+      "protein_g": 2.9,
+      "fat_g": 2.24,
+      "carbs_g": 13.15,
+      "sodium_mg": 73
+    },
+    "serving": {
+      "amount": 190,
+      "unit": "ml"
+    },
+    "price_krw": 1900,
+    "allergy": [
+      "우유",
+      "밀",
+      "대두"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "시리얼류",
+      "간편식"
+    ]
+  },
+  {
+    "food_code": "F040",
+    "name": "미트볼스파게티",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 180,
+      "protein_g": 7.34,
+      "fat_g": 8.88,
+      "carbs_g": 17.62,
+      "sodium_mg": 218
+    },
+    "serving": {
+      "amount": 500,
+      "unit": "g"
+    },
+    "price_krw": 13000,
+    "allergy": [
+      "밀",
+      "알류",
+      "우유",
+      "대두",
+      "쇠고기",
+      "돼지고기",
+      "토마토"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "면류",
+      "파스타류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F041",
+    "name": "해물토마토스파게티",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 117,
+      "protein_g": 5.59,
+      "fat_g": 2.75,
+      "carbs_g": 17.45,
+      "sodium_mg": 307
+    },
+    "serving": {
+      "amount": 500,
+      "unit": "g"
+    },
+    "price_krw": 15000,
+    "allergy": [
+      "밀",
+      "새우",
+      "오징어",
+      "조개류",
+      "토마토",
+      "우유"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "면류",
+      "파스타류",
+      "해산물요리"
+    ]
+  },
+  {
+    "food_code": "F042",
+    "name": "쉬림프스파게티",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 218,
+      "protein_g": 6.7,
+      "fat_g": 5.6,
+      "carbs_g": 35.3,
+      "sodium_mg": 481
+    },
+    "serving": {
+      "amount": 390,
+      "unit": "g"
+    },
+    "price_krw": 13700,
+    "allergy": [
+      "밀",
+      "새우",
+      "우유"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "면류",
+      "파스타류",
+      "해산물요리"
+    ]
+  },
+  {
+    "food_code": "F043",
+    "name": "스크램블드에그",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 88,
+      "protein_g": 6.24,
+      "fat_g": 5.46,
+      "carbs_g": 2.77,
+      "sodium_mg": 182
+    },
+    "serving": {
+      "amount": 140,
+      "unit": "ml"
+    },
+    "price_krw": 3000,
+    "allergy": [
+      "알류",
+      "우유"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "달걀요리",
+      "반찬류"
+    ]
+  },
+  {
+    "food_code": "F044",
+    "name": "부대찌개",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "ml"
+    },
+    "nutrition": {
+      "energy_kcal": 63,
+      "protein_g": 3.6,
+      "fat_g": 2.16,
+      "carbs_g": 7.21,
+      "sodium_mg": 295
+    },
+    "serving": {
+      "amount": 145.45,
+      "unit": "ml"
+    },
+    "price_krw": 2900,
+    "allergy": [
+      "돼지고기",
+      "닭고기",
+      "대두",
+      "밀",
+      "우유",
+      "알류",
+      "새우"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찌개류",
+      "국물요리",
+      "육류요리",
+      "매운맛"
+    ]
+  },
+  {
+    "food_code": "F045",
+    "name": "통새우버거",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 252,
+      "protein_g": 6.94,
+      "fat_g": 11,
+      "carbs_g": 31.3,
+      "sodium_mg": 397
+    },
+    "serving": {
+      "amount": 178,
+      "unit": "g"
+    },
+    "price_krw": 6000,
+    "allergy": [
+      "새우",
+      "밀",
+      "알류",
+      "우유",
+      "대두"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "버거류",
+      "패스트푸드"
+    ]
+  },
+  {
+    "food_code": "F046",
+    "name": "와퍼버거",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 223,
+      "protein_g": 10.43,
+      "fat_g": 8.9,
+      "carbs_g": 25.3,
+      "sodium_mg": 291
+    },
+    "serving": {
+      "amount": 278,
+      "unit": "g"
+    },
+    "price_krw": 7500,
+    "allergy": [
+      "쇠고기",
+      "밀",
+      "알류",
+      "대두",
+      "토마토",
+      "참깨"
+    ],
+    "cuisine_type": "양식",
+    "tags": [
+      "버거류",
+      "패스트푸드"
+    ]
+  },
+  {
+    "food_code": "F047",
+    "name": "떡국",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 84,
+      "protein_g": 3.43,
+      "fat_g": 0.53,
+      "carbs_g": 16.37,
+      "sodium_mg": 176
+    },
+    "serving": {
+      "amount": 700,
+      "unit": "g"
+    },
+    "price_krw": 10000,
+    "allergy": [
+      "쇠고기",
+      "알류",
+      "대두",
+      "밀",
+      "참깨"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "떡류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F048",
+    "name": "된장찌개",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 110,
+      "protein_g": 7.71,
+      "fat_g": 6.33,
+      "carbs_g": 5.44,
+      "sodium_mg": 381
+    },
+    "serving": {
+      "amount": 695,
+      "unit": "g"
+    },
+    "price_krw": 13000,
+    "allergy": [
+      "대두",
+      "밀",
+      "조개류",
+      "생선"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찌개류",
+      "국물요리"
+    ]
+  },
+  {
+    "food_code": "F049",
+    "name": "돈가스",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 280,
+      "protein_g": 13.85,
+      "fat_g": 17.94,
+      "carbs_g": 15.89,
+      "sodium_mg": 343
+    },
+    "serving": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "price_krw": 6000,
+    "allergy": [
+      "돼지고기",
+      "밀",
+      "알류",
+      "우유",
+      "대두",
+      "토마토"
+    ],
+    "cuisine_type": "일식",
+    "tags": [
+      "튀김류",
+      "육류요리"
+    ]
+  },
+  {
+    "food_code": "F050",
+    "name": "김치찌개",
+    "nutrition_basis": {
+      "amount": 100,
+      "unit": "g"
+    },
+    "nutrition": {
+      "energy_kcal": 61,
+      "protein_g": 3.77,
+      "fat_g": 3.75,
+      "carbs_g": 2.98,
+      "sodium_mg": 491
+    },
+    "serving": {
+      "amount": 400,
+      "unit": "g"
+    },
+    "price_krw": 8000,
+    "allergy": [
+      "돼지고기",
+      "대두",
+      "밀",
+      "새우",
+      "생선"
+    ],
+    "cuisine_type": "한식",
+    "tags": [
+      "찌개류",
+      "국물요리",
+      "매운맛"
+    ]
+  }
+]
