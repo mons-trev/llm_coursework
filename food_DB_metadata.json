@@ -1,12 +1,16 @@
+
+
 {
+  "metadata_schema_version": 2,
   "data_file": "food_DB.json",
-  "data_file_sha256": "fbe370e8dfc0a0aaa8bb9c60344e66aa53616baaa83f455d3afa9fabca67c8bb",
+  "data_file_sha256": "c31c9b276e6e0b9d3297ca8ea4a6a9e6f1679ceedbf960f959f335b1850d2558",
   "record_count": 50,
-  "source_workbook": "food_DB_candidate_ver2.xlsx",
-  "source_workbook_library_file_id": "libfile_853bdbd60b6481c288ebd05245ae379d",
-  "source_workbook_version": 2,
-  "source_workbook_sha256": "dbb87903ddb83599fe73bb02fed947ab145db4700a1c7a68aa7f3fcb3b909337",
-  "food_code_assignment": "Excel row order: F001 through F050. Original identifiers are preserved per record below.",
+  "source_workbook": "food_DB_candidate_ver5.xlsx",
+  "source_workbook_library_file_id": "libfile_fee94a7df75481c28f64cbf22d24580b",
+  "source_workbook_version": null,
+  "source_workbook_revision": "ver5",
+  "source_workbook_sha256": "cfe865b8f2f20c0d4bb91d1eb181ba75a0065945814667d1e5d57482f0f27083",
+  "food_code_assignment": "Preserved existing F001–F050 identifiers by matching original source_food_code; independent of Excel row order.",
   "nutrition_units": {
     "energy_kcal": "kcal",
     "protein_g": "g",
@@ -15,16 +19,156 @@
     "sodium_mg": "mg"
   },
   "nutrition_basis_rule": "Nutrition values are per nutrition_basis, not per serving. For serving totals multiply by serving.amount / nutrition_basis.amount when units match.",
-  "price_basis_rule": "price_krw is the estimated cost of one serving in KRW.",
+  "price_basis_rule": "price_krw is the ver5 workbook value for the complete purchase unit represented by serving; no price re-estimation during conversion.",
   "estimated_nutrition_record_count": 8,
   "estimated_nutrition_field_count": 16,
   "field_notes": {
-    "price_krw": "작성일: 2026-11-02. 원본 serving_amount에 해당하는 음식 단품의 대략적인 외식/소매 구매가격 추정값(원). 실측 평균이나 판매 견적이 아님. 각 행 메모의 기준가격 × 원본 제공량 ÷ 기준 제공량을 100원 단위로 반올림. 작은 제공량은 소분 원가 배분값으로 실제 최소 주문가격과 다를 수 있음. 밥·국·반찬·배달료 등 별도 구성은 미포함. g와 ml는 서로 환산하지 않았으며 기준량의 단위는 원본과 동일하게 가정. 참가격 2026년 5월 경기의 자장면 7,603원, 김치찌개백반 8,824원 등을 일부 가격 수준의 참고로만 사용. 백반 가격을 단품 가격으로 직접 복사하지 않음. 전체 50개 음식의 가격은 작성자 가정. 참고: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026",
+    "source_precedence": "ver5의 현재 셀 값을 최우선으로 반영. 엑셀에 남아 있는 과거 메모의 제공량·가격이 다르면 현재 셀 값을 사용.",
+    "serving": "단위는 g 또는 ml로 분리. nutrition_basis와 같은 단위만 허용. ml를 g로 밀도 없이 환산하지 않음. 구매량이며 반드시 한 사람의 한 끼 섭취량은 아님.",
+    "price_krw": "사용자가 제공한 ver5의 가격을 그대로 반영. 기존 ver4의 공개 가격 근거는 과거 참고 기록이며 변경된 ver5 가격을 외부 검증한 자료로 취급하지 않음.",
     "allergy": "모든 값은 음식명·일반적인 조리법·각 행의 가정으로 작성한 알레르기 유발 성분 후보(JSON 배열 문자열). 실제 영양 데이터와 동일한 레시피/제품의 확인된 원재료가 아님. 원본에 원재료와 제품 정보가 없으므로 확인된 allergy:null(성분 없음)은 부여하지 않음. 배열에 없는 성분도 미함유를 뜻하지 않음. 교차접촉을 전부 나열한 목록도 아님. 샐러드 드레싱·소스·가공육 배합은 행별 메모 확인. 실제 알레르기 제외 기능의 확정 DB에는 원재료 확인 후 반영하고, 미확인 레코드는 제외할 것. 알류=달걀 등 가금류 알, 대두=콩, 쇠고기=소고기. 조개류는 전복/홍합/굴/바지락 등을 포괄. 생선·참깨·주꾸미는 법정 표시 19종 외 프로젝트 추가 분류이며 사용자 입력과 DB의 동의어/상하위어 매핑 필요. 원재료 확인 원칙 참고: https://foodsafetykorea.go.kr/portal/board/boardDetail.do?bbs_no=bbs001&menu_no=3120&ntctxt_no=1091412",
     "cuisine_type": "JSON schema의 cuisine_type으로 원본 cusine_type 오타 수정. 값은 한식/중식/일식/양식/동남아식 중 하나. 현재 국내에서 흔히 접하는 조리·판매 형태를 기준으로 한 편의적 분류. 음식명만으로 불명확한 경우 대표 조리법을 가정. 잡채밥은 중식당식, 장어 덮밥은 일본식, 쌀국수는 베트남식, 연어구이는 양식 버터구이, 돈가스는 일식으로 분류.",
-    "tags": "음식 종류·조리 방식·형태 중심의 일관된 태그를 JSON 배열 문자열로 저장. 영양소 기준을 별도로 정의하지 않았으므로 고단백/저칼로리/건강식/채식 등의 영양·식이 적합성 태그는 부여하지 않음. 매운맛은 일반 조리 형태의 추정이며 맵기 정도를 수치화하지 않음. 패스트푸드는 피자/버거에 부여.",
-    "estimated_nutrition": "노란색 셀 16개(8개 음식)는 추정 보완값. 대상 행: 3,4,6,38,39,43,46,47. 원본 코드에 대응하는 확정 지방/탄수화물을 확인하지 못해 유사 음식의 지방:탄수화물 비율과 기존 열량/단백질로 추정함. 일반식·브랜드·레시피 차이에 따른 오차가 있으며 정확한 영양값으로 검증된 것이 아님. 각 셀 메모에 참고 음식·출처·계산식·한계를 기록. JSON 변환 시 추정 상태와 출처를 별도 메타데이터로 유지하거나 해당 8개를 엄밀한 영양 평가에서 제외할 것."
+    "tags": "ver5 배열을 순서까지 그대로 반영. 이전 버전에서 삭제된 태그를 다시 추가하지 않음.",
+    "estimated_nutrition": "노란색 셀 16개(8개 음식)는 추정 보완값. 대상 행: 3,4,6,38,39,43,46,47. 원본 코드에 대응하는 확정 지방/탄수화물을 확인하지 못해 유사 음식의 지방:탄수화물 비율과 기존 열량/단백질로 추정함. 일반식·브랜드·레시피 차이에 따른 오차가 있으며 정확한 영양값으로 검증된 것이 아님. 각 셀 메모에 참고 음식·출처·계산식·한계를 기록. JSON 변환 시 추정 상태와 출처를 별도 메타데이터로 유지하거나 해당 8개를 엄밀한 영양 평가에서 제외할 것.",
+    "numeric_conversion": "빈 숫자를 0으로 대체하지 않음. Excel 저장 과정의 34.200000000000003 같은 부동소수점 표현만 1e-12 이내에서 정리."
   },
+  "source_workbook_field_notes": {
+    "serving": "ver4 작성일: 2026-11-04. serving_amount는 해당 메뉴를 한 번 구매할 때 받는 음식 본체 전체의 조리 후 가식량 또는 부피. 영양성분은 원본 nutrition_amount 기준 그대로. 피자·족발·소짜 볶음 등은 여러 사람이 나눠 먹는 구매 단위일 수 있으며 1인 1끼 권장 섭취량을 뜻하지 않음. g와 ml는 서로 환산하지 않았고 각 음식의 기존 영양기준과 동일한 단위 사용. ml 제공량은 상품 중량을 옮긴 값이 아니라 부피 가정이며 음식별 측정/밀도 자료가 확보되면 교체 필요. 별도 공깃밥·곁들임의 영양은 추가 계산해야 함. 각 행 I/J 메모에 구매 단위와 추정 범위를 기록.",
+    "price_krw": "ver4: price_krw는 I열 구매 단위 전체의 예상 결제액(원). 소량에 비례해 가격을 쪼개는 방식을 중단. 국내 일반 매장 이용 또는 포장 구매 기준, 배달료·배송료·할인·세트 추가 제외. 공개 메뉴 가격을 직접 참고한 음식과 작성자가 정한 추정 가격을 각 행 메모에서 구분. 전국 실측 평균/판매가 보장이 아니며 매장·지역·시기 차이 가능. 단품·1인 메뉴 판매처를 가정하며 별도 최소주문/묶음배송 제약은 모형에 포함하지 않음. 영양값은 해당 음식 본체 기준이므로 가격에 동반 밥·반찬이 포함되어 실제 제공된다면 실제 섭취 영양은 이 행만으로 완성되지 않음.",
+    "tags": "음식 종류·조리 방식·형태 중심의 일관된 태그를 JSON 배열 문자열로 저장. 영양소 기준을 별도로 정의하지 않았으므로 고단백/저칼로리/건강식/채식 등의 영양·식이 적합성 태그는 부여하지 않음. 매운맛은 일반 조리 형태의 추정이며 맵기 정도를 수치화하지 않음. 패스트푸드는 피자/버거에 부여."
+  },
+  "legacy_serving_or_price_note_context_record_codes": [
+    "F001",
+    "F002"
+  ],
+  "changes_since_ver4": [
+    {
+      "food_code": "F001",
+      "name": "불고기피자",
+      "field": "serving",
+      "before": {
+        "amount": 700,
+        "unit": "g"
+      },
+      "after": {
+        "amount": 600,
+        "unit": "g"
+      }
+    },
+    {
+      "food_code": "F001",
+      "name": "불고기피자",
+      "field": "price_krw",
+      "before": 11900,
+      "after": 15900
+    },
+    {
+      "food_code": "F002",
+      "name": "페퍼로니피자",
+      "field": "serving",
+      "before": {
+        "amount": 600,
+        "unit": "g"
+      },
+      "after": {
+        "amount": 500,
+        "unit": "g"
+      }
+    },
+    {
+      "food_code": "F002",
+      "name": "페퍼로니피자",
+      "field": "price_krw",
+      "before": 9900,
+      "after": 14900
+    },
+    {
+      "food_code": "F006",
+      "name": "표고버섯볶음",
+      "field": "tags",
+      "before": [
+        "볶음류",
+        "반찬류",
+        "버섯요리"
+      ],
+      "after": [
+        "볶음류",
+        "반찬류"
+      ]
+    },
+    {
+      "food_code": "F016",
+      "name": "짜장면",
+      "field": "tags",
+      "before": [
+        "면류",
+        "소스요리"
+      ],
+      "after": [
+        "면류"
+      ]
+    },
+    {
+      "food_code": "F025",
+      "name": "육개장",
+      "field": "tags",
+      "before": [
+        "탕류",
+        "국물요리",
+        "육류요리",
+        "매운맛"
+      ],
+      "after": [
+        "탕류",
+        "국물요리",
+        "매운맛"
+      ]
+    },
+    {
+      "food_code": "F032",
+      "name": "순대국",
+      "field": "tags",
+      "before": [
+        "국류",
+        "국물요리",
+        "육류요리"
+      ],
+      "after": [
+        "국류",
+        "국물요리"
+      ]
+    },
+    {
+      "food_code": "F036",
+      "name": "닭가슴살샐러드",
+      "field": "tags",
+      "before": [
+        "샐러드류",
+        "육류요리",
+        "찬음식"
+      ],
+      "after": [
+        "샐러드류",
+        "찬음식"
+      ]
+    },
+    {
+      "food_code": "F044",
+      "name": "부대찌개",
+      "field": "tags",
+      "before": [
+        "찌개류",
+        "국물요리",
+        "육류요리",
+        "매운맛"
+      ],
+      "after": [
+        "찌개류",
+        "국물요리",
+        "매운맛"
+      ]
+    }
+  ],
   "records": [
     {
       "food_code": "F001",
@@ -32,10 +176,24 @@
       "source_excel_row": 2,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 1000g에 30,000원 가정. 원본 200g 기준 30000 × 200 ÷ 1000 = 6000.00원, 100원 단위 반올림 후 6000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 도우·치즈·간장 양념 쇠고기·토마토소스 기준. 도우의 알류와 가공육 배합은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "g"
+      },
+      "current_price_krw": 15900,
+      "fields_changed_since_ver4": [
+        "serving",
+        "price_krw"
+      ],
+      "price_note": "ver5 Sheet1!J2의 현재 가격 15,900원. 구매 제공량 600g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I2의 현재 제공량 600g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 도우·치즈·간장 양념 쇠고기·토마토소스 기준. 도우의 알류와 가공육 배합은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 보급형 포장 피자 1판. 제공량: 700g. 보급형 피자 한 판 가격을 참고. 제공량 700g은 토핑·크기 차이를 고려한 모형 가정이며 특정 브랜드 제품 중량이 아님. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 200g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 보급형 포장 피자 1판 전체 구매 예상 결제액: 11,900원. 보급형 피자 한 판 가격을 참고. 제공량 700g은 토핑·크기 차이를 고려한 모형 가정이며 특정 브랜드 제품 중량이 아님. 근거 구분: 공개 매장 메뉴: 피자스쿨 불고기 11,900원·페퍼로니 9,900원 참고. 영양값은 원본 그대로인 일반 음식 모형으로 해당 브랜드 제품이라고 확정하지 않음. 참고 URL: https://polle.com/place/1Ty7Qp/%ED%94%BC%EC%9E%90%EC%8A%A4%EC%BF%A8 ; https://gajaseoul.com/ko/store/pizzaschool_suyugwangsan 기존 6000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "prior_ver4_context_only_current_cells_take_precedence"
     },
     {
       "food_code": "F002",
@@ -46,10 +204,24 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 1000g에 30,000원 가정. 원본 1277g 기준 30000 × 1277 ÷ 1000 = 38310.00원, 100원 단위 반올림 후 38300원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. 원본 1277g은 통상 한 끼보다 많을 수 있으므로 제공량 검토 필요.",
+      "current_serving": {
+        "amount": 500,
+        "unit": "g"
+      },
+      "current_price_krw": 14900,
+      "fields_changed_since_ver4": [
+        "serving",
+        "price_krw"
+      ],
+      "price_note": "ver5 Sheet1!J3의 현재 가격 14,900원. 구매 제공량 500g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I3의 현재 제공량 500g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 도우·치즈·토마토소스와 돼지고기/쇠고기 혼합 페퍼로니를 가정. 알류 등 실제 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 보급형 포장 피자 1판. 제공량: 600g. 보급형 피자 한 판 가격을 참고. 제공량 600g은 모형 가정. 한 조각 가격으로 분할하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 1277g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 보급형 포장 피자 1판 전체 구매 예상 결제액: 9,900원. 보급형 피자 한 판 가격을 참고. 제공량 600g은 모형 가정. 한 조각 가격으로 분할하지 않음. 근거 구분: 공개 매장 메뉴: 피자스쿨 불고기 11,900원·페퍼로니 9,900원 참고. 영양값은 원본 그대로인 일반 음식 모형으로 해당 브랜드 제품이라고 확정하지 않음. 참고 URL: https://polle.com/place/1Ty7Qp/%ED%94%BC%EC%9E%90%EC%8A%A4%EC%BF%A8 ; https://gajaseoul.com/ko/store/pizzaschool_suyugwangsan 기존 38300원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "prior_ver4_context_only_current_cells_take_precedence",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 2017년 외식 영양성분 자료집 제5권, 37 페퍼로니피자, 100g 기준. 참고 지방 7.4g, 탄수화물 35.2g. 출처: https://www.foodsafetykorea.go.kr/upload/mkisna/2017.pdf. 대상의 기존 열량 E=301kcal와 단백질 P=15g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=1.162006. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 8.6g, 탄수화물 40.9g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 대상 브랜드/레시피와 다른 일반 페퍼로니피자의 비율을 사용. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -61,10 +233,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 160g에 4,500원 가정. 원본 157g 기준 4500 × 157 ÷ 160 = 4415.63원, 100원 단위 반올림 후 4400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 160,
+        "unit": "g"
+      },
+      "current_price_krw": 3600,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J4의 현재 가격 3,600원. 구매 제공량 160g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I4의 현재 제공량 160g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 밀 식빵·치즈·버터·돼지고기 햄·달걀/마요네즈를 사용하는 토스트 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 토스트 단품 1개. 제공량: 160g. 공개 매장 메뉴의 기본 햄치즈 토스트 3,600원을 참고. 제공량은 원본 157g에 가까운 160g으로 단순화한 추정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 157g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 토스트 단품 1개 전체 구매 예상 결제액: 3,600원. 공개 매장 메뉴의 기본 햄치즈 토스트 3,600원을 참고. 제공량은 원본 157g에 가까운 160g으로 단순화한 추정. 근거 구분: 공개 이삭토스트 매장 기본 햄치즈 메뉴 3,600원 참고. 제공량은 추정. 참고 URL: https://www.diningcode.com/profile.php?rid=h9jGeeZwQquz ; https://www.isaac-toast.co.kr/menu/menu.php?catcode=10101000&prdcode=2306210007&ptype=view 기존 4400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 외식 영양성분 자료집, 119 햄치즈샌드위치, 100g 기준. 참고 지방 9.9g, 탄수화물 24.8g. 출처: https://www.foodsafetykorea.go.kr/upload/20150824/20150824011539_1440389739434.pdf. 대상의 기존 열량 E=304kcal와 단백질 P=11g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=1.380775. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 13.7g, 탄수화물 34.2g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 토스트와 유사한 햄치즈샌드위치를 대체 참고 음식으로 사용. 굽는 유지·소스 차이 미반영. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -73,10 +256,21 @@
       "source_excel_row": 5,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 300ml에 18,000원 가정. 원본 108.60ml 기준 18000 × 108.6 ÷ 300 = 6516.00원, 100원 단위 반올림 후 6500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기·밀/전분 혼합 튀김옷·달걀·간장 소스 가정. 전분만 쓰는 조리법도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 350,
+        "unit": "ml"
+      },
+      "current_price_krw": 20000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J5의 현재 가격 20,000원. 구매 제공량 350ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I5의 현재 제공량 350ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기·밀/전분 혼합 튀김옷·달걀·간장 소스 가정. 전분만 쓰는 조리법도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 중식당 탕수육 소(小) 1접시. 제공량: 350ml. 공유 가능한 소짜 단품 구매. 제공량은 튀김과 소스를 합한 부피 가정이며 실제 판매 중량을 ml로 환산한 값이 아님. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 108.60ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 중식당 탕수육 소(小) 1접시 전체 구매 예상 결제액: 20,000원. 공유 가능한 소짜 단품 구매. 제공량은 튀김과 소스를 합한 부피 가정이며 실제 판매 중량을 ml로 환산한 값이 아님. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F005",
@@ -87,10 +281,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 104g에 3,200원 가정. 원본 104g 기준 3200 × 104 ÷ 104 = 3200.00원, 100원 단위 반올림 후 3200원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 104,
+        "unit": "g"
+      },
+      "current_price_krw": 3500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J6의 현재 가격 3,500원. 구매 제공량 104g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I6의 현재 제공량 104g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 밀 빵·우유·생크림·달걀과 대두 함유 유지/유화제를 쓰는 일반 제빵 배합 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 베이커리 크림빵 1개. 제공량: 104g. 파리바게뜨 우유 크림빵의 공식 총 내용량 104g과 공개 주문 메뉴 3,500원을 참고. 기존 영양값을 해당 제품으로 재검증하거나 교체한 것은 아님. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 104g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 베이커리 크림빵 1개 전체 구매 예상 결제액: 3,500원. 파리바게뜨 우유 크림빵의 공식 총 내용량 104g과 공개 주문 메뉴 3,500원을 참고. 기존 영양값을 해당 제품으로 재검증하거나 교체한 것은 아님. 근거 구분: 공식 제품 총중량과 공개 주문 메뉴 가격 참고. 참고 URL: https://www.paris.co.kr/product/%EC%9D%B8%EC%83%9D%ED%81%AC%EB%A6%BC%EB%B9%B5-%EC%9A%B0%EC%9C%A0/ ; https://app.passorder.co.kr/normal/1c5a5134-88a1-4f2f-a231-ac6edd6f7b7c/menus 기존 3200원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 청소년 영양지수 가이드북, 기름진 빵 및 스낵류 표의 생크림 케이크, 100g 기준. 참고 지방 18.5g, 탄수화물 35.4g. 출처: https://various.foodsafetykorea.go.kr/nq/data/youth_guidebook.pdf. 대상의 기존 열량 E=327kcal와 단백질 P=4.81g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=0.998896. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 18.5g, 탄수화물 35.4g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 우유생크림빵과 다른 생크림 케이크를 거친 대체 참고 음식으로 사용. 크림·빵 비율에 따라 오차가 클 수 있음. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -99,10 +304,23 @@
       "source_excel_row": 7,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 100ml에 2,500원 가정. 원본 110ml 기준 2500 × 110 ÷ 100 = 2750.00원, 100원 단위 반올림 후 2800원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 간장·참기름/깨 양념 가정. 굴소스 사용 시 조개류 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 150,
+        "unit": "ml"
+      },
+      "current_price_krw": 4000,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J7의 현재 가격 4,000원. 구매 제공량 150ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I7의 현재 제공량 150ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 간장·참기름/깨 양념 가정. 굴소스 사용 시 조개류 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 반찬가게 소포장 1팩. 제공량: 150ml. 소량 접시의 섭취량 대신 구매 가능한 반찬 한 팩으로 설정. 부피 및 가격 모두 소포장 판매를 가정한 추정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 110ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 반찬가게 소포장 1팩 전체 구매 예상 결제액: 4,000원. 소량 접시의 섭취량 대신 구매 가능한 반찬 한 팩으로 설정. 부피 및 가격 모두 소포장 판매를 가정한 추정. 근거 구분: 반찬 소포장 판매 형태를 적용한 추정. 콩나물무침 150g·3,500원의 직접 판매 사례는 소포장 규모의 참고이며 이 음식의 실제 판매가를 의미하지 않음. 참고 URL: https://anakfarmer.com/product/%EC%BD%A9%EB%82%98%EB%AC%BC%EB%AC%B4%EC%B9%A8-150g/111/ 기존 2800원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F007",
@@ -110,10 +328,21 @@
       "source_excel_row": 8,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 9,000원 가정. 원본 481ml 기준 9000 × 481 ÷ 500 = 8658.00원, 100원 단위 반올림 후 8700원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 콩비지·돼지고기·새우젓 함유 김치로 끓이는 조리법 가정. 간장 제품에 따라 밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "ml"
+      },
+      "current_price_krw": 9000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J8의 현재 가격 9,000원. 구매 제공량 500ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I8의 현재 제공량 500ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 콩비지·돼지고기·새우젓 함유 김치로 끓이는 조리법 가정. 간장 제품에 따라 밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 식당 또는 포장 찌개 1그릇. 제공량: 500ml. 찌개 본체 한 그릇의 부피 추정. 별도 공깃밥·반찬의 영양은 이 행에 포함하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 481ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 식당 또는 포장 찌개 1그릇 전체 구매 예상 결제액: 9,000원. 찌개 본체 한 그릇의 부피 추정. 별도 공깃밥·반찬의 영양은 이 행에 포함하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 8700원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F008",
@@ -121,10 +350,21 @@
       "source_excel_row": 9,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 830ml에 8,500원 가정. 원본 830ml 기준 8500 × 830 ÷ 830 = 8500.00원, 100원 단위 반올림 후 8500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 콩나물·달걀·오징어·새우젓·멸치 육수를 쓰는 전주식 가정. 달걀 별도 제공 여부와 양념 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 800,
+        "unit": "ml"
+      },
+      "current_price_krw": 8500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J9의 현재 가격 8,500원. 구매 제공량 800ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I9의 현재 제공량 800ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 콩나물·달걀·오징어·새우젓·멸치 육수를 쓰는 전주식 가정. 달걀 별도 제공 여부와 양념 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 국밥집 국밥 1그릇. 제공량: 800ml. 밥이 국밥에 들어간 상태의 메뉴 전체 제공 부피. 별도 공깃밥 추가를 가정하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 830ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 국밥집 국밥 1그릇 전체 구매 예상 결제액: 8,500원. 밥이 국밥에 들어간 상태의 메뉴 전체 제공 부피. 별도 공깃밥 추가를 가정하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 8500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F009",
@@ -132,10 +372,21 @@
       "source_excel_row": 10,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 100g에 2,000원 가정. 원본 50g 기준 2000 × 50 ÷ 100 = 1000.00원, 100원 단위 반올림 후 1000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 콩나물·참기름/깨·소금 양념 가정. 간장 사용 시 밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 150,
+        "unit": "g"
+      },
+      "current_price_krw": 3500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J10의 현재 가격 3,500원. 구매 제공량 150g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I10의 현재 제공량 150g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 콩나물·참기름/깨·소금 양념 가정. 간장 사용 시 밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 반찬가게 소포장 1팩. 제공량: 150g. 직접 판매 페이지의 콩나물무침 150g·3,500원 규격을 참고. 50g만 사는 비례 가격을 사용하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 50g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 반찬가게 소포장 1팩 전체 구매 예상 결제액: 3,500원. 직접 판매 페이지의 콩나물무침 150g·3,500원 규격을 참고. 50g만 사는 비례 가격을 사용하지 않음. 근거 구분: 직접 판매 페이지의 150g 한 팩 규격 및 3,500원 참고. 다른 가게의 보편적 평균으로 확정한 값은 아님. 참고 URL: https://anakfarmer.com/product/%EC%BD%A9%EB%82%98%EB%AC%BC%EB%AC%B4%EC%B9%A8-150g/111/ 기존 1000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F010",
@@ -143,10 +394,21 @@
       "source_excel_row": 11,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 700g에 11,000원 가정. 원본 100g 기준 11000 × 100 ÷ 700 = 1571.43원, 100원 단위 반올림 후 1600원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 콩국·밀 국수·깨 가정. 땅콩/견과 첨가나 달걀 고명은 별도 확인. 원본 100g만 가격 환산. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 700,
+        "unit": "g"
+      },
+      "current_price_krw": 11000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J11의 현재 가격 11,000원. 구매 제공량 700g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I11의 현재 제공량 700g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 콩국·밀 국수·깨 가정. 땅콩/견과 첨가나 달걀 고명은 별도 확인.  목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 식당 콩국수 보통 1그릇. 제공량: 700g. 삶은 면·콩국·고명을 포함한 조리 후 총 제공량 추정. 원본 100g 소량에서 실제 한 그릇 규모로 수정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 100g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 식당 콩국수 보통 1그릇 전체 구매 예상 결제액: 11,000원. 삶은 면·콩국·고명을 포함한 조리 후 총 제공량 추정. 원본 100g 소량에서 실제 한 그릇 규모로 수정. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 1600원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F011",
@@ -154,10 +416,21 @@
       "source_excel_row": 12,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 200g에 12,000원 가정. 원본 100g 기준 12000 × 100 ÷ 200 = 6000.00원, 100원 단위 반올림 후 6000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 코다리(명태)·간장·깨 양념 가정. 생선 범주는 법정 표시대상 19종보다 넓은 프로젝트 분류. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 300,
+        "unit": "g"
+      },
+      "current_price_krw": 12000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J12의 현재 가격 12,000원. 구매 제공량 300g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I12의 현재 제공량 300g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 코다리(명태)·간장·깨 양념 가정. 생선 범주는 법정 표시대상 19종보다 넓은 프로젝트 분류. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 1인용 코다리조림 단품 1팩. 제공량: 300g. 1인용 조리완료 상품을 사는 경우를 가정. 뼈를 제외하고 먹는 조림 본체·양념의 가식량 추정. 대형 공유 접시와 다름. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 100g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 1인용 코다리조림 단품 1팩 전체 구매 예상 결제액: 12,000원. 1인용 조리완료 상품을 사는 경우를 가정. 뼈를 제외하고 먹는 조림 본체·양념의 가식량 추정. 대형 공유 접시와 다름. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F012",
@@ -165,10 +438,21 @@
       "source_excel_row": 13,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 11,000원 가정. 원본 160ml 기준 11000 × 160 ÷ 500 = 3520.00원, 100원 단위 반올림 후 3500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 미꾸라지·된장·간장 양념 가정. 들깨는 참깨와 다른 원료이며 실제 원재료 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "ml"
+      },
+      "current_price_krw": 11000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J13의 현재 가격 11,000원. 구매 제공량 600ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I13의 현재 제공량 600ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 미꾸라지·된장·간장 양념 가정. 들깨는 참깨와 다른 원료이며 실제 원재료 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 추어탕 전문점 보통 1그릇. 제공량: 600ml. 건더기·국물을 포함한 한 그릇 부피 추정. 공깃밥·별도 반찬 영양은 추가 합산 필요. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 160ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 추어탕 전문점 보통 1그릇 전체 구매 예상 결제액: 11,000원. 건더기·국물을 포함한 한 그릇 부피 추정. 공깃밥·별도 반찬 영양은 추가 합산 필요. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 3500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F013",
@@ -176,10 +460,21 @@
       "source_excel_row": 14,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 400g에 9,000원 가정. 원본 200g 기준 9000 × 200 ÷ 400 = 4500.00원, 100원 단위 반올림 후 4500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 청국장·두부·돼지고기·새우젓 함유 김치 조리법 가정. 육수의 생선, 간장/된장 제품의 밀은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "g"
+      },
+      "current_price_krw": 9000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J14의 현재 가격 9,000원. 구매 제공량 500g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I14의 현재 제공량 500g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 청국장·두부·돼지고기·새우젓 함유 김치 조리법 가정. 육수의 생선, 간장/된장 제품의 밀은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 청국장찌개 1그릇. 제공량: 500g. 두부·건더기·국물을 포함한 조리 후 가식량 추정. 영양기준이 100g이므로 제공량도 g 유지. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 200g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 청국장찌개 1그릇 전체 구매 예상 결제액: 9,000원. 두부·건더기·국물을 포함한 조리 후 가식량 추정. 영양기준이 100g이므로 제공량도 g 유지. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 4500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F014",
@@ -187,10 +482,21 @@
       "source_excel_row": 15,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 400ml에 8,000원 가정. 원본 320ml 기준 8000 × 320 ÷ 400 = 6400.00원, 100원 단위 반올림 후 6400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 면·콩나물·삶은 달걀·고추장/간장·깨 양념 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 450,
+        "unit": "ml"
+      },
+      "current_price_krw": 8000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J15의 현재 가격 8,000원. 구매 제공량 450ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I15의 현재 제공량 450ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 면·콩나물·삶은 달걀·고추장/간장·깨 양념 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 분식집 쫄면 보통 1그릇. 제공량: 450ml. 양념·면·고명을 포함한 한 그릇 부피 추정. 판매 중량과 부피 사이의 밀도 환산은 수행하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 320ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 분식집 쫄면 보통 1그릇 전체 구매 예상 결제액: 8,000원. 양념·면·고명을 포함한 한 그릇 부피 추정. 판매 중량과 부피 사이의 밀도 환산은 수행하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 6400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F015",
@@ -198,10 +504,21 @@
       "source_excel_row": 16,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 100g에 14,000원 가정. 원본 100g 기준 14000 × 100 ÷ 100 = 14000.00원, 100원 단위 반올림 후 14000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 쇠고기 소금구이 단품 가정. 찍어 먹는 간장 소스, 쌈장 등 별도 제공품은 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 150,
+        "unit": "g"
+      },
+      "current_price_krw": 22000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J16의 현재 가격 22,000원. 구매 제공량 150g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I16의 현재 제공량 150g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 쇠고기 소금구이 단품 가정. 찍어 먹는 간장 소스, 쌈장 등 별도 제공품은 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 식당 차돌박이구이 1접시. 제공량: 150g. 조리 후 먹는 고기 가식량 약 150g을 가정한 단품. 생고기 150g 표시를 그대로 사용한 것이 아님. 최소 2인 주문 매장은 이 모형의 구매처에서 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 100g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 식당 차돌박이구이 1접시 전체 구매 예상 결제액: 22,000원. 조리 후 먹는 고기 가식량 약 150g을 가정한 단품. 생고기 150g 표시를 그대로 사용한 것이 아님. 최소 2인 주문 매장은 이 모형의 구매처에서 제외. 근거 구분: 조리 후 가식부 한 접시 구매를 가정한 추정. 참가격의 생고기 삼겹살 200g 가격은 외식 가격 수준 참고일 뿐 차돌/등심의 직접 가격·조리 수율 근거가 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 14000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F016",
@@ -209,10 +526,23 @@
       "source_excel_row": 17,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 550ml에 8,000원 가정. 원본 550ml 기준 8000 × 550 ÷ 550 = 8000.00원, 100원 단위 반올림 후 8000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 면·밀/대두 함유 춘장·돼지고기 가정. 달걀 고명 및 굴소스/해물 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "ml"
+      },
+      "current_price_krw": 8000,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J17의 현재 가격 8,000원. 구매 제공량 600ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I17의 현재 제공량 600ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 면·밀/대두 함유 춘장·돼지고기 가정. 달걀 고명 및 굴소스/해물 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 중식당 짜장면 보통 1그릇. 제공량: 600ml. 면·소스를 포함한 한 그릇 부피 추정. 참가격의 자장면 보통 1인분 가격 수준을 참고하여 반올림한 모형 가격. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 550ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 중식당 짜장면 보통 1그릇 전체 구매 예상 결제액: 8,000원. 면·소스를 포함한 한 그릇 부피 추정. 참가격의 자장면 보통 1인분 가격 수준을 참고하여 반올림한 모형 가격. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 8000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F017",
@@ -220,10 +550,21 @@
       "source_excel_row": 18,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 800g에 10,000원 가정. 원본 800g 기준 10000 × 800 ÷ 800 = 10000.00원, 100원 단위 반올림 후 10000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 면·간장·돼지고기·새우·오징어·홍합/굴소스의 일반적인 해물짬뽕 가정. 재료는 조리법별 차이. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 800,
+        "unit": "g"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J18의 현재 가격 10,000원. 구매 제공량 800g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I18의 현재 제공량 800g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 면·간장·돼지고기·새우·오징어·홍합/굴소스의 일반적인 해물짬뽕 가정. 재료는 조리법별 차이. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 중식당 짬뽕 보통 1그릇. 제공량: 800g. 면·해물·국물을 포함한 한 그릇 중량. 원본 제공량이 구매 단위에 적합해 유지. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 800g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 중식당 짬뽕 보통 1그릇 전체 구매 예상 결제액: 10,000원. 면·해물·국물을 포함한 한 그릇 중량. 원본 제공량이 구매 단위에 적합해 유지. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 10000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F018",
@@ -231,10 +572,21 @@
       "source_excel_row": 19,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 600g에 38,000원 가정. 원본 100g 기준 38000 × 100 ÷ 600 = 6333.33원, 100원 단위 반올림 후 6300원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지 족·간장 조림물 가정. 땅콩/깨 고명과 별도 새우젓·쌈장은 미포함. 가격 기준은 뼈 제외 가식부. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "g"
+      },
+      "current_price_krw": 38000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J19의 현재 가격 38,000원. 구매 제공량 600g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I19의 현재 제공량 600g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지 족·간장 조림물 가정. 땅콩/깨 고명과 별도 새우젓·쌈장은 미포함. 가격 기준은 뼈 제외 가식부. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 족발 소(小) 포장 1개. 제공량: 600g. 뼈를 제외한 조리 후 가식부 약 600g을 가정. 여러 사람이 나눠 먹을 수 있는 한 번의 주문 전체. 쌈채소·막국수·추가 반찬의 영양은 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 100g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 족발 소(小) 포장 1개 전체 구매 예상 결제액: 38,000원. 뼈를 제외한 조리 후 가식부 약 600g을 가정. 여러 사람이 나눠 먹을 수 있는 한 번의 주문 전체. 쌈채소·막국수·추가 반찬의 영양은 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6300원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F019",
@@ -242,10 +594,21 @@
       "source_excel_row": 20,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 250g에 13,000원 가정. 원본 200g 기준 13000 × 200 ÷ 250 = 10400.00원, 100원 단위 반올림 후 10400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 주꾸미·고추장/간장·깨 가정. 주꾸미를 오징어와 같은 성분명으로 대체하지 않음. 굴소스 사용 시 조개류 추가. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 300,
+        "unit": "g"
+      },
+      "current_price_krw": 13000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J20의 현재 가격 13,000원. 구매 제공량 300g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I20의 현재 제공량 300g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 주꾸미·고추장/간장·깨 가정. 주꾸미를 오징어와 같은 성분명으로 대체하지 않음. 굴소스 사용 시 조개류 추가. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 1인용 주꾸미볶음 단품 1팩. 제공량: 300g. 조리된 주꾸미·채소·양념의 가식량 추정. 최소 2인 주문 대신 1인용 단품 판매처를 가정. 밥 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 200g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 1인용 주꾸미볶음 단품 1팩 전체 구매 예상 결제액: 13,000원. 조리된 주꾸미·채소·양념의 가식량 추정. 최소 2인 주문 대신 1인용 단품 판매처를 가정. 밥 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 10400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F020",
@@ -253,10 +616,21 @@
       "source_excel_row": 21,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 250ml에 10,000원 가정. 원본 136.40ml 기준 10000 × 136.4 ÷ 250 = 5456.00원, 100원 단위 반올림 후 5500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기·고추장/간장·깨 양념 가정. 기준 제공량은 별도로 가정한 250ml이며 g와 환산하지 않음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 250,
+        "unit": "ml"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J21의 현재 가격 10,000원. 구매 제공량 250ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I21의 현재 제공량 250ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기·고추장/간장·깨 양념 가정. 기준 제공량은 별도로 가정한 250ml이며 g와 환산하지 않음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 1인용 제육볶음 단품 1팩. 제공량: 250ml. 조리된 고기·채소·양념의 제공 부피 추정. 136.40ml에 비례한 가격 대신 한 팩 구매 가격 적용. 밥 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 136.40ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 1인용 제육볶음 단품 1팩 전체 구매 예상 결제액: 10,000원. 조리된 고기·채소·양념의 제공 부피 추정. 136.40ml에 비례한 가격 대신 한 팩 구매 가격 적용. 밥 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 5500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F021",
@@ -264,10 +638,21 @@
       "source_excel_row": 22,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 14,000원 가정. 원본 200.90ml 기준 14000 × 200.9 ÷ 500 = 5625.20원, 100원 단위 반올림 후 5600원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 전복·참기름 가정. 소금 간 기준이며 간장 제품 사용 시 대두/밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 700,
+        "unit": "ml"
+      },
+      "current_price_krw": 13000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J22의 현재 가격 13,000원. 구매 제공량 700ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I22의 현재 제공량 700ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 전복·참기름 가정. 소금 간 기준이며 간장 제품 사용 시 대두/밀 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 죽 전문점 전복죽 기본 1그릇. 제공량: 700ml. 본죽 공식 기본 전복죽 13,000원 수준을 참고. 700ml는 일반 포장 한 그릇의 부피를 가정한 추정이며 공식 중량을 환산한 값이 아님. 레토르트 미니팩과 구분. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 200.90ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 죽 전문점 전복죽 기본 1그릇 전체 구매 예상 결제액: 13,000원. 본죽 공식 기본 전복죽 13,000원 수준을 참고. 700ml는 일반 포장 한 그릇의 부피를 가정한 추정이며 공식 중량을 환산한 값이 아님. 레토르트 미니팩과 구분. 근거 구분: 본죽 공식 기본 전복죽 가격 13,000원 참고. 제공 부피 700ml는 추정. 참고 URL: https://www.bonif.co.kr/brand/menu?brdCd=BF101 기존 5600원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F022",
@@ -275,10 +660,21 @@
       "source_excel_row": 23,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 20,000원 가정. 원본 500ml 기준 20000 × 500 ÷ 500 = 20000.00원, 100원 단위 반올림 후 20000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 장어·간장 양념의 일본식 장어덮밥 가정. 달걀/깨 고명은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "ml"
+      },
+      "current_price_krw": 22000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J23의 현재 가격 22,000원. 구매 제공량 500ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I23의 현재 제공량 500ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 장어·간장 양념의 일본식 장어덮밥 가정. 달걀/깨 고명은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 장어덮밥 보통 1그릇. 제공량: 500ml. 밥·장어·양념을 포함한 완성 덮밥의 부피 추정. 원본 영양기준이 ml여서 g로 바꾸지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 500ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 장어덮밥 보통 1그릇 전체 구매 예상 결제액: 22,000원. 밥·장어·양념을 포함한 완성 덮밥의 부피 추정. 원본 영양기준이 ml여서 g로 바꾸지 않음. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 20000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F023",
@@ -286,10 +682,21 @@
       "source_excel_row": 24,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 450ml에 9,500원 가정. 원본 449.20ml 기준 9500 × 449.2 ÷ 450 = 9483.11원, 100원 단위 반올림 후 9500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 중식당식 돼지고기 잡채·간장·굴소스·참기름 가정. 짜장 소스 동반 여부 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "ml"
+      },
+      "current_price_krw": 9500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J24의 현재 가격 9,500원. 구매 제공량 500ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I24의 현재 제공량 500ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 중식당식 돼지고기 잡채·간장·굴소스·참기름 가정. 짜장 소스 동반 여부 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 중식당 잡채밥 보통 1접시. 제공량: 500ml. 밥·잡채·양념을 포함한 메뉴 본체 제공 부피 추정. 따로 제공되는 국은 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 449.20ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 중식당 잡채밥 보통 1접시 전체 구매 예상 결제액: 9,500원. 밥·잡채·양념을 포함한 메뉴 본체 제공 부피 추정. 따로 제공되는 국은 제외. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 9500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F024",
@@ -297,10 +704,21 @@
       "source_excel_row": 25,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 600ml에 7,000원 가정. 원본 400ml 기준 7000 × 400 ÷ 600 = 4666.67원, 100원 단위 반올림 후 4700원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 국수·달걀 지단·멸치 육수·간장·깨 가정. 김치가 별도 반찬이면 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 650,
+        "unit": "ml"
+      },
+      "current_price_krw": 7000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J25의 현재 가격 7,000원. 구매 제공량 650ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I25의 현재 제공량 650ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 국수·달걀 지단·멸치 육수·간장·깨 가정. 김치가 별도 반찬이면 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 분식집 잔치국수 보통 1그릇. 제공량: 650ml. 삶은 면·고명·국물을 포함한 한 그릇 부피 추정. 400ml 소량의 비례 가격 대신 보통 메뉴 한 개 가격 적용. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 400ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 분식집 잔치국수 보통 1그릇 전체 구매 예상 결제액: 7,000원. 삶은 면·고명·국물을 포함한 한 그릇 부피 추정. 400ml 소량의 비례 가격 대신 보통 메뉴 한 개 가격 적용. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 4700원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F025",
@@ -308,10 +726,23 @@
       "source_excel_row": 26,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 10,000원 가정. 원본 119.39ml 기준 10000 × 119.39 ÷ 500 = 2387.80원, 100원 단위 반올림 후 2400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 쇠고기·간장·참기름 가정. 달걀 첨가 조리법은 별도 확인. 원본 119.39ml만 가격 환산. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "ml"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J26의 현재 가격 10,000원. 구매 제공량 600ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I26의 현재 제공량 600ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 쇠고기·간장·참기름 가정. 달걀 첨가 조리법은 별도 확인.  목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 육개장 1그릇. 제공량: 600ml. 건더기·국물을 포함한 한 그릇 부피 추정. 원본 119.39ml는 구매 단위에 작아 상향. 별도 밥 영양은 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 119.39ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 육개장 1그릇 전체 구매 예상 결제액: 10,000원. 건더기·국물을 포함한 한 그릇 부피 추정. 원본 119.39ml는 구매 단위에 작아 상향. 별도 밥 영양은 제외. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 2400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F026",
@@ -319,10 +750,21 @@
       "source_excel_row": 27,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 630ml에 8,000원 가정. 원본 630ml 기준 8000 × 630 ÷ 630 = 8000.00원, 100원 단위 반올림 후 8000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 우동면·간장·가다랑어/멸치 육수 가정. 어묵·튀김 고명에 따른 알류/새우 등은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 650,
+        "unit": "ml"
+      },
+      "current_price_krw": 8000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J27의 현재 가격 8,000원. 구매 제공량 650ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I27의 현재 제공량 650ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 우동면·간장·가다랑어/멸치 육수 가정. 어묵·튀김 고명에 따른 알류/새우 등은 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 우동 보통 1그릇. 제공량: 650ml. 면·고명·국물을 포함한 기본 우동 한 그릇 부피 추정. 추가 튀김 세트는 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 630ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 우동 보통 1그릇 전체 구매 예상 결제액: 8,000원. 면·고명·국물을 포함한 기본 우동 한 그릇 부피 추정. 추가 튀김 세트는 제외. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 8000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F027",
@@ -330,10 +772,21 @@
       "source_excel_row": 28,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 300ml에 12,000원 가정. 원본 270ml 기준 12000 × 270 ÷ 300 = 10800.00원, 100원 단위 반올림 후 10800원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 오징어·고추장/간장·깨 가정. 굴소스 사용 시 조개류 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 300,
+        "unit": "ml"
+      },
+      "current_price_krw": 12000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J28의 현재 가격 12,000원. 구매 제공량 300ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I28의 현재 제공량 300ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 오징어·고추장/간장·깨 가정. 굴소스 사용 시 조개류 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 1인용 오징어볶음 단품 1팩. 제공량: 300ml. 조리된 오징어·채소·양념 한 팩의 부피 추정. 밥·술·별도 반찬은 구매 단위에서 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 270ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 1인용 오징어볶음 단품 1팩 전체 구매 예상 결제액: 12,000원. 조리된 오징어·채소·양념 한 팩의 부피 추정. 밥·술·별도 반찬은 구매 단위에서 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 10800원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F028",
@@ -341,10 +794,21 @@
       "source_excel_row": 29,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 200ml에 3,500원 가정. 원본 85ml 기준 3500 × 85 ÷ 200 = 1487.50원, 100원 단위 반올림 후 1500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 양상추와 간장·참깨 기반 오리엔탈 드레싱 가정. 드레싱 불명으로 원재료 확인 필요. 마요/요거트 사용 시 알류/우유 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 300,
+        "unit": "ml"
+      },
+      "current_price_krw": 4500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J29의 현재 가격 4,500원. 구매 제공량 300ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I29의 현재 제공량 300ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 양상추와 간장·참깨 기반 오리엔탈 드레싱 가정. 드레싱 불명으로 원재료 확인 필요. 마요/요거트 사용 시 알류/우유 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 드레싱 포함 기본 샐러드컵 1개. 제공량: 300ml. 단순 채소 샐러드 컵의 부피 추정. 육류·치즈 추가 없는 기본형. 원본 85ml 소접시 대신 구매용 한 컵 적용. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 85ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 드레싱 포함 기본 샐러드컵 1개 전체 구매 예상 결제액: 4,500원. 단순 채소 샐러드 컵의 부피 추정. 육류·치즈 추가 없는 기본형. 원본 85ml 소접시 대신 구매용 한 컵 적용. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 1500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F029",
@@ -352,10 +816,21 @@
       "source_excel_row": 30,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 600g에 11,000원 가정. 원본 600g 기준 11000 × 600 ÷ 600 = 11000.00원, 100원 단위 반올림 후 11000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 베트남식 쇠고기 쌀국수·피시소스·대두/밀 함유 해선장 가정. 쌀 면 자체에 밀을 가정한 것은 아님. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 700,
+        "unit": "g"
+      },
+      "current_price_krw": 11000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J30의 현재 가격 11,000원. 구매 제공량 700g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I30의 현재 제공량 700g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 베트남식 쇠고기 쌀국수·피시소스·대두/밀 함유 해선장 가정. 쌀 면 자체에 밀을 가정한 것은 아님. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 쌀국수 전문점 보통 1그릇. 제공량: 700g. 면·고기·국물·고명을 포함한 조리 후 중량 추정. 세트 음료나 사이드는 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 600g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 쌀국수 전문점 보통 1그릇 전체 구매 예상 결제액: 11,000원. 면·고기·국물·고명을 포함한 조리 후 중량 추정. 세트 음료나 사이드는 제외. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 11000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F030",
@@ -363,10 +838,21 @@
       "source_excel_row": 31,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 150ml에 15,000원 가정. 원본 53.90ml 기준 15000 × 53.9 ÷ 150 = 5390.00원, 100원 단위 반올림 후 5400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 연어 버터구이 단품 가정. 소금구이에는 우유가 없을 수 있음. 양식 분류는 조리 가정이며 음식명만으로 확정 불가. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 150,
+        "unit": "ml"
+      },
+      "current_price_krw": 16000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J31의 현재 가격 16,000원. 구매 제공량 150ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I31의 현재 제공량 150ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 연어 버터구이 단품 가정. 소금구이에는 우유가 없을 수 있음. 양식 분류는 조리 가정이며 음식명만으로 확정 불가. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 연어구이 단품 1접시. 제공량: 150ml. 조리된 생선·소스 본체의 제공 부피 추정. 생연어 판매 중량을 ml로 단순 치환하지 않음. 밥·채소 곁들임 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 53.90ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 연어구이 단품 1접시 전체 구매 예상 결제액: 16,000원. 조리된 생선·소스 본체의 제공 부피 추정. 생연어 판매 중량을 ml로 단순 치환하지 않음. 밥·채소 곁들임 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 5400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F031",
@@ -374,10 +860,21 @@
       "source_excel_row": 32,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 300ml에 10,000원 가정. 원본 130ml 기준 10000 × 130 ÷ 300 = 4333.33원, 100원 단위 반올림 후 4300원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기 순대·고추장/간장·깨 가정. 순대 충전물에 따라 알류·쇠고기 등이 추가될 수 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 450,
+        "unit": "ml"
+      },
+      "current_price_krw": 12000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J32의 현재 가격 12,000원. 구매 제공량 450ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I32의 현재 제공량 450ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기 순대·고추장/간장·깨 가정. 순대 충전물에 따라 알류·쇠고기 등이 추가될 수 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 분식집 순대볶음 소(小) 1팩. 제공량: 450ml. 순대·채소·양념이 든 소짜 포장 전체 부피 추정. 간식으로 나누어 먹을 수 있는 한 팩 구매 가격. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 130ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 분식집 순대볶음 소(小) 1팩 전체 구매 예상 결제액: 12,000원. 순대·채소·양념이 든 소짜 포장 전체 부피 추정. 간식으로 나누어 먹을 수 있는 한 팩 구매 가격. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 4300원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F032",
@@ -385,10 +882,23 @@
       "source_excel_row": 33,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 800g에 10,000원 가정. 원본 800g 기준 10000 × 800 ÷ 800 = 10000.00원, 100원 단위 반올림 후 10000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기 순대·돼지 육수·새우젓으로 간한 조리법 가정. 무첨가 새우젓 별도 제공형도 있음. 순대 배합 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 800,
+        "unit": "g"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J33의 현재 가격 10,000원. 구매 제공량 800g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I33의 현재 제공량 800g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기 순대·돼지 육수·새우젓으로 간한 조리법 가정. 무첨가 새우젓 별도 제공형도 있음. 순대 배합 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 순대국 보통 1그릇. 제공량: 800g. 국·순대·고기를 포함한 조리 후 중량. 별도 공깃밥·반찬은 영양값에 포함하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 800g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 순대국 보통 1그릇 전체 구매 예상 결제액: 10,000원. 국·순대·고기를 포함한 조리 후 중량. 별도 공깃밥·반찬은 영양값에 포함하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 10000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F033",
@@ -396,10 +906,21 @@
       "source_excel_row": 34,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 200g에 6,500원 가정. 원본 200g 기준 6500 × 200 ÷ 200 = 6500.00원, 100원 단위 반올림 후 6500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지/닭 혼합 소시지·대두단백·밀 전분·유단백·난백·케첩을 쓰는 배합을 가정한 보수적 후보. 제품마다 큰 차이. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 200,
+        "unit": "g"
+      },
+      "current_price_krw": 5000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J34의 현재 가격 5,000원. 구매 제공량 200g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I34의 현재 제공량 200g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지/닭 혼합 소시지·대두단백·밀 전분·유단백·난백·케첩을 쓰는 배합을 가정한 보수적 후보. 제품마다 큰 차이. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 반찬가게 소포장 1팩. 제공량: 200g. 술집 대형 안주 대신 반찬가게 조리완료 소포장 기준. 소시지·채소·소스를 합한 중량 추정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 200g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 반찬가게 소포장 1팩 전체 구매 예상 결제액: 5,000원. 술집 대형 안주 대신 반찬가게 조리완료 소포장 기준. 소시지·채소·소스를 합한 중량 추정. 근거 구분: 반찬 소포장 판매 형태를 적용한 추정. 콩나물무침 150g·3,500원의 직접 판매 사례는 소포장 규모의 참고이며 이 음식의 실제 판매가를 의미하지 않음. 참고 URL: https://anakfarmer.com/product/%EC%BD%A9%EB%82%98%EB%AC%BC%EB%AC%B4%EC%B9%A8-150g/111/ 기존 6500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F034",
@@ -407,10 +928,21 @@
       "source_excel_row": 35,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 200ml에 30,000원 가정. 원본 176ml 기준 30000 × 176 ÷ 200 = 26400.00원, 100원 단위 반올림 후 26400원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 쇠고기 소금구이 단품 가정. 별도 소스 미포함. 가격 기준 제공량은 200ml 가정이며 g와 환산하지 않음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 180,
+        "unit": "ml"
+      },
+      "current_price_krw": 30000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J35의 현재 가격 30,000원. 구매 제공량 180ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I35의 현재 제공량 180ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 쇠고기 소금구이 단품 가정. 별도 소스 미포함. ver4 제공량은 한 접시 부피 180ml 가정이며 g와 환산하지 않음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 소등심구이 단품 1접시. 제공량: 180ml. 조리 후 가식부 한 접시 부피를 180ml로 가정. 생고기 1인분 중량이나 밀도 환산값이 아님. 1접시 주문 가능한 판매처를 가정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 176ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 소등심구이 단품 1접시 전체 구매 예상 결제액: 30,000원. 조리 후 가식부 한 접시 부피를 180ml로 가정. 생고기 1인분 중량이나 밀도 환산값이 아님. 1접시 주문 가능한 판매처를 가정. 근거 구분: 조리 후 가식부 한 접시 구매를 가정한 추정. 참가격의 생고기 삼겹살 200g 가격은 외식 가격 수준 참고일 뿐 차돌/등심의 직접 가격·조리 수율 근거가 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 26400원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F035",
@@ -418,10 +950,21 @@
       "source_excel_row": 36,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 150ml에 9,000원 가정. 원본 68ml 기준 9000 × 68 ÷ 150 = 4080.00원, 100원 단위 반올림 후 4100원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 흰살생선·밀 빵가루·달걀·우유·마요네즈 타르타르소스 가정. 생선 종류/빵가루 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 200,
+        "unit": "ml"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J36의 현재 가격 10,000원. 구매 제공량 200ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I36의 현재 제공량 200ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 흰살생선·밀 빵가루·달걀·우유·마요네즈 타르타르소스 가정. 생선 종류/빵가루 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 생선까스 단품 1접시. 제공량: 200ml. 생선 튀김과 소스를 포함한 조리 후 부피 추정. 원본 68ml 소량 대신 단품 한 접시. 밥·국·샐러드 세트는 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 68ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 생선까스 단품 1접시 전체 구매 예상 결제액: 10,000원. 생선 튀김과 소스를 포함한 조리 후 부피 추정. 원본 68ml 소량 대신 단품 한 접시. 밥·국·샐러드 세트는 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 4100원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F036",
@@ -429,10 +972,23 @@
       "source_excel_row": 37,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 205g에 7,500원 가정. 원본 205g 기준 7500 × 205 ÷ 205 = 7500.00원, 100원 단위 반올림 후 7500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 닭가슴살과 간장·참깨 기반 오리엔탈 드레싱 가정. 치즈/달걀 고명이나 다른 드레싱 사용 여부 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 250,
+        "unit": "g"
+      },
+      "current_price_krw": 8500,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J37의 현재 가격 8,500원. 구매 제공량 250g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I37의 현재 제공량 250g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 닭가슴살과 간장·참깨 기반 오리엔탈 드레싱 가정. 치즈/달걀 고명이나 다른 드레싱 사용 여부 별도 확인. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 드레싱 포함 닭가슴살 샐러드 1팩. 제공량: 250g. 조리된 닭가슴살·채소·드레싱을 포함한 한 끼용 포장 샐러드 중량·가격 추정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 205g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 드레싱 포함 닭가슴살 샐러드 1팩 전체 구매 예상 결제액: 8,500원. 조리된 닭가슴살·채소·드레싱을 포함한 한 끼용 포장 샐러드 중량·가격 추정. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 7500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F037",
@@ -443,10 +999,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 159g에 6,500원 가정. 원본 159g 기준 6500 × 159 ÷ 159 = 6500.00원, 100원 단위 반올림 후 6500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 250,
+        "unit": "g"
+      },
+      "current_price_krw": 9500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J38의 현재 가격 9,500원. 구매 제공량 250g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I38의 현재 제공량 250g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 새우·달걀 및 간장·참깨 기반 오리엔탈 드레싱 가정. 치즈/유제품 드레싱 사용 시 우유 추가 가능. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 드레싱 포함 새우달걀 샐러드 1팩. 제공량: 250g. 새우·달걀·채소·드레싱을 포함한 한 끼용 포장 샐러드 중량·가격 추정. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 159g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 드레싱 포함 새우달걀 샐러드 1팩 전체 구매 예상 결제액: 9,500원. 새우·달걀·채소·드레싱을 포함한 한 끼용 포장 샐러드 중량·가격 추정. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 동일 워크북의 닭가슴살샐러드, food_code D314-640080000-0001, 100g 기준. 참고 지방 8.03g, 탄수화물 2.31g. 출처: 이 파일 Sheet1!A37:I37. 대상의 기존 열량 E=83kcal와 단백질 P=6.92g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=0.678690. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 5.4g, 탄수화물 1.6g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 동일한 드레싱/채소 구성을 가정한 거친 추정. 달걀·새우 구성과 드레싱 차이 미반영. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -458,10 +1025,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 150g에 4,500원 가정. 원본 77g 기준 4500 × 77 ÷ 150 = 2310.00원, 100원 단위 반올림 후 2300원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 식빵·치즈·돼지고기 햄·마요네즈 가정. 원본 77g만 가격 환산. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "current_serving": {
+        "amount": 180,
+        "unit": "g"
+      },
+      "current_price_krw": 5500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J39의 현재 가격 5,500원. 구매 제공량 180g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I39의 현재 제공량 180g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 식빵·치즈·돼지고기 햄·마요네즈 가정.  목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 포장 샌드위치 1팩. 제공량: 180g. 햄·치즈를 넣은 샌드위치 한 팩의 중량·가격 추정. 원본 77g 일부 조각 가격 대신 한 팩 구매 적용. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 77g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 포장 샌드위치 1팩 전체 구매 예상 결제액: 5,500원. 햄·치즈를 넣은 샌드위치 한 팩의 중량·가격 추정. 원본 77g 일부 조각 가격 대신 한 팩 구매 적용. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 2300원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 외식 영양성분 자료집, 119 햄치즈샌드위치, 100g 기준. 참고 지방 9.9g, 탄수화물 24.8g. 출처: https://www.foodsafetykorea.go.kr/upload/20150824/20150824011539_1440389739434.pdf. 대상의 기존 열량 E=378kcal와 단백질 P=12.08g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=1.750823. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 17.3g, 탄수화물 43.4g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 대상 브랜드/레시피와 다른 일반 샌드위치의 비율을 사용. 원본 열량 378kcal/100g을 보존해 보정. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -470,10 +1048,21 @@
       "source_excel_row": 40,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 250ml에 2,500원 가정. 원본 190ml 기준 2500 × 190 ÷ 250 = 1900.00원, 100원 단위 반올림 후 1900원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 함유 시리얼과 우유·대두 유화제 조합 가정. 옥수수/쌀 단일 시리얼 등은 배합이 다름. 견과 첨가 여부 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 300,
+        "unit": "ml"
+      },
+      "current_price_krw": 3500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J40의 현재 가격 3,500원. 구매 제공량 300ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I40의 현재 제공량 300ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 함유 시리얼과 우유·대두 유화제 조합 가정. 옥수수/쌀 단일 시리얼 등은 배합이 다름. 견과 첨가 여부 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 시리얼 1팩과 우유 1팩 구성 1세트. 제공량: 300ml. 개별 시리얼팩과 우유팩을 함께 구매하는 기본 세트. 섞은 뒤 부피를 300ml로 가정. 가정용 대용량 시리얼 통의 일부 원가 배분은 사용하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 190ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 시리얼 1팩과 우유 1팩 구성 1세트 전체 구매 예상 결제액: 3,500원. 개별 시리얼팩과 우유팩을 함께 구매하는 기본 세트. 섞은 뒤 부피를 300ml로 가정. 가정용 대용량 시리얼 통의 일부 원가 배분은 사용하지 않음. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 1900원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F040",
@@ -481,10 +1070,21 @@
       "source_excel_row": 41,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500g에 13,000원 가정. 원본 500g 기준 13000 × 500 ÷ 500 = 13000.00원, 100원 단위 반올림 후 13000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 파스타·소/돼지 혼합 미트볼의 빵가루/달걀·치즈·토마토소스 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 450,
+        "unit": "g"
+      },
+      "current_price_krw": 13000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J41의 현재 가격 13,000원. 구매 제공량 450g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I41의 현재 제공량 450g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 파스타·소/돼지 혼합 미트볼의 빵가루/달걀·치즈·토마토소스 가정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 캐주얼 식당 파스타 1접시. 제공량: 450g. 조리된 면·미트볼·소스를 포함한 한 접시 중량 추정. 건면 무게와 구분. 음료·빵 추가 없음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 500g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 캐주얼 식당 파스타 1접시 전체 구매 예상 결제액: 13,000원. 조리된 면·미트볼·소스를 포함한 한 접시 중량 추정. 건면 무게와 구분. 음료·빵 추가 없음. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 13000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F041",
@@ -492,10 +1092,21 @@
       "source_excel_row": 42,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500g에 15,000원 가정. 원본 500g 기준 15000 × 500 ÷ 500 = 15000.00원, 100원 단위 반올림 후 15000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 밀 파스타·새우·오징어·홍합/조개·토마토소스·버터 가정. 버터/치즈 없이 만드는 조리법도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 450,
+        "unit": "g"
+      },
+      "current_price_krw": 15000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J42의 현재 가격 15,000원. 구매 제공량 450g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I42의 현재 제공량 450g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 밀 파스타·새우·오징어·홍합/조개·토마토소스·버터 가정. 버터/치즈 없이 만드는 조리법도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 캐주얼 식당 파스타 1접시. 제공량: 450g. 조리된 면·해물 가식부·소스를 포함한 한 접시 중량 추정. 껍데기·음료·추가 빵 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 500g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 캐주얼 식당 파스타 1접시 전체 구매 예상 결제액: 15,000원. 조리된 면·해물 가식부·소스를 포함한 한 접시 중량 추정. 껍데기·음료·추가 빵 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 15000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F042",
@@ -506,10 +1117,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 400g에 14,000원 가정. 원본 390g 기준 14000 × 390 ÷ 400 = 13650.00원, 100원 단위 반올림 후 13700원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 450,
+        "unit": "g"
+      },
+      "current_price_krw": 14000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J43의 현재 가격 14,000원. 구매 제공량 450g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I43의 현재 제공량 450g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 밀 파스타·새우·버터 소스 가정. 음식명만으로 크림/토마토/오일 소스 확정 불가. 토마토·알류·대두 등 실제 원재료 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 캐주얼 식당 파스타 1접시. 제공량: 450g. 조리된 면·새우·소스를 포함한 한 접시 중량 추정. 소스 조리법은 기존 영양값의 추가 검증 없이 유지. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 390g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 캐주얼 식당 파스타 1접시 전체 구매 예상 결제액: 14,000원. 조리된 면·새우·소스를 포함한 한 접시 중량 추정. 소스 조리법은 기존 영양값의 추가 검증 없이 유지. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 13700원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 동일 워크북의 해물토마토스파게티, food_code D303-161505000-0001, 100g 기준. 참고 지방 2.75g, 탄수화물 17.45g. 출처: 이 파일 Sheet1!A42:I42. 대상의 기존 열량 E=218kcal와 단백질 P=6.7g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=2.022210. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 5.6g, 탄수화물 35.3g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 해물 토마토 파스타형을 참고 음식으로 사용. 실제 오일/크림 소스일 경우 오차가 클 수 있음. 앞선 allergy의 버터 소스 가정과 독립적인 영양 대체 가정으로, 동일 레시피가 검증된 것은 아님. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -518,10 +1140,21 @@
       "source_excel_row": 44,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 140ml에 3,000원 가정. 원본 140ml 기준 3000 × 140 ÷ 140 = 3000.00원, 100원 단위 반올림 후 3000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 달걀·우유/버터 가정. 우유 없이 식물성 기름으로 조리하는 경우도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 120,
+        "unit": "ml"
+      },
+      "current_price_krw": 3500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J44의 현재 가격 3,500원. 구매 제공량 120ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I44의 현재 제공량 120ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 달걀·우유/버터 가정. 우유 없이 식물성 기름으로 조리하는 경우도 있음. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 브런치 사이드 스크램블에그 1개 메뉴. 제공량: 120ml. 달걀 약 2개 규모의 조리된 사이드 한 접시 부피를 가정. 토스트·베이컨·음료가 포함된 브런치 전체 세트가 아님. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 140ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 브런치 사이드 스크램블에그 1개 메뉴 전체 구매 예상 결제액: 3,500원. 달걀 약 2개 규모의 조리된 사이드 한 접시 부피를 가정. 토스트·베이컨·음료가 포함된 브런치 전체 세트가 아님. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 3000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F044",
@@ -529,10 +1162,23 @@
       "source_excel_row": 45,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 500ml에 10,000원 가정. 원본 145.45ml 기준 10000 × 145.45 ÷ 500 = 2909.00원, 100원 단위 반올림 후 2900원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 혼합육 햄/소시지·두부·라면·치즈·새우젓 함유 김치와 가공육의 난백/유단백 배합을 가정한 보수적 후보. 실제 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 600,
+        "unit": "ml"
+      },
+      "current_price_krw": 11000,
+      "fields_changed_since_ver4": [
+        "tags"
+      ],
+      "price_note": "ver5 Sheet1!J45의 현재 가격 11,000원. 구매 제공량 600ml 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I45의 현재 제공량 600ml. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 혼합육 햄/소시지·두부·라면·치즈·새우젓 함유 김치와 가공육의 난백/유단백 배합을 가정한 보수적 후보. 실제 배합 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 1인용 뚝배기 부대찌개 1그릇. 제공량: 600ml. 1인 주문 가능한 뚝배기 메뉴 기준. 건더기·국물 포함 부피 추정. 2~3인 냄비 한 주문과 구분. 별도 밥 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 145.45ml에서 검토·조정. ml 값은 부피 가정으로 g에서 밀도 없이 환산하지 않았음. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 1인용 뚝배기 부대찌개 1그릇 전체 구매 예상 결제액: 11,000원. 1인 주문 가능한 뚝배기 메뉴 기준. 건더기·국물 포함 부피 추정. 2~3인 냄비 한 주문과 구분. 별도 밥 제외. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 2900원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F045",
@@ -543,10 +1189,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 178g에 6,000원 가정. 원본 178g 기준 6000 × 178 ÷ 178 = 6000.00원, 100원 단위 반올림 후 6000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 180,
+        "unit": "g"
+      },
+      "current_price_krw": 6000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J46의 현재 가격 6,000원. 구매 제공량 180g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I46의 현재 제공량 180g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 새우 패티·밀 번/튀김옷·달걀/마요네즈·유제품 가정. 특정 브랜드의 제품 정보가 아님. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 새우버거 단품 1개. 제공량: 180g. 특정 브랜드 미지정 기본 새우버거 한 개의 중량·가격 추정. 원본 178g과 유사한 180g 적용. 음료·감자튀김 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 178g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 새우버거 단품 1개 전체 구매 예상 결제액: 6,000원. 특정 브랜드 미지정 기본 새우버거 한 개의 중량·가격 추정. 원본 178g과 유사한 180g 적용. 음료·감자튀김 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 2017년 외식 영양성분 자료집 제5권, 42 햄버거, 100g 기준. 참고 지방 9.6g, 탄수화물 27.3g. 출처: https://www.foodsafetykorea.go.kr/upload/mkisna/2017.pdf. 대상의 기존 열량 E=252kcal와 단백질 P=6.94g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=1.146421. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 11g, 탄수화물 31.3g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 새우버거 전용 실측값이 아닌 일반 햄버거를 거친 대체 참고 음식으로 사용. 튀김 패티·소스 차이 미반영. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -558,10 +1215,21 @@
         "fat_g",
         "carbs_g"
       ],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 278g에 7,500원 가정. 원본 278g 기준 7500 × 278 ÷ 278 = 7500.00원, 100원 단위 반올림 후 7500원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
+      "current_serving": {
+        "amount": 278,
+        "unit": "g"
+      },
+      "current_price_krw": 7400,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J47의 현재 가격 7,400원. 구매 제공량 278g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I47의 현재 제공량 278g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
       "allergy_note": "미검증 추정 정보. 쇠고기 패티·밀 참깨 번·마요네즈·토마토의 기본 버거 가정. 치즈 추가는 미포함. 공식 브랜드 원재료 확인 전 추정. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 기본 와퍼 단품 1개. 제공량: 278g. 2026년 2월 버거킹 가격 발표의 와퍼 단품 7,400원을 참고. 원본 278g 유지. 현행 브랜드 영양값을 다시 대입하지 않음. 할인·배달·세트 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 278g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 기본 와퍼 단품 1개 전체 구매 예상 결제액: 7,400원. 2026년 2월 버거킹 가격 발표의 와퍼 단품 7,400원을 참고. 원본 278g 유지. 현행 브랜드 영양값을 다시 대입하지 않음. 할인·배달·세트 제외. 근거 구분: 버거킹 2026-02 가격 발표를 인용한 보도 참고. 제품 중량은 원본 유지. 참고 URL: https://www.yna.co.kr/view/AKR20260210046900030 기존 7500원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion",
       "nutrition_estimation_note": "추정 보완값 (2026-11-02). 원본 식품 코드의 공식 확정값이 아님. 기준: nutrition_amount=100g이며 serving 1회분 값이 아님. 참고 음식: 식약처 2017년 외식 영양성분 자료집 제5권, 42 햄버거, 100g 기준. 참고 지방 9.6g, 탄수화물 27.3g. 출처: https://www.foodsafetykorea.go.kr/upload/mkisna/2017.pdf. 대상의 기존 열량 E=223kcal와 단백질 P=10.43g을 보존하고 참고 음식의 지방:탄수화물 질량비를 가정. s=(E−4P)/(9F_ref+4C_ref)=0.926789. 지방=F_ref×s, 탄수화물=C_ref×s. 각각 소수 첫째 자리 반올림. 결과 지방 8.9g, 탄수화물 25.3g. 4/4/9 일반 열량계수를 사용한 단순 대체 추정이며 식이섬유/유기산/특이계수 및 원자료 반올림을 별도로 반영하지 않음. 열량·단백질만으로 두 결측값을 유일하게 복원할 수 없어서 참고 음식의 비율을 추가 가정했음. 해당 브랜드 와퍼의 실측값이 아닌 일반 햄버거의 비율을 사용. 패티·채소·마요네즈 배합 차이 미반영. 실제 제품/레시피 값이 확인되면 교체하고, 영양 제약 충족의 실제 정확도 검증에는 확정값으로 취급하지 말 것."
     },
     {
@@ -570,10 +1238,21 @@
       "source_excel_row": 48,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 700g에 10,000원 가정. 원본 700g 기준 10000 × 700 ÷ 700 = 10000.00원, 100원 단위 반올림 후 10000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 쌀떡·쇠고기 육수·달걀 지단·간장·참기름 가정. 멸치 육수형은 생선 등 원재료가 달라짐. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 700,
+        "unit": "g"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J48의 현재 가격 10,000원. 구매 제공량 700g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I48의 현재 제공량 700g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 쌀떡·쇠고기 육수·달걀 지단·간장·참기름 가정. 멸치 육수형은 생선 등 원재료가 달라짐. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 떡국 보통 1그릇. 제공량: 700g. 떡·육수·달걀 고명을 포함한 완성 메뉴 한 그릇. 원본 제공량·가격이 구매 단위에 적합하여 유지. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 700g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 떡국 보통 1그릇 전체 구매 예상 결제액: 10,000원. 떡·육수·달걀 고명을 포함한 완성 메뉴 한 그릇. 원본 제공량·가격이 구매 단위에 적합하여 유지. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 10000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F048",
@@ -581,10 +1260,21 @@
       "source_excel_row": 49,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 400g에 7,500원 가정. 원본 695g 기준 7500 × 695 ÷ 400 = 13031.25원, 100원 단위 반올림 후 13000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 대두/밀 된장·두부·바지락·멸치 육수를 사용하는 조리법 가정. 원본 695g만 가격 환산. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "g"
+      },
+      "current_price_krw": 8500,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J49의 현재 가격 8,500원. 구매 제공량 500g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I49의 현재 제공량 500g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 대두/밀 된장·두부·바지락·멸치 육수를 사용하는 조리법 가정.  목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 된장찌개 보통 1그릇. 제공량: 500g. 두부·채소·해물·국물을 포함한 찌개 본체의 한 그릇 중량 추정. 별도 밥·반찬은 이 행의 영양값에 포함하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 695g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 된장찌개 보통 1그릇 전체 구매 예상 결제액: 8,500원. 두부·채소·해물·국물을 포함한 찌개 본체의 한 그릇 중량 추정. 별도 밥·반찬은 이 행의 영양값에 포함하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 13000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F049",
@@ -592,10 +1282,21 @@
       "source_excel_row": 50,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 150g에 9,000원 가정. 원본 100g 기준 9000 × 100 ÷ 150 = 6000.00원, 100원 단위 반올림 후 6000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기·밀 빵가루·달걀·우유 및 토마토/간장 기반 돈가스 소스 가정. 정식의 밥/국은 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 180,
+        "unit": "g"
+      },
+      "current_price_krw": 10000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J50의 현재 가격 10,000원. 구매 제공량 180g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I50의 현재 제공량 180g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기·밀 빵가루·달걀·우유 및 토마토/간장 기반 돈가스 소스 가정. 정식의 밥/국은 미포함. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 돈가스 단품 1접시. 제공량: 180g. 조리된 돈가스와 소스 본체를 합한 가식량 추정. 생고기 판매중량을 뜻하지 않음. 별도 밥·국·곁들임 제외. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 100g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 돈가스 단품 1접시 전체 구매 예상 결제액: 10,000원. 조리된 돈가스와 소스 본체를 합한 가식량 추정. 생고기 판매중량을 뜻하지 않음. 별도 밥·국·곁들임 제외. 근거 구분: 특정 매장의 가격이나 실측 제공량을 확인한 값이 아님. 국내의 일반적인 단품·소포장 구매 상황을 설정하기 위한 모형 추정값. 기존 6000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     },
     {
       "food_code": "F050",
@@ -603,10 +1304,21 @@
       "source_excel_row": 51,
       "nutrition_status": "as_in_source_workbook",
       "estimated_nutrition_fields": [],
-      "price_status": "estimated",
+      "serving_status": "user_supplied_ver5_workbook_value",
+      "price_status": "user_supplied_ver5_workbook_value",
       "allergy_status": "unverified_recipe_inference",
-      "price_note": "추정가격: 400g에 8,000원 가정. 원본 400g 기준 8000 × 400 ÷ 400 = 8000.00원, 100원 단위 반올림 후 8000원. 통계 평균이 아닌 단품 가격 수준의 가정이며 g/ml 상호 환산 없음. ",
-      "allergy_note": "미검증 추정 정보. 돼지고기·두부·간장과 새우젓/생선 액젓 함유 김치 가정. 김치 양념 및 육수는 실제 조리법 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요."
+      "current_serving": {
+        "amount": 500,
+        "unit": "g"
+      },
+      "current_price_krw": 9000,
+      "fields_changed_since_ver4": [],
+      "price_note": "ver5 Sheet1!J51의 현재 가격 9,000원. 구매 제공량 500g 전체 기준. 변환 과정에서 가격을 재추정하거나 외부 검증하지 않음.",
+      "serving_note": "ver5 Sheet1!I51의 현재 제공량 500g. 영양값은 nutrition_basis 기준으로 저장. 한 번의 구매량이 여러 사람 분량일 수 있음.",
+      "allergy_note": "미검증 추정 정보. 돼지고기·두부·간장과 새우젓/생선 액젓 함유 김치 가정. 김치 양념 및 육수는 실제 조리법 확인 필요. 목록 밖 성분이 없다는 뜻이 아니며 실제 제품/레시피 원재료 확인 필요.",
+      "source_excel_serving_note": "ver4 구매 단위: 김치찌개 보통 1그릇. 제공량: 500g. 김치·고기·두부·국물을 포함한 찌개 본체 중량 추정. 참가격의 김치찌개백반은 가격 수준만 참고. 별도 밥·반찬 영양은 이 행에 포함하지 않음. 영양성분·영양기준량은 원본 보존. 이 제공량은 한 번의 구매량이며 반드시 1인 섭취량은 아님. 원본 제공량 400g에서 검토·조정. 작성일 2026-11-04.",
+      "source_excel_price_note": "ver4 김치찌개 보통 1그릇 전체 구매 예상 결제액: 9,000원. 김치·고기·두부·국물을 포함한 찌개 본체 중량 추정. 참가격의 김치찌개백반은 가격 수준만 참고. 별도 밥·반찬 영양은 이 행에 포함하지 않음. 근거 구분: 일반 식당 보통 메뉴 1개를 사는 상황을 가정한 가격·제공량 추정. 참가격의 2026-05 경기 자장면 7,603원·김치찌개백반 8,824원 등은 외식 가격 수준의 참고이며 각 음식의 직접 가격 근거는 아님. 참고 URL: https://www.price.go.kr/tprice/portal/servicepriceinfo/dineoutprice/dineOutPriceList.do?searchArea=020900000&searchMonth=05&searchYear=2026 기존 8000원에서 구매 단위 기준 재검토. 배달료·배송료·할인·추가 사이드 제외. 확인일 2026-11-04.",
+      "source_excel_note_status": "inherited_context_not_reverified_during_conversion"
     }
   ]
 }
