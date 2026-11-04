@@ -14,10 +14,10 @@
       "sodium_mg": 458
     },
     "serving": {
-      "amount": 200,
+      "amount": 600,
       "unit": "g"
     },
-    "price_krw": 6000,
+    "price_krw": 15900,
     "allergy": [
       "밀",
       "우유",
@@ -46,10 +46,10 @@
       "sodium_mg": 306
     },
     "serving": {
-      "amount": 1277,
+      "amount": 500,
       "unit": "g"
     },
-    "price_krw": 38300,
+    "price_krw": 14900,
     "allergy": [
       "밀",
       "우유",
@@ -79,10 +79,10 @@
       "sodium_mg": 506
     },
     "serving": {
-      "amount": 157,
+      "amount": 160,
       "unit": "g"
     },
-    "price_krw": 4400,
+    "price_krw": 3600,
     "allergy": [
       "밀",
       "우유",
@@ -112,10 +112,10 @@
       "sodium_mg": 110
     },
     "serving": {
-      "amount": 108.6,
+      "amount": 350,
       "unit": "ml"
     },
-    "price_krw": 6500,
+    "price_krw": 20000,
     "allergy": [
       "돼지고기",
       "밀",
@@ -146,7 +146,7 @@
       "amount": 104,
       "unit": "g"
     },
-    "price_krw": 3200,
+    "price_krw": 3500,
     "allergy": [
       "밀",
       "우유",
@@ -174,10 +174,10 @@
       "sodium_mg": 143
     },
     "serving": {
-      "amount": 110,
+      "amount": 150,
       "unit": "ml"
     },
-    "price_krw": 2800,
+    "price_krw": 4000,
     "allergy": [
       "대두",
       "밀",
@@ -186,8 +186,7 @@
     "cuisine_type": "한식",
     "tags": [
       "볶음류",
-      "반찬류",
-      "버섯요리"
+      "반찬류"
     ]
   },
   {
@@ -205,10 +204,10 @@
       "sodium_mg": 117
     },
     "serving": {
-      "amount": 481,
+      "amount": 500,
       "unit": "ml"
     },
-    "price_krw": 8700,
+    "price_krw": 9000,
     "allergy": [
       "대두",
       "돼지고기",
@@ -235,7 +234,7 @@
       "sodium_mg": 58
     },
     "serving": {
-      "amount": 830,
+      "amount": 800,
       "unit": "ml"
     },
     "price_krw": 8500,
@@ -268,10 +267,10 @@
       "sodium_mg": 387
     },
     "serving": {
-      "amount": 50,
+      "amount": 150,
       "unit": "g"
     },
-    "price_krw": 1000,
+    "price_krw": 3500,
     "allergy": [
       "대두",
       "참깨"
@@ -297,10 +296,10 @@
       "sodium_mg": 97
     },
     "serving": {
-      "amount": 100,
+      "amount": 700,
       "unit": "g"
     },
-    "price_krw": 1600,
+    "price_krw": 11000,
     "allergy": [
       "대두",
       "밀",
@@ -327,10 +326,10 @@
       "sodium_mg": 466
     },
     "serving": {
-      "amount": 100,
+      "amount": 300,
       "unit": "g"
     },
-    "price_krw": 6000,
+    "price_krw": 12000,
     "allergy": [
       "생선",
       "대두",
@@ -359,10 +358,10 @@
       "sodium_mg": 184
     },
     "serving": {
-      "amount": 160,
+      "amount": 600,
       "unit": "ml"
     },
-    "price_krw": 3500,
+    "price_krw": 11000,
     "allergy": [
       "생선",
       "대두",
@@ -390,10 +389,10 @@
       "sodium_mg": 242
     },
     "serving": {
-      "amount": 200,
+      "amount": 500,
       "unit": "g"
     },
-    "price_krw": 4500,
+    "price_krw": 9000,
     "allergy": [
       "대두",
       "돼지고기",
@@ -420,10 +419,10 @@
       "sodium_mg": 601
     },
     "serving": {
-      "amount": 320,
+      "amount": 450,
       "unit": "ml"
     },
-    "price_krw": 6400,
+    "price_krw": 8000,
     "allergy": [
       "밀",
       "대두",
@@ -453,10 +452,10 @@
       "sodium_mg": 93
     },
     "serving": {
-      "amount": 100,
+      "amount": 150,
       "unit": "g"
     },
-    "price_krw": 14000,
+    "price_krw": 22000,
     "allergy": [
       "쇠고기"
     ],
@@ -481,7 +480,7 @@
       "sodium_mg": 371
     },
     "serving": {
-      "amount": 550,
+      "amount": 600,
       "unit": "ml"
     },
     "price_krw": 8000,
@@ -492,8 +491,7 @@
     ],
     "cuisine_type": "중식",
     "tags": [
-      "면류",
-      "소스요리"
+      "면류"
     ]
   },
   {
@@ -546,10 +544,10 @@
       "sodium_mg": 332
     },
     "serving": {
-      "amount": 100,
+      "amount": 600,
       "unit": "g"
     },
-    "price_krw": 6300,
+    "price_krw": 38000,
     "allergy": [
       "돼지고기",
       "대두",
@@ -576,10 +574,10 @@
       "sodium_mg": 459
     },
     "serving": {
-      "amount": 200,
+      "amount": 300,
       "unit": "g"
     },
-    "price_krw": 10400,
+    "price_krw": 13000,
     "allergy": [
       "주꾸미",
       "대두",
@@ -608,10 +606,10 @@
       "sodium_mg": 476
     },
     "serving": {
-      "amount": 136.4,
+      "amount": 250,
       "unit": "ml"
     },
-    "price_krw": 5500,
+    "price_krw": 10000,
     "allergy": [
       "돼지고기",
       "대두",
@@ -640,10 +638,10 @@
       "sodium_mg": 217
     },
     "serving": {
-      "amount": 200.9,
+      "amount": 700,
       "unit": "ml"
     },
-    "price_krw": 5600,
+    "price_krw": 13000,
     "allergy": [
       "조개류",
       "참깨"
@@ -672,7 +670,7 @@
       "amount": 500,
       "unit": "ml"
     },
-    "price_krw": 20000,
+    "price_krw": 22000,
     "allergy": [
       "생선",
       "대두",
@@ -700,7 +698,7 @@
       "sodium_mg": 86
     },
     "serving": {
-      "amount": 449.2,
+      "amount": 500,
       "unit": "ml"
     },
     "price_krw": 9500,
@@ -732,10 +730,10 @@
       "sodium_mg": 308
     },
     "serving": {
-      "amount": 400,
+      "amount": 650,
       "unit": "ml"
     },
-    "price_krw": 4700,
+    "price_krw": 7000,
     "allergy": [
       "밀",
       "알류",
@@ -764,10 +762,10 @@
       "sodium_mg": 331
     },
     "serving": {
-      "amount": 119.39,
+      "amount": 600,
       "unit": "ml"
     },
-    "price_krw": 2400,
+    "price_krw": 10000,
     "allergy": [
       "쇠고기",
       "대두",
@@ -778,7 +776,6 @@
     "tags": [
       "탕류",
       "국물요리",
-      "육류요리",
       "매운맛"
     ]
   },
@@ -797,7 +794,7 @@
       "sodium_mg": 246
     },
     "serving": {
-      "amount": 630,
+      "amount": 650,
       "unit": "ml"
     },
     "price_krw": 8000,
@@ -827,10 +824,10 @@
       "sodium_mg": 270
     },
     "serving": {
-      "amount": 270,
+      "amount": 300,
       "unit": "ml"
     },
-    "price_krw": 10800,
+    "price_krw": 12000,
     "allergy": [
       "오징어",
       "대두",
@@ -859,10 +856,10 @@
       "sodium_mg": 87
     },
     "serving": {
-      "amount": 85,
+      "amount": 300,
       "unit": "ml"
     },
-    "price_krw": 1500,
+    "price_krw": 4500,
     "allergy": [
       "대두",
       "밀",
@@ -890,7 +887,7 @@
       "sodium_mg": 275
     },
     "serving": {
-      "amount": 600,
+      "amount": 700,
       "unit": "g"
     },
     "price_krw": 11000,
@@ -921,10 +918,10 @@
       "sodium_mg": 1370
     },
     "serving": {
-      "amount": 53.9,
+      "amount": 150,
       "unit": "ml"
     },
-    "price_krw": 5400,
+    "price_krw": 16000,
     "allergy": [
       "생선",
       "우유"
@@ -950,10 +947,10 @@
       "sodium_mg": 260
     },
     "serving": {
-      "amount": 130,
+      "amount": 450,
       "unit": "ml"
     },
-    "price_krw": 4300,
+    "price_krw": 12000,
     "allergy": [
       "돼지고기",
       "대두",
@@ -993,8 +990,7 @@
     "cuisine_type": "한식",
     "tags": [
       "국류",
-      "국물요리",
-      "육류요리"
+      "국물요리"
     ]
   },
   {
@@ -1015,7 +1011,7 @@
       "amount": 200,
       "unit": "g"
     },
-    "price_krw": 6500,
+    "price_krw": 5000,
     "allergy": [
       "돼지고기",
       "닭고기",
@@ -1047,10 +1043,10 @@
       "sodium_mg": 486
     },
     "serving": {
-      "amount": 176,
+      "amount": 180,
       "unit": "ml"
     },
-    "price_krw": 26400,
+    "price_krw": 30000,
     "allergy": [
       "쇠고기"
     ],
@@ -1075,10 +1071,10 @@
       "sodium_mg": 413
     },
     "serving": {
-      "amount": 68,
+      "amount": 200,
       "unit": "ml"
     },
-    "price_krw": 4100,
+    "price_krw": 10000,
     "allergy": [
       "생선",
       "밀",
@@ -1107,10 +1103,10 @@
       "sodium_mg": 312
     },
     "serving": {
-      "amount": 205,
+      "amount": 250,
       "unit": "g"
     },
-    "price_krw": 7500,
+    "price_krw": 8500,
     "allergy": [
       "닭고기",
       "대두",
@@ -1120,7 +1116,6 @@
     "cuisine_type": "양식",
     "tags": [
       "샐러드류",
-      "육류요리",
       "찬음식"
     ]
   },
@@ -1139,10 +1134,10 @@
       "sodium_mg": 302
     },
     "serving": {
-      "amount": 159,
+      "amount": 250,
       "unit": "g"
     },
-    "price_krw": 6500,
+    "price_krw": 9500,
     "allergy": [
       "새우",
       "알류",
@@ -1172,10 +1167,10 @@
       "sodium_mg": 703
     },
     "serving": {
-      "amount": 77,
+      "amount": 180,
       "unit": "g"
     },
-    "price_krw": 2300,
+    "price_krw": 5500,
     "allergy": [
       "밀",
       "우유",
@@ -1205,10 +1200,10 @@
       "sodium_mg": 73
     },
     "serving": {
-      "amount": 190,
+      "amount": 300,
       "unit": "ml"
     },
-    "price_krw": 1900,
+    "price_krw": 3500,
     "allergy": [
       "우유",
       "밀",
@@ -1235,7 +1230,7 @@
       "sodium_mg": 218
     },
     "serving": {
-      "amount": 500,
+      "amount": 450,
       "unit": "g"
     },
     "price_krw": 13000,
@@ -1270,7 +1265,7 @@
       "sodium_mg": 307
     },
     "serving": {
-      "amount": 500,
+      "amount": 450,
       "unit": "g"
     },
     "price_krw": 15000,
@@ -1304,10 +1299,10 @@
       "sodium_mg": 481
     },
     "serving": {
-      "amount": 390,
+      "amount": 450,
       "unit": "g"
     },
-    "price_krw": 13700,
+    "price_krw": 14000,
     "allergy": [
       "밀",
       "새우",
@@ -1335,10 +1330,10 @@
       "sodium_mg": 182
     },
     "serving": {
-      "amount": 140,
+      "amount": 120,
       "unit": "ml"
     },
-    "price_krw": 3000,
+    "price_krw": 3500,
     "allergy": [
       "알류",
       "우유"
@@ -1364,10 +1359,10 @@
       "sodium_mg": 295
     },
     "serving": {
-      "amount": 145.45,
+      "amount": 600,
       "unit": "ml"
     },
-    "price_krw": 2900,
+    "price_krw": 11000,
     "allergy": [
       "돼지고기",
       "닭고기",
@@ -1381,7 +1376,6 @@
     "tags": [
       "찌개류",
       "국물요리",
-      "육류요리",
       "매운맛"
     ]
   },
@@ -1400,7 +1394,7 @@
       "sodium_mg": 397
     },
     "serving": {
-      "amount": 178,
+      "amount": 180,
       "unit": "g"
     },
     "price_krw": 6000,
@@ -1435,7 +1429,7 @@
       "amount": 278,
       "unit": "g"
     },
-    "price_krw": 7500,
+    "price_krw": 7400,
     "allergy": [
       "쇠고기",
       "밀",
@@ -1497,10 +1491,10 @@
       "sodium_mg": 381
     },
     "serving": {
-      "amount": 695,
+      "amount": 500,
       "unit": "g"
     },
-    "price_krw": 13000,
+    "price_krw": 8500,
     "allergy": [
       "대두",
       "밀",
@@ -1528,10 +1522,10 @@
       "sodium_mg": 343
     },
     "serving": {
-      "amount": 100,
+      "amount": 180,
       "unit": "g"
     },
-    "price_krw": 6000,
+    "price_krw": 10000,
     "allergy": [
       "돼지고기",
       "밀",
@@ -1561,10 +1555,10 @@
       "sodium_mg": 491
     },
     "serving": {
-      "amount": 400,
+      "amount": 500,
       "unit": "g"
     },
-    "price_krw": 8000,
+    "price_krw": 9000,
     "allergy": [
       "돼지고기",
       "대두",
