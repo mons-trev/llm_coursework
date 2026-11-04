@@ -1,0 +1,497 @@
+[
+  {
+    "test_id": "T01",
+    "persona": "University student living in a dormitory for the first time",
+    "test_query": "I am a university student who just moved into a dorm. Please recommend breakfast, lunch, and dinner for two days using the food database. I have no particular budget or cuisine restrictions.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "breakfast",
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": null,
+          "per_meal_max": null
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": null,
+              "max": null
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": null,
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Basic meal planning: verify that all three meals are assigned for each of the two days."
+  },
+  {
+    "test_id": "T02",
+    "persona": "Job seeker on a limited food budget",
+    "test_query": "I am preparing for job interviews, so I need to keep my food expenses low. Please recommend lunch and dinner for three days. The total cost of all six meals must not exceed KRW 42,000, and each meal must cost no more than KRW 8,000.",
+    "user_constraint": {
+      "plan": {
+        "days": 3,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 42000,
+          "per_meal_max": 8000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": null,
+              "max": null
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": null,
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify compliance with both total-budget and per-meal budget limits."
+  },
+  {
+    "test_id": "T03",
+    "persona": "Office worker managing calorie intake",
+    "test_query": "I spend most of my workday sitting, so I want to manage my calorie intake. Please recommend lunch and dinner for two days. Each meal must contain 300–550 kcal, and the total cost must not exceed KRW 42,000. Exclude fast food.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 42000,
+          "per_meal_max": null
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 300,
+              "max": 550
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": null,
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": [
+          "패스트푸드"
+        ]
+      }
+    },
+    "test_objective": "Verify compliance with minimum and maximum calories, total budget, and excluded food tags."
+  },
+  {
+    "test_id": "T04",
+    "persona": "Graduate student doing strength training",
+    "test_query": "I am a graduate student who does strength training. Please recommend only Korean-style meals for lunch and dinner over two days. Each meal must provide at least 30 g of protein and contain 350–750 kcal. The total budget for four meals is KRW 45,000, and no individual meal may cost more than KRW 11,000.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 45000,
+          "per_meal_max": 11000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 350,
+              "max": 750
+            },
+            "protein_g": {
+              "min": 30,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": [
+          "한식"
+        ],
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify combined constraints on minimum protein, calorie range, budget, and cuisine type."
+  },
+  {
+    "test_id": "T05",
+    "persona": "Korean-food enthusiast with a shrimp allergy",
+    "test_query": "I have a shrimp allergy and cannot eat food containing shrimp. Please recommend Korean-style lunch and dinner for today. Each meal must contain 350–750 kcal, and the two meals together must cost no more than KRW 25,000. Never recommend any item marked as containing shrimp in the food database.",
+    "user_constraint": {
+      "plan": {
+        "days": 1,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 25000,
+          "per_meal_max": null
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 350,
+              "max": 750
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [
+          "새우"
+        ],
+        "excluded_food_codes": [],
+        "cuisine_types": [
+          "한식"
+        ],
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify that the shrimp allergy is treated as a mandatory safety-related exclusion."
+  },
+  {
+    "test_id": "T06",
+    "persona": "Indian Hindu who does not eat beef",
+    "test_query": "I am Hindu and from India, and I do not eat beef. I enjoy Korean food, so please recommend only Korean-style lunch and dinner for two days. Exclude every menu item that contains beef. Each meal must contain 250–700 kcal and cost no more than KRW 13,000, and the total cost of all four meals must not exceed KRW 48,000.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 48000,
+          "per_meal_max": 13000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 250,
+              "max": 700
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [
+          "F001",
+          "F002",
+          "F015",
+          "F025",
+          "F029",
+          "F034",
+          "F040",
+          "F046",
+          "F047"
+        ],
+        "cuisine_types": [
+          "한식"
+        ],
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify that an explicitly stated cultural dietary restriction is enforced through excluded food codes."
+  },
+  {
+    "test_id": "T07",
+    "persona": "Person with a wheat allergy who carefully selects food",
+    "test_query": "I have a wheat allergy. Please recommend lunch and dinner for today. Exclude every food marked as containing wheat in the database. Each meal must contain 350–800 kcal and at least 20 g of protein. Total sodium for the day must be no more than 2,000 mg. The total budget is KRW 34,000, with a maximum of KRW 22,000 per meal.",
+    "user_constraint": {
+      "plan": {
+        "days": 1,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 34000,
+          "per_meal_max": 22000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 350,
+              "max": 800
+            },
+            "protein_g": {
+              "min": 20,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": 2000
+            }
+          }
+        },
+        "excluded_allergens": [
+          "밀"
+        ],
+        "excluded_food_codes": [],
+        "cuisine_types": null,
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify simultaneous compliance with allergy, calorie, protein, sodium, and budget constraints."
+  },
+  {
+    "test_id": "T08",
+    "persona": "Office worker trying to reduce sodium intake",
+    "test_query": "I eat out frequently, so I want to reduce my sodium intake. Please recommend lunch and dinner for two days. The combined sodium content of the two meals each day must not exceed 1,600 mg, and each meal must contain 350–750 kcal. The total budget is KRW 45,000, with a maximum of KRW 15,000 per meal.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 45000,
+          "per_meal_max": 15000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 350,
+              "max": 750
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": 1600
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": null,
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": []
+      }
+    },
+    "test_objective": "Verify correct calculation and distinction between daily aggregate limits and per-meal limits."
+  },
+  {
+    "test_id": "T09",
+    "persona": "Person who likes spicy food but dislikes soups and broths",
+    "test_query": "I like spicy food, but I do not like soups or broth-based dishes. Please recommend only Korean-style lunches and dinners for two days. All four meals must have the \"매운맛\" (spicy) tag in the food database, and no meal may have the \"국물요리\" (broth-based dish) tag. The total cost for four meals must not exceed KRW 48,000, and each meal must cost no more than KRW 13,000.",
+    "user_constraint": {
+      "plan": {
+        "days": 2,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 48000,
+          "per_meal_max": 13000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": null,
+              "max": null
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [],
+        "excluded_food_codes": [],
+        "cuisine_types": [
+          "한식"
+        ],
+        "excluded_cuisine_types": [],
+        "required_tags": [
+          "매운맛"
+        ],
+        "excluded_tags": [
+          "국물요리"
+        ]
+      }
+    },
+    "test_objective": "Verify simultaneous enforcement of required and excluded tags (assuming required tags apply to every meal)."
+  },
+  {
+    "test_id": "T10",
+    "persona": "Busy office worker who frequently needs meal changes",
+    "test_query": "Please recommend Korean-style lunch and dinner for today. I have a shrimp allergy, so exclude foods marked as containing shrimp. Also exclude any item tagged \"매운맛\" (spicy). Each meal must contain 350–750 kcal and cost no more than KRW 12,000, with a total budget of KRW 21,000 for both meals.",
+    "user_constraint": {
+      "plan": {
+        "days": 1,
+        "meals_per_day": [
+          "lunch",
+          "dinner"
+        ]
+      },
+      "constraints": {
+        "budget_krw": {
+          "total_max": 21000,
+          "per_meal_max": 12000
+        },
+        "nutrition": {
+          "per_meal": {
+            "energy_kcal": {
+              "min": 350,
+              "max": 750
+            },
+            "protein_g": {
+              "min": null,
+              "max": null
+            }
+          },
+          "per_day": {
+            "sodium_mg": {
+              "min": null,
+              "max": null
+            }
+          }
+        },
+        "excluded_allergens": [
+          "새우"
+        ],
+        "excluded_food_codes": [],
+        "cuisine_types": [
+          "한식"
+        ],
+        "excluded_cuisine_types": [],
+        "required_tags": [],
+        "excluded_tags": [
+          "매운맛"
+        ]
+      }
+    },
+    "test_objective": "Multi-turn modification: verify that only one meal changes while all previous constraints are preserved.",
+    "follow_up_query": "Keep the lunch menu exactly as it is, but replace the dinner with a different dish. Preserve all my earlier constraints on budget, calories, Korean cuisine, shrimp allergy, and excluding spicy food.",
+    "expected_revision": {
+      "preserve_slots": [
+        "day1_lunch"
+      ],
+      "change_slots": [
+        "day1_dinner"
+      ],
+      "preserve_all_original_constraints": true
+    }
+  }
+]
