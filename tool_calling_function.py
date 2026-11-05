@@ -174,7 +174,8 @@ def check_plan(plan, user_constraint):
 
 
 # ---------------------------------------------------------------- LLM 연결
-# TOOL_SPECS 설명과 SYSTEM_PROMPT 는 LLM 이 읽는 텍스트라 테스트 케이스에 맞춰 영어로 둔다.
+# TOOL_SPECS 설명과 SYSTEM_PROMPT 는 LLM 이 읽는 텍스트다. 한국어로 쓰되 식별자 / JSON 키는 그대로 두고,
+# 사용자 질문이 영어이므로 DB 어휘의 영어 병기(새우 (shrimp) 등)도 남겨 둔다.
 _LIST = {"type": "array", "items": {"type": "string"}}
 _NUM = {"type": "number"}
 
@@ -182,14 +183,14 @@ TOOL_SPECS = [
     {
         "name": "search_foods",
         "description": (
-            "Search the food DB for foods that satisfy the filters. Nutrition filters are per serving; "
-            "results are sorted by price ascending. Each item has food_code, name, cuisine_type, tags, allergy, "
-            "price_krw, kcal, protein_g, sodium_mg. Always pass the user's allergy / exclusion constraints as "
-            "excluded_allergens / excluded_food_codes so those foods never appear as candidates. "
-            "cuisine_type values: 한식 (Korean), 중식 (Chinese), 일식 (Japanese), 양식 (Western), 동남아식 (Southeast Asian). "
-            "allergy values: 밀 (wheat), 우유 (milk), 대두 (soy), 알류 (egg), 돼지고기 (pork), 쇠고기 (beef), "
+            "조건에 맞는 음식을 food DB 에서 검색합니다. 영양 필터는 1인분(serving) 기준이고, 결과는 가격 오름차순으로 "
+            "정렬됩니다. 각 항목은 food_code, name, cuisine_type, tags, allergy, price_krw, kcal, protein_g, sodium_mg 를 "
+            "가집니다. 사용자의 알레르기 / 제외 조건은 반드시 excluded_allergens / excluded_food_codes 로 넘겨서 "
+            "해당 음식이 후보에 나오지 않게 하세요. "
+            "cuisine_type 값: 한식 (Korean), 중식 (Chinese), 일식 (Japanese), 양식 (Western), 동남아식 (Southeast Asian). "
+            "allergy 값: 밀 (wheat), 우유 (milk), 대두 (soy), 알류 (egg), 돼지고기 (pork), 쇠고기 (beef), "
             "닭고기 (chicken), 새우 (shrimp), 생선 (fish), 오징어 (squid), 조개류 (shellfish), 주꾸미 (octopus), "
-            "참깨 (sesame), 토마토 (tomato). Tags are Korean DB strings such as 매운맛, 국물요리, 패스트푸드."
+            "참깨 (sesame), 토마토 (tomato). tags 는 매운맛, 국물요리, 패스트푸드 같은 DB 의 한국어 문자열입니다."
         ),
         "input_schema": {
             "type": "object",
@@ -205,9 +206,9 @@ TOOL_SPECS = [
     {
         "name": "compute_plan",
         "description": (
-            "Compute per-meal, per-day and total sums (price, kcal, protein, sodium) for a whole plan. "
-            "Call this before the final answer to verify aggregate constraints such as total budget and daily sodium. "
-            "plan format: {'day1_lunch': ['F020'], 'day1_dinner': ['F048']}."
+            "plan 전체의 끼니별 / 일별 / 전체 합계(가격, kcal, 단백질, 나트륨)를 계산합니다. "
+            "총예산이나 하루 나트륨 같은 합산 제약을 확인할 수 있도록 최종 답변 전에 호출하세요. "
+            "plan 형식: {'day1_lunch': ['F020'], 'day1_dinner': ['F048']}."
         ),
         "input_schema": {
             "type": "object",
@@ -218,14 +219,14 @@ TOOL_SPECS = [
     {
         "name": "check_plan",
         "description": (
-            "Rule-based check of a meal plan against the user's constraints. Returns {passed, violations}. "
-            "Fill user_constraint from the user's own words (all turns of the conversation), using null for anything "
-            "the user did not specify. Format: {'plan': {'days': int, 'meals_per_day': ['lunch', 'dinner']}, "
+            "식단(plan)이 사용자의 제약을 만족하는지 룰 기반으로 검사합니다. {passed, violations} 를 반환합니다. "
+            "user_constraint 는 사용자가 직접 한 말(대화의 모든 턴)에서 채우고, 사용자가 말하지 않은 항목은 null 로 "
+            "두세요. 형식: {'plan': {'days': int, 'meals_per_day': ['lunch', 'dinner']}, "
             "'constraints': {'budget_krw': {'total_max': int|null, 'per_meal_max': int|null}, "
             "'nutrition': {'per_meal': {'energy_kcal': {'min', 'max'}, 'protein_g': {'min', 'max'}}, "
             "'per_day': {'sodium_mg': {'min', 'max'}}}, 'excluded_allergens': [], 'excluded_food_codes': [], "
             "'cuisine_types': [] | null, 'excluded_cuisine_types': [], 'required_tags': [], 'excluded_tags': []}}. "
-            "Use the DB's Korean vocabulary for allergens, cuisine types and tags (see search_foods)."
+            "알레르기, cuisine type, tag 는 DB 의 한국어 어휘를 쓰세요 (search_foods 참고)."
         ),
         "input_schema": {
             "type": "object",
@@ -255,23 +256,23 @@ def dispatch_tool(name, arguments):
 
 
 PLANNER_SYSTEM_PROMPT = """\
-You are a meal-planning chatbot backed by a food DB. Always look foods up with search_foods and never recommend
-a food that is not in the DB. Use only the per-serving nutrition and price values returned by the tools; do not
-estimate or compute them yourself. Allergy exclusions must never be violated.
-Before the final answer, call compute_plan to verify the total budget and per-day aggregates.
-If you receive verifier feedback, fix only the violated parts and keep everything else unchanged.
-The final answer is a natural-language explanation followed by a JSON block in the format below.
-Slot names are day{N}_{meal} (e.g. day1_lunch, day2_dinner) and values are food_code lists.
+당신은 food DB 를 기반으로 식단을 짜 주는 챗봇입니다. 음식은 반드시 search_foods 로 조회하고, DB 에 없는 음식은
+추천하지 마세요. 가격과 영양값은 도구가 돌려준 1인분(serving) 기준 값만 사용하고, 직접 추정하거나 계산하지 마세요.
+알레르기 제외 조건은 절대 어기면 안 됩니다.
+최종 답변 전에 compute_plan 을 호출해 총예산과 일별 합계를 확인하세요.
+verifier 의 feedback 을 받으면 위반된 부분만 고치고 나머지는 그대로 두세요.
+최종 답변은 자연어 설명을 쓴 뒤 아래 형식의 JSON 블록을 붙입니다.
+slot 이름은 day{N}_{meal} (예: day1_lunch, day2_dinner) 이고, 값은 food_code 리스트입니다.
 ```json
 {"plan": {"day1_lunch": ["F020"], "day1_dinner": ["F048"]}}
 ```
 """
 
 VERIFIER_SYSTEM_PROMPT = """\
-You verify a meal plan against the user's request. Read the user's own messages (every turn), fill in
-user_constraint exactly as the user stated it (null for anything not specified), and call check_plan with the plan.
-Do not judge the plan yourself; rely on the tool result. Reply with a JSON block:
+당신은 식단(plan)이 사용자의 요청을 만족하는지 검증합니다. 사용자가 직접 쓴 메시지(모든 턴)를 읽고, 사용자가 말한
+그대로 user_constraint 를 채운 뒤 (말하지 않은 항목은 null) plan 과 함께 check_plan 을 호출하세요.
+plan 을 직접 판단하지 말고 도구 결과에 따르세요. 답변은 아래 JSON 블록으로 하세요:
 ```json
-{"passed": true|false, "feedback": "what to change, slot by slot, or empty if passed"}
+{"passed": true|false, "feedback": "무엇을 바꿔야 하는지 slot 별로 작성, 통과했으면 빈 문자열"}
 ```
 """

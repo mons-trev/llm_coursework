@@ -101,10 +101,10 @@ DB 의 `nutrition` 은 `nutrition_basis`(100 g 또는 100 ml) 기준이다. 두 
 | 이름 | 내용 |
 |---|---|
 | `FOOD_DB` | `{food_code: {food_code, name, cuisine_type, tags, allergy, price_krw, kcal, protein_g, sodium_mg}}` (serving 기준, 소수 1자리) |
-| `TOOL_SPECS` | LLM 에 넘기는 tool 정의 3개 (`name`, `description`, `input_schema`). 설명은 영어 |
+| `TOOL_SPECS` | LLM 에 넘기는 tool 정의 3개 (`name`, `description`, `input_schema`). 설명은 한국어, DB 어휘에 영어 병기 |
 | `PLANNER_TOOLS` | `["search_foods", "compute_plan"]` |
 | `VERIFIER_TOOLS` | `["check_plan"]` |
-| `PLANNER_SYSTEM_PROMPT`, `VERIFIER_SYSTEM_PROMPT` | 각 에이전트 system prompt (영어) |
+| `PLANNER_SYSTEM_PROMPT`, `VERIFIER_SYSTEM_PROMPT` | 각 에이전트 system prompt (한국어) |
 
 에이전트별 도구 목록 만들기:
 
