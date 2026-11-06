@@ -1,0 +1,15 @@
+{
+  "T01": [
+    {
+      "status": "api_error",
+      "answer": "OpenAI request failed (BadRequestError); its maximum cost reservation was retained: Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.",
+      "plan": null,
+      "rounds": [
+        {
+          "round": 1,
+          "error": "OpenAI request failed (BadRequestError); its maximum cost reservation was retained: Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'."
+        }
+      ]
+    }
+  ]
+}

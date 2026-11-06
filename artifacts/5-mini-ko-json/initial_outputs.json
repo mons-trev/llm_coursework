@@ -1,0 +1,50 @@
+{
+  "T01": {
+    "output": {
+      "plan": {
+        "day1_breakfast": [
+          "F039"
+        ],
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_breakfast": [
+          "F043"
+        ],
+        "day2_lunch": [
+          "F017"
+        ],
+        "day2_dinner": [
+          "F049"
+        ]
+      }
+    }
+  },
+  "T02": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F003"
+        ],
+        "day1_dinner": [
+          "F005"
+        ],
+        "day2_lunch": [
+          "F009"
+        ],
+        "day2_dinner": [
+          "F039"
+        ],
+        "day3_lunch": [
+          "F043"
+        ],
+        "day3_dinner": [
+          "F006"
+        ]
+      }
+    }
+  }
+}

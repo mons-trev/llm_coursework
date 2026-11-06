@@ -1,0 +1,92 @@
+{
+  "test_id": "T10",
+  "plan": {
+    "day1_lunch": [
+      "F024"
+    ],
+    "day1_dinner": [
+      "F048"
+    ]
+  },
+  "checks": [
+    {
+      "name": "slots_complete",
+      "category": "structure",
+      "passed": true,
+      "detail": "2 slots"
+    },
+    {
+      "name": "foods_in_db",
+      "category": "structure",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "budget_total",
+      "category": "constraint",
+      "passed": true,
+      "detail": "15500 <= 21000"
+    },
+    {
+      "name": "budget_per_meal",
+      "category": "constraint",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "kcal_per_meal",
+      "category": "constraint",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "allergens",
+      "category": "safety",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "cuisine_types",
+      "category": "constraint",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "excluded_tags",
+      "category": "constraint",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "revision_preserved",
+      "category": "revision",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "revision_changed",
+      "category": "revision",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "name": "revision_constraints_kept",
+      "category": "revision",
+      "passed": true,
+      "detail": "ok"
+    }
+  ],
+  "requirement_pass": true,
+  "revision_pass": true,
+  "safety_pass": true,
+  "overall_pass": true,
+  "execution": {
+    "type": "live_api",
+    "model": "gpt-5-mini",
+    "prompt_language": "ko",
+    "query_source": "diet_persona_test_cases_10.json",
+    "source_head": "bb6f3d3f1010c0570965fa78022db56f3e287d5f",
+    "planner_prompt_sha256": "2dfe0d8ca29e34438eb33b4a4aeefe1cfdfee95574ca83f542eabbd9dca3709d",
+    "verifier_prompt_sha256": "2ade0b7d03e9b51e6afab34f9ac4ccb4bd71325ea9505d044d701bf06ce68ccd"
+  }
+}

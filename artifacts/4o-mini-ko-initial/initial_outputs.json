@@ -1,0 +1,165 @@
+{
+  "T01": {
+    "output": {
+      "plan": {
+        "day1_breakfast": [
+          "F039"
+        ],
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_breakfast": [
+          "F043"
+        ],
+        "day2_lunch": [
+          "F008"
+        ],
+        "day2_dinner": [
+          "F025"
+        ]
+      }
+    }
+  },
+  "T02": {
+    "output": null
+  },
+  "T03": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F008"
+        ],
+        "day2_dinner": [
+          "F020"
+        ]
+      }
+    }
+  },
+  "T04": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F048"
+        ],
+        "day1_dinner": [
+          "F020"
+        ],
+        "day2_lunch": [
+          "F032"
+        ],
+        "day2_dinner": [
+          "F010"
+        ]
+      }
+    }
+  },
+  "T05": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      }
+    }
+  },
+  "T06": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F010"
+        ],
+        "day2_dinner": [
+          "F050"
+        ]
+      }
+    }
+  },
+  "T07": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F008"
+        ],
+        "day1_dinner": [
+          "F015"
+        ]
+      }
+    }
+  },
+  "T08": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F008"
+        ],
+        "day1_dinner": [
+          "F049"
+        ],
+        "day2_lunch": [
+          "F023"
+        ],
+        "day2_dinner": [
+          "F010"
+        ]
+      }
+    }
+  },
+  "T09": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F027"
+        ],
+        "day2_lunch": [
+          "F019"
+        ],
+        "day2_dinner": [
+          "F014"
+        ]
+      }
+    }
+  },
+  "T10": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F033"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      }
+    },
+    "follow_up_output": {
+      "plan": {
+        "day1_lunch": [
+          "F033"
+        ],
+        "day1_dinner": [
+          "F024"
+        ]
+      }
+    }
+  }
+}

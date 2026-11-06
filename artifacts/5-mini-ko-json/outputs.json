@@ -1,0 +1,8 @@
+{
+  "T01": {
+    "output": "day1_breakfast: 시리얼 및 우유 — 3,500원, 255.0 kcal, 단백질 8.7 g, 나트륨 219.0 mg\nday1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday2_breakfast: 스크램블드에그 — 3,500원, 105.6 kcal, 단백질 7.5 g, 나트륨 218.4 mg\nday2_lunch: 짬뽕 — 10,000원, 464.0 kcal, 단백질 22.3 g, 나트륨 1448.0 mg\nday2_dinner: 돈가스 — 10,000원, 504.0 kcal, 단백질 24.9 g, 나트륨 617.4 mg\nday1 나트륨 합계: 3314.0 mg\nday2 나트륨 합계: 2283.8 mg\n총 비용: 45,500원\n```json\n{\"plan\": {\"day1_breakfast\": [\"F039\"], \"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F048\"], \"day2_breakfast\": [\"F043\"], \"day2_lunch\": [\"F017\"], \"day2_dinner\": [\"F049\"]}}\n```"
+  },
+  "T02": {
+    "output": "day1_lunch: 햄치즈토스트 — 3,600원, 486.4 kcal, 단백질 17.6 g, 나트륨 809.6 mg\nday1_dinner: 우유생크림빵 — 3,500원, 340.1 kcal, 단백질 5.0 g, 나트륨 190.3 mg\nday2_lunch: 콩나물무침 — 3,500원, 103.5 kcal, 단백질 5.8 g, 나트륨 580.5 mg\nday2_dinner: 시리얼 및 우유 — 3,500원, 255.0 kcal, 단백질 8.7 g, 나트륨 219.0 mg\nday3_lunch: 스크램블드에그 — 3,500원, 105.6 kcal, 단백질 7.5 g, 나트륨 218.4 mg\nday3_dinner: 표고버섯볶음 — 4,000원, 52.5 kcal, 단백질 2.5 g, 나트륨 214.5 mg\nday1 나트륨 합계: 999.9 mg\nday2 나트륨 합계: 799.5 mg\nday3 나트륨 합계: 432.9 mg\n총 비용: 21,600원\n```json\n{\"plan\": {\"day1_lunch\": [\"F003\"], \"day1_dinner\": [\"F005\"], \"day2_lunch\": [\"F009\"], \"day2_dinner\": [\"F039\"], \"day3_lunch\": [\"F043\"], \"day3_dinner\": [\"F006\"]}}\n```"
+  }
+}

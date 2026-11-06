@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "planner_model": "gpt-5-mini",
+    "verifier_model": "gpt-5-mini",
+    "max_rounds": 3,
+    "max_agent_calls": 6,
+    "max_turn_calls": 24,
+    "max_output_tokens": 6000,
+    "budget_usd": 1.0,
+    "ledger_path": ".usage/ledger.json",
+    "reasoning_effort": "low"
+  },
+  "run_calls": [],
+  "run_cost_usd": 0,
+  "ledger": {
+    "spent_usd": 0.04261955000000001,
+    "limit_usd": 1.0,
+    "calls": 86,
+    "uncertain_calls": 2
+  }
+}

@@ -1,0 +1,751 @@
+{
+  "settings": {
+    "planner_model": "gpt-4o-mini",
+    "verifier_model": "gpt-4o-mini",
+    "max_rounds": 3,
+    "max_agent_calls": 6,
+    "max_turn_calls": 24,
+    "max_output_tokens": 6000,
+    "budget_usd": 1.0,
+    "ledger_path": ".usage/ledger.json",
+    "reasoning_effort": "low"
+  },
+  "run_calls": [
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 963,
+      "cached_tokens": 0,
+      "output_tokens": 80,
+      "cost_usd": 0.00019245,
+      "latency_seconds": 3.747557851485908,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 6277,
+      "cached_tokens": 0,
+      "output_tokens": 99,
+      "cost_usd": 0.00100095,
+      "latency_seconds": 1.9787261337041855,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 6804,
+      "cached_tokens": 6144,
+      "output_tokens": 59,
+      "cost_usd": 0.0005951999999999999,
+      "latency_seconds": 1.555837158113718,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1516,
+      "cached_tokens": 0,
+      "output_tokens": 132,
+      "cost_usd": 0.0003066,
+      "latency_seconds": 2.107770796865225,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1664,
+      "cached_tokens": 1408,
+      "output_tokens": 12,
+      "cost_usd": 0.0001512,
+      "latency_seconds": 1.1036515943706036,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 980,
+      "cached_tokens": 0,
+      "output_tokens": 81,
+      "cost_usd": 0.00019559999999999998,
+      "latency_seconds": 4.3193019749596715,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2626,
+      "cached_tokens": 0,
+      "output_tokens": 99,
+      "cost_usd": 0.00045329999999999996,
+      "latency_seconds": 2.318406398408115,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3201,
+      "cached_tokens": 2432,
+      "output_tokens": 59,
+      "cost_usd": 0.00033315,
+      "latency_seconds": 2.3141085105016828,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1533,
+      "cached_tokens": 0,
+      "output_tokens": 132,
+      "cost_usd": 0.00030914999999999995,
+      "latency_seconds": 1.9366886764764786,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1680,
+      "cached_tokens": 1408,
+      "output_tokens": 12,
+      "cost_usd": 0.00015359999999999997,
+      "latency_seconds": 1.0929338056594133,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 986,
+      "cached_tokens": 0,
+      "output_tokens": 84,
+      "cost_usd": 0.00019830000000000002,
+      "latency_seconds": 2.2897113459184766,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3407,
+      "cached_tokens": 0,
+      "output_tokens": 71,
+      "cost_usd": 0.0005536499999999999,
+      "latency_seconds": 2.34882702678442,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3818,
+      "cached_tokens": 3200,
+      "output_tokens": 41,
+      "cost_usd": 0.0003573,
+      "latency_seconds": 1.3284258656203747,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1519,
+      "cached_tokens": 0,
+      "output_tokens": 134,
+      "cost_usd": 0.00030825,
+      "latency_seconds": 2.2843270506709814,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1680,
+      "cached_tokens": 1408,
+      "output_tokens": 135,
+      "cost_usd": 0.00022739999999999997,
+      "latency_seconds": 1.963160497136414,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1831,
+      "cached_tokens": 1536,
+      "output_tokens": 12,
+      "cost_usd": 0.00016664999999999998,
+      "latency_seconds": 1.0999666871502995,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1003,
+      "cached_tokens": 0,
+      "output_tokens": 83,
+      "cost_usd": 0.00020025,
+      "latency_seconds": 1.6761911939829588,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1482,
+      "cached_tokens": 0,
+      "output_tokens": 71,
+      "cost_usd": 0.0002649,
+      "latency_seconds": 1.494552344083786,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1886,
+      "cached_tokens": 1280,
+      "output_tokens": 41,
+      "cost_usd": 0.00021149999999999996,
+      "latency_seconds": 2.9908053828403354,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1536,
+      "cached_tokens": 0,
+      "output_tokens": 133,
+      "cost_usd": 0.0003102,
+      "latency_seconds": 2.7055937675759196,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1685,
+      "cached_tokens": 1408,
+      "output_tokens": 12,
+      "cost_usd": 0.00015434999999999996,
+      "latency_seconds": 1.2337190201506019,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 997,
+      "cached_tokens": 0,
+      "output_tokens": 85,
+      "cost_usd": 0.00020055,
+      "latency_seconds": 1.5472852978855371,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2022,
+      "cached_tokens": 0,
+      "output_tokens": 43,
+      "cost_usd": 0.00032910000000000003,
+      "latency_seconds": 1.1865708408877254,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2261,
+      "cached_tokens": 1792,
+      "output_tokens": 23,
+      "cost_usd": 0.00021855,
+      "latency_seconds": 1.219339331611991,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1510,
+      "cached_tokens": 0,
+      "output_tokens": 135,
+      "cost_usd": 0.0003075,
+      "latency_seconds": 2.174833932891488,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1661,
+      "cached_tokens": 1280,
+      "output_tokens": 12,
+      "cost_usd": 0.00016035,
+      "latency_seconds": 0.903105272911489,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1008,
+      "cached_tokens": 0,
+      "output_tokens": 87,
+      "cost_usd": 0.00020339999999999998,
+      "latency_seconds": 1.670527876354754,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2483,
+      "cached_tokens": 0,
+      "output_tokens": 71,
+      "cost_usd": 0.00041505000000000003,
+      "latency_seconds": 1.620040224865079,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2891,
+      "cached_tokens": 2304,
+      "output_tokens": 41,
+      "cost_usd": 0.00028544999999999997,
+      "latency_seconds": 1.3587756976485252,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1541,
+      "cached_tokens": 0,
+      "output_tokens": 138,
+      "cost_usd": 0.00031395,
+      "latency_seconds": 2.549471569247544,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1695,
+      "cached_tokens": 1408,
+      "output_tokens": 26,
+      "cost_usd": 0.00016424999999999998,
+      "latency_seconds": 1.4553020894527435,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1740,
+      "cached_tokens": 1536,
+      "output_tokens": 12,
+      "cost_usd": 0.00015299999999999998,
+      "latency_seconds": 0.8685425240546465,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1016,
+      "cached_tokens": 0,
+      "output_tokens": 82,
+      "cost_usd": 0.0002016,
+      "latency_seconds": 1.7888146713376045,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1403,
+      "cached_tokens": 0,
+      "output_tokens": 43,
+      "cost_usd": 0.00023625,
+      "latency_seconds": 1.2188116293400526,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1651,
+      "cached_tokens": 1280,
+      "output_tokens": 23,
+      "cost_usd": 0.00016545,
+      "latency_seconds": 0.9166619749739766,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1529,
+      "cached_tokens": 0,
+      "output_tokens": 134,
+      "cost_usd": 0.00030975,
+      "latency_seconds": 2.491098969243467,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1679,
+      "cached_tokens": 1408,
+      "output_tokens": 12,
+      "cost_usd": 0.00015345,
+      "latency_seconds": 0.9483947455883026,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1014,
+      "cached_tokens": 0,
+      "output_tokens": 81,
+      "cost_usd": 0.0002007,
+      "latency_seconds": 2.1806213157251477,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3552,
+      "cached_tokens": 0,
+      "output_tokens": 77,
+      "cost_usd": 0.000579,
+      "latency_seconds": 1.9184402860701084,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3971,
+      "cached_tokens": 3328,
+      "output_tokens": 82,
+      "cost_usd": 0.00039525,
+      "latency_seconds": 2.2621650649234653,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 5770,
+      "cached_tokens": 3840,
+      "output_tokens": 77,
+      "cost_usd": 0.0006237,
+      "latency_seconds": 1.9949366133660078,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 6205,
+      "cached_tokens": 5632,
+      "output_tokens": 82,
+      "cost_usd": 0.00055755,
+      "latency_seconds": 2.9222715878859162,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 8004,
+      "cached_tokens": 6016,
+      "output_tokens": 77,
+      "cost_usd": 0.0007956,
+      "latency_seconds": 2.6225889194756746,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 8470,
+      "cached_tokens": 7808,
+      "output_tokens": 82,
+      "cost_usd": 0.0007341,
+      "latency_seconds": 2.2721639154478908,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 10269,
+      "cached_tokens": 8320,
+      "output_tokens": 77,
+      "cost_usd": 0.00096255,
+      "latency_seconds": 2.201868704520166,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 10704,
+      "cached_tokens": 10112,
+      "output_tokens": 82,
+      "cost_usd": 0.0008964,
+      "latency_seconds": 2.1235121693462133,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 12503,
+      "cached_tokens": 10496,
+      "output_tokens": 77,
+      "cost_usd": 0.00113445,
+      "latency_seconds": 2.4407228268682957,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 12938,
+      "cached_tokens": 12288,
+      "output_tokens": 82,
+      "cost_usd": 0.0010683,
+      "latency_seconds": 2.034839658997953,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 14737,
+      "cached_tokens": 12800,
+      "output_tokens": 77,
+      "cost_usd": 0.00129675,
+      "latency_seconds": 2.0312291076406837,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 15203,
+      "cached_tokens": 14592,
+      "output_tokens": 82,
+      "cost_usd": 0.00123525,
+      "latency_seconds": 2.5396626563742757,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 17002,
+      "cached_tokens": 14976,
+      "output_tokens": 77,
+      "cost_usd": 0.0014732999999999999,
+      "latency_seconds": 2.1282894844189286,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 17437,
+      "cached_tokens": 16896,
+      "output_tokens": 82,
+      "cost_usd": 0.0013975500000000002,
+      "latency_seconds": 1.8172165052965283,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 19236,
+      "cached_tokens": 17280,
+      "output_tokens": 77,
+      "cost_usd": 0.0016356,
+      "latency_seconds": 2.7123275408521295,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 19671,
+      "cached_tokens": 19072,
+      "output_tokens": 82,
+      "cost_usd": 0.0015694499999999998,
+      "latency_seconds": 2.30944855697453,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 21470,
+      "cached_tokens": 19456,
+      "output_tokens": 77,
+      "cost_usd": 0.0018075,
+      "latency_seconds": 2.064405331388116,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1012,
+      "cached_tokens": 0,
+      "output_tokens": 90,
+      "cost_usd": 0.0002058,
+      "latency_seconds": 1.6786218732595444,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1751,
+      "cached_tokens": 0,
+      "output_tokens": 71,
+      "cost_usd": 0.00030525,
+      "latency_seconds": 1.6435211319476366,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2158,
+      "cached_tokens": 1536,
+      "output_tokens": 41,
+      "cost_usd": 0.0002331,
+      "latency_seconds": 1.7697161417454481,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1545,
+      "cached_tokens": 0,
+      "output_tokens": 142,
+      "cost_usd": 0.00031695,
+      "latency_seconds": 2.3686736514791846,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1703,
+      "cached_tokens": 1408,
+      "output_tokens": 12,
+      "cost_usd": 0.00015705,
+      "latency_seconds": 1.1107917185872793,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 999,
+      "cached_tokens": 0,
+      "output_tokens": 88,
+      "cost_usd": 0.00020264999999999997,
+      "latency_seconds": 1.3148516025394201,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1614,
+      "cached_tokens": 0,
+      "output_tokens": 43,
+      "cost_usd": 0.00026789999999999995,
+      "latency_seconds": 1.302430228330195,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1861,
+      "cached_tokens": 1408,
+      "output_tokens": 88,
+      "cost_usd": 0.00022635000000000003,
+      "latency_seconds": 1.6222845520824194,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2476,
+      "cached_tokens": 1664,
+      "output_tokens": 43,
+      "cost_usd": 0.00027239999999999995,
+      "latency_seconds": 1.0725199822336435,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2725,
+      "cached_tokens": 2304,
+      "output_tokens": 43,
+      "cost_usd": 0.00026175,
+      "latency_seconds": 1.383342714048922,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 2974,
+      "cached_tokens": 2560,
+      "output_tokens": 43,
+      "cost_usd": 0.0002799,
+      "latency_seconds": 1.0979618038982153,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3253,
+      "cached_tokens": 2816,
+      "output_tokens": 43,
+      "cost_usd": 0.00030255,
+      "latency_seconds": 1.1643977919593453,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3501,
+      "cached_tokens": 3072,
+      "output_tokens": 23,
+      "cost_usd": 0.00030855,
+      "latency_seconds": 1.082896739244461,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1512,
+      "cached_tokens": 0,
+      "output_tokens": 140,
+      "cost_usd": 0.00031079999999999997,
+      "latency_seconds": 2.523946573957801,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1668,
+      "cached_tokens": 1280,
+      "output_tokens": 12,
+      "cost_usd": 0.00016139999999999997,
+      "latency_seconds": 1.1050314269959927,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 3624,
+      "cached_tokens": 3328,
+      "output_tokens": 88,
+      "cost_usd": 0.0003468,
+      "latency_seconds": 1.6536016445606947,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 4239,
+      "cached_tokens": 3456,
+      "output_tokens": 43,
+      "cost_usd": 0.00040245,
+      "latency_seconds": 1.143987969495356,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 4478,
+      "cached_tokens": 4096,
+      "output_tokens": 43,
+      "cost_usd": 0.0003903,
+      "latency_seconds": 1.1335619939491153,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 4719,
+      "cached_tokens": 4352,
+      "output_tokens": 43,
+      "cost_usd": 0.00040725,
+      "latency_seconds": 1.2117922334000468,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 4968,
+      "cached_tokens": 4608,
+      "output_tokens": 43,
+      "cost_usd": 0.0004254,
+      "latency_seconds": 1.1639702254906297,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 5216,
+      "cached_tokens": 4736,
+      "output_tokens": 43,
+      "cost_usd": 0.000453,
+      "latency_seconds": 1.118593123741448,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 5488,
+      "cached_tokens": 4992,
+      "output_tokens": 43,
+      "cost_usd": 0.0004746,
+      "latency_seconds": 1.2534707738086581,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 5727,
+      "cached_tokens": 5376,
+      "output_tokens": 23,
+      "cost_usd": 0.00046964999999999995,
+      "latency_seconds": 1.005651575513184,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1587,
+      "cached_tokens": 0,
+      "output_tokens": 140,
+      "cost_usd": 0.00032204999999999994,
+      "latency_seconds": 1.7856418220326304,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1743,
+      "cached_tokens": 1408,
+      "output_tokens": 40,
+      "cost_usd": 0.00017985,
+      "latency_seconds": 1.2730145240202546,
+      "status": "completed"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "input_tokens": 1799,
+      "cached_tokens": 1536,
+      "output_tokens": 12,
+      "cost_usd": 0.00016184999999999998,
+      "latency_seconds": 0.8959846403449774,
+      "status": "completed"
+    }
+  ],
+  "run_cost_usd": 0.0366702,
+  "ledger": {
+    "spent_usd": 0.14611660000000004,
+    "limit_usd": 1.0,
+    "calls": 321,
+    "uncertain_calls": 4
+  }
+}

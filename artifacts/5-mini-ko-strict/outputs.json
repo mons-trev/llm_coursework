@@ -1,0 +1,33 @@
+{
+  "T01": {
+    "output": "day1_breakfast: 시리얼 및 우유 — 3,500원, 255.0 kcal, 단백질 8.7 g, 나트륨 219.0 mg\nday1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday2_breakfast: 햄치즈토스트 — 3,600원, 486.4 kcal, 단백질 17.6 g, 나트륨 809.6 mg\nday2_lunch: 잡채밥 — 9,500원, 510.0 kcal, 단백질 14.5 g, 나트륨 430.0 mg\nday2_dinner: 순대국 — 10,000원, 544.0 kcal, 단백질 43.5 g, 나트륨 1504.0 mg\nday1 나트륨 합계: 3314.0 mg\nday2 나트륨 합계: 2743.6 mg\n총 비용: 45,100원\n```json\n{\"plan\": {\"day1_breakfast\": [\"F039\"], \"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F048\"], \"day2_breakfast\": [\"F003\"], \"day2_lunch\": [\"F023\"], \"day2_dinner\": [\"F032\"]}}\n```"
+  },
+  "T02": {
+    "output": "day1_lunch: 잔치국수 — 7,000원, 435.5 kcal, 단백질 15.3 g, 나트륨 2002.0 mg\nday1_dinner: 햄치즈샌드위치 — 5,500원, 680.4 kcal, 단백질 21.7 g, 나트륨 1265.4 mg\nday2_lunch: 짜장면 — 8,000원, 702.0 kcal, 단백질 24.0 g, 나트륨 2226.0 mg\nday2_dinner: 통새우버거 — 6,000원, 453.6 kcal, 단백질 12.5 g, 나트륨 714.6 mg\nday3_lunch: 햄치즈토스트 — 3,600원, 486.4 kcal, 단백질 17.6 g, 나트륨 809.6 mg\nday3_dinner: 시리얼 및 우유 — 3,500원, 255.0 kcal, 단백질 8.7 g, 나트륨 219.0 mg\nday1 나트륨 합계: 3267.4 mg\nday2 나트륨 합계: 2940.6 mg\nday3 나트륨 합계: 1028.6 mg\n총 비용: 33,600원\n```json\n{\"plan\": {\"day1_lunch\": [\"F024\"], \"day1_dinner\": [\"F038\"], \"day2_lunch\": [\"F016\"], \"day2_dinner\": [\"F045\"], \"day3_lunch\": [\"F003\"], \"day3_dinner\": [\"F039\"]}}\n```"
+  },
+  "T03": {
+    "output": "day1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday2_lunch: 우동 — 8,000원, 396.5 kcal, 단백질 12.1 g, 나트륨 1599.0 mg\nday2_dinner: 닭가슴살샐러드 — 8,500원, 300.0 kcal, 단백질 24.1 g, 나트륨 780.0 mg\nday1 나트륨 합계: 3095.0 mg\nday2 나트륨 합계: 2379.0 mg\n총 비용: 35,000원\n```json\n{\"plan\": {\"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F048\"], \"day2_lunch\": [\"F026\"], \"day2_dinner\": [\"F036\"]}}\n```"
+  },
+  "T04": {
+    "output": "day1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday2_lunch: 순대국 — 10,000원, 544.0 kcal, 단백질 43.5 g, 나트륨 1504.0 mg\nday2_dinner: 콩국수 — 11,000원, 700.0 kcal, 단백질 32.3 g, 나트륨 679.0 mg\nday1 나트륨 합계: 3095.0 mg\nday2 나트륨 합계: 2183.0 mg\n총 비용: 39,500원\n```json\n{\"plan\": {\"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F048\"], \"day2_lunch\": [\"F032\"], \"day2_dinner\": [\"F010\"]}}\n```"
+  },
+  "T05": {
+    "output": "day1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday1 나트륨 합계: 3095.0 mg\n총 비용: 18,500원\n```json\n{\"plan\": {\"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F048\"]}}\n```"
+  },
+  "T06": {
+    "output": "day1_lunch: 잔치국수 — 7,000원, 435.5 kcal, 단백질 15.3 g, 나트륨 2002.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday2_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday2_dinner: 콩국수 — 11,000원, 700.0 kcal, 단백질 32.3 g, 나트륨 679.0 mg\nday1 나트륨 합계: 3907.0 mg\nday2 나트륨 합계: 1869.0 mg\n총 비용: 36,500원\n```json\n{\"plan\": {\"day1_lunch\": [\"F024\"], \"day1_dinner\": [\"F048\"], \"day2_lunch\": [\"F020\"], \"day2_dinner\": [\"F010\"]}}\n```"
+  },
+  "T07": {
+    "output": "day1_lunch: 콩나물국밥 — 8,500원, 480.0 kcal, 단백질 21.3 g, 나트륨 464.0 mg\nday1_dinner: 순대국 — 10,000원, 544.0 kcal, 단백질 43.5 g, 나트륨 1504.0 mg\nday1 나트륨 합계: 1968.0 mg\n총 비용: 18,500원\n```json\n{\"plan\": {\"day1_lunch\": [\"F008\"], \"day1_dinner\": [\"F032\"]}}\n```"
+  },
+  "T08": {
+    "output": "day1_lunch: 잡채밥 — 9,500원, 510.0 kcal, 단백질 14.5 g, 나트륨 430.0 mg\nday1_dinner: 콩나물국밥 — 8,500원, 480.0 kcal, 단백질 21.3 g, 나트륨 464.0 mg\nday2_lunch: 생선까스 — 10,000원, 396.0 kcal, 단백질 30.6 g, 나트륨 826.0 mg\nday2_dinner: 돈가스 — 10,000원, 504.0 kcal, 단백질 24.9 g, 나트륨 617.4 mg\nday1 나트륨 합계: 894.0 mg\nday2 나트륨 합계: 1443.4 mg\n총 비용: 38,000원\n```json\n{\"plan\": {\"day1_lunch\": [\"F023\"], \"day1_dinner\": [\"F008\"], \"day2_lunch\": [\"F035\"], \"day2_dinner\": [\"F049\"]}}\n```"
+  },
+  "T09": {
+    "output": "day1_lunch: 제육볶음 — 10,000원, 370.0 kcal, 단백질 38.5 g, 나트륨 1190.0 mg\nday1_dinner: 오징어볶음 — 12,000원, 246.0 kcal, 단백질 25.5 g, 나트륨 810.0 mg\nday2_lunch: 코다리조림 — 12,000원, 258.0 kcal, 단백질 49.4 g, 나트륨 1398.0 mg\nday2_dinner: 쫄면 — 8,000원, 544.5 kcal, 단백질 15.5 g, 나트륨 2704.5 mg\nday1 나트륨 합계: 2000.0 mg\nday2 나트륨 합계: 4102.5 mg\n총 비용: 42,000원\n```json\n{\"plan\": {\"day1_lunch\": [\"F020\"], \"day1_dinner\": [\"F027\"], \"day2_lunch\": [\"F011\"], \"day2_dinner\": [\"F014\"]}}\n```"
+  },
+  "T10": {
+    "output": "day1_lunch: 잔치국수 — 7,000원, 435.5 kcal, 단백질 15.3 g, 나트륨 2002.0 mg\nday1_dinner: 된장찌개 — 8,500원, 550.0 kcal, 단백질 38.5 g, 나트륨 1905.0 mg\nday1 나트륨 합계: 3907.0 mg\n총 비용: 15,500원\n```json\n{\"plan\": {\"day1_lunch\": [\"F024\"], \"day1_dinner\": [\"F048\"]}}\n```",
+    "follow_up_output": "day1_lunch: 잔치국수 — 7,000원, 435.5 kcal, 단백질 15.3 g, 나트륨 2002.0 mg\nday1_dinner: 소시지볶음 — 5,000원, 560.0 kcal, 단백질 23.9 g, 나트륨 1774.0 mg\nday1 나트륨 합계: 3776.0 mg\n총 비용: 12,000원\n```json\n{\"plan\": {\"day1_lunch\": [\"F024\"], \"day1_dinner\": [\"F033\"]}}\n```"
+  }
+}

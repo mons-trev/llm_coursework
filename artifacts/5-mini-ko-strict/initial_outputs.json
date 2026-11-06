@@ -1,0 +1,186 @@
+{
+  "T01": {
+    "output": {
+      "plan": {
+        "day1_breakfast": [
+          "F039"
+        ],
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_breakfast": [
+          "F003"
+        ],
+        "day2_lunch": [
+          "F023"
+        ],
+        "day2_dinner": [
+          "F032"
+        ]
+      }
+    }
+  },
+  "T02": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F038"
+        ],
+        "day2_lunch": [
+          "F016"
+        ],
+        "day2_dinner": [
+          "F045"
+        ],
+        "day3_lunch": [
+          "F003"
+        ],
+        "day3_dinner": [
+          "F039"
+        ]
+      }
+    }
+  },
+  "T03": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F026"
+        ],
+        "day2_dinner": [
+          "F036"
+        ]
+      }
+    }
+  },
+  "T04": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F032"
+        ],
+        "day2_dinner": [
+          "F010"
+        ]
+      }
+    }
+  },
+  "T05": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      }
+    }
+  },
+  "T06": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F020"
+        ],
+        "day2_dinner": [
+          "F010"
+        ]
+      }
+    }
+  },
+  "T07": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F008"
+        ],
+        "day1_dinner": [
+          "F032"
+        ]
+      }
+    }
+  },
+  "T08": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F023"
+        ],
+        "day1_dinner": [
+          "F008"
+        ],
+        "day2_lunch": [
+          "F035"
+        ],
+        "day2_dinner": [
+          "F049"
+        ]
+      }
+    }
+  },
+  "T09": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F027"
+        ],
+        "day2_lunch": [
+          "F011"
+        ],
+        "day2_dinner": [
+          "F014"
+        ]
+      }
+    }
+  },
+  "T10": {
+    "output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      }
+    },
+    "follow_up_output": {
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F033"
+        ]
+      }
+    }
+  }
+}

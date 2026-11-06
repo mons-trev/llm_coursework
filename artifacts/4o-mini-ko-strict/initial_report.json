@@ -1,0 +1,662 @@
+{
+  "summary": {
+    "n_cases": 10,
+    "overall_pass": 9,
+    "requirement_pass": 9,
+    "revision_pass": "1/1",
+    "safety_violations": "0/3",
+    "per_check": {
+      "slots_complete": {
+        "passed": 9,
+        "total": 10
+      },
+      "foods_in_db": {
+        "passed": 10,
+        "total": 10
+      },
+      "budget_total": {
+        "passed": 9,
+        "total": 9
+      },
+      "budget_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "kcal_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "excluded_tags": {
+        "passed": 3,
+        "total": 3
+      },
+      "protein_per_meal": {
+        "passed": 2,
+        "total": 2
+      },
+      "cuisine_types": {
+        "passed": 5,
+        "total": 5
+      },
+      "allergens": {
+        "passed": 3,
+        "total": 3
+      },
+      "excluded_food_codes": {
+        "passed": 1,
+        "total": 1
+      },
+      "sodium_per_day": {
+        "passed": 2,
+        "total": 2
+      },
+      "required_tags": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_preserved": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_changed": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_constraints_kept": {
+        "passed": 1,
+        "total": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "test_id": "T01",
+      "plan": {
+        "day1_breakfast": [
+          "F039"
+        ],
+        "day1_lunch": [
+          "F048"
+        ],
+        "day1_dinner": [
+          "F020"
+        ],
+        "day2_breakfast": [
+          "F043"
+        ],
+        "day2_lunch": [
+          "F008"
+        ],
+        "day2_dinner": [
+          "F025"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "6 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T02",
+      "plan": {
+        "day1_lunch": [
+          "F009"
+        ],
+        "day1_dinner": [
+          "F005"
+        ],
+        "day2_lunch": [
+          "F006"
+        ],
+        "day2_dinner": [
+          "F038"
+        ],
+        "day3_lunch": [
+          "F024"
+        ],
+        "day3_dinner": [
+          "F014"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "6 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "31500 <= 42000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T03",
+      "plan": {
+        "day1_lunch": [
+          "F024"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F008"
+        ],
+        "day2_dinner": [
+          "F020"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "34000 <= 42000"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "excluded_tags",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T04",
+      "plan": {
+        "day1_lunch": [
+          "F048"
+        ],
+        "day1_dinner": [
+          "F020"
+        ],
+        "day2_lunch": [
+          "F032"
+        ],
+        "day2_dinner": [
+          "F010"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "39500 <= 45000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "protein_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "cuisine_types",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T05",
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "2 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "18500 <= 25000"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "allergens",
+          "category": "safety",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "cuisine_types",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": true,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T06",
+      "plan": {
+        "day1_lunch": [
+          "F008"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F024"
+        ],
+        "day2_dinner": [
+          "F050"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "33000 <= 48000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "excluded_food_codes",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "cuisine_types",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T07",
+      "plan": {
+        "day1_lunch": [
+          "F008"
+        ],
+        "day1_dinner": [
+          "F032"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "2 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "18500 <= 34000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "protein_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "sodium_per_day",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "allergens",
+          "category": "safety",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": true,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T08",
+      "plan": null,
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": false,
+          "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "0 <= 45000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "sodium_per_day",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": false,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": false
+    },
+    {
+      "test_id": "T09",
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F027"
+        ],
+        "day2_lunch": [
+          "F019"
+        ],
+        "day2_dinner": [
+          "F014"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "43000 <= 48000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "cuisine_types",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "required_tags",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "excluded_tags",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": true
+    },
+    {
+      "test_id": "T10",
+      "plan": {
+        "day1_lunch": [
+          "F033"
+        ],
+        "day1_dinner": [
+          "F010"
+        ]
+      },
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "2 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": true,
+          "detail": "16000 <= 21000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "allergens",
+          "category": "safety",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "cuisine_types",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "excluded_tags",
+          "category": "constraint",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "revision_preserved",
+          "category": "revision",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "revision_changed",
+          "category": "revision",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "revision_constraints_kept",
+          "category": "revision",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": true,
+      "revision_pass": true,
+      "safety_pass": true,
+      "overall_pass": true
+    }
+  ]
+}

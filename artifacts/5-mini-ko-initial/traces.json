@@ -1,0 +1,15 @@
+{
+  "T01": [
+    {
+      "status": "api_error",
+      "answer": "OpenAI request failed (BadRequestError); its maximum cost reservation was retained",
+      "plan": null,
+      "rounds": [
+        {
+          "round": 1,
+          "error": "OpenAI request failed (BadRequestError); its maximum cost reservation was retained"
+        }
+      ]
+    }
+  ]
+}

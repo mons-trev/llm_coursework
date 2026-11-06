@@ -1,0 +1,474 @@
+{
+  "test_id": "T08",
+  "query": "평소 외식을 자주 해서 나트륨 섭취량을 줄이려고 해. 이틀 동안 점심과 저녁을 추천해 줘. 하루에 먹는 두 끼의 나트륨 합계는 1,600mg 이하여야 하고, 각 끼니는 350~750kcal여야 해. 전체 45,000원 이하, 한 끼 15,000원 이하로 해줘.",
+  "ground_truth": {
+    "plan": {
+      "days": 2,
+      "meals_per_day": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    "constraints": {
+      "budget_krw": {
+        "total_max": 45000,
+        "per_meal_max": 15000
+      },
+      "nutrition": {
+        "per_meal": {
+          "energy_kcal": {
+            "min": 350,
+            "max": 750
+          },
+          "protein_g": {
+            "min": null,
+            "max": null
+          }
+        },
+        "per_day": {
+          "sodium_mg": {
+            "min": null,
+            "max": 1600
+          }
+        }
+      },
+      "excluded_allergens": [],
+      "excluded_food_codes": [],
+      "cuisine_types": null,
+      "excluded_cuisine_types": [],
+      "required_tags": [],
+      "excluded_tags": []
+    }
+  },
+  "scope": "Historical saved runs before Korean system-prompt sync; offline analysis only, no new model calls.",
+  "sources": {
+    "4o_trace": "artifacts/4o-mini-ko-strict/traces.json",
+    "4o_report": "artifacts/4o-mini-ko-strict/report.json",
+    "5_trace": "artifacts/5-mini-ko-strict/traces.json"
+  },
+  "official_result": {
+    "test_id": "T08",
+    "plan": null,
+    "checks": [
+      {
+        "name": "slots_complete",
+        "category": "structure",
+        "passed": false,
+        "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+      },
+      {
+        "name": "foods_in_db",
+        "category": "structure",
+        "passed": true,
+        "detail": "ok"
+      },
+      {
+        "name": "budget_total",
+        "category": "constraint",
+        "passed": true,
+        "detail": "0 <= 45000"
+      },
+      {
+        "name": "budget_per_meal",
+        "category": "constraint",
+        "passed": true,
+        "detail": "ok"
+      },
+      {
+        "name": "kcal_per_meal",
+        "category": "constraint",
+        "passed": true,
+        "detail": "ok"
+      },
+      {
+        "name": "sodium_per_day",
+        "category": "constraint",
+        "passed": true,
+        "detail": "ok"
+      }
+    ],
+    "requirement_pass": false,
+    "revision_pass": null,
+    "safety_pass": null,
+    "overall_pass": false
+  },
+  "execution_status": "not_verified",
+  "rounds": [
+    {
+      "round": 1,
+      "planner_tool_counts": {
+        "search_foods": 3,
+        "compute_plan": 3
+      },
+      "computed_plan_ids": [
+        1,
+        2,
+        2
+      ],
+      "verifier_tool_count": 0,
+      "feedback": [
+        "planner exceeded per-agent model call limit"
+      ]
+    },
+    {
+      "round": 2,
+      "planner_tool_counts": {
+        "search_foods": 3,
+        "compute_plan": 3
+      },
+      "computed_plan_ids": [
+        2,
+        2,
+        2
+      ],
+      "verifier_tool_count": 0,
+      "feedback": [
+        "planner exceeded per-agent model call limit"
+      ]
+    },
+    {
+      "round": 3,
+      "planner_tool_counts": {
+        "search_foods": 3,
+        "compute_plan": 3
+      },
+      "computed_plan_ids": [
+        2,
+        2,
+        2
+      ],
+      "verifier_tool_count": 0,
+      "feedback": [
+        "planner exceeded per-agent model call limit"
+      ]
+    }
+  ],
+  "intermediate_plans": [
+    {
+      "id": 1,
+      "plan": {
+        "day1_lunch": [
+          "F008",
+          "F023"
+        ],
+        "day1_dinner": [
+          "F048"
+        ],
+        "day2_lunch": [
+          "F020",
+          "F010"
+        ],
+        "day2_dinner": [
+          "F045"
+        ]
+      },
+      "names": {
+        "day1_lunch": [
+          "콩나물국밥",
+          "잡채밥"
+        ],
+        "day1_dinner": [
+          "된장찌개"
+        ],
+        "day2_lunch": [
+          "제육볶음",
+          "콩국수"
+        ],
+        "day2_dinner": [
+          "통새우버거"
+        ]
+      },
+      "computed": {
+        "slots": {
+          "day1_lunch": {
+            "price_krw": 18000,
+            "kcal": 990.0,
+            "protein_g": 35.78,
+            "sodium_mg": 894.0
+          },
+          "day1_dinner": {
+            "price_krw": 8500,
+            "kcal": 550.0,
+            "protein_g": 38.55,
+            "sodium_mg": 1905.0
+          },
+          "day2_lunch": {
+            "price_krw": 21000,
+            "kcal": 1070.0,
+            "protein_g": 70.77000000000001,
+            "sodium_mg": 1869.0
+          },
+          "day2_dinner": {
+            "price_krw": 6000,
+            "kcal": 453.6,
+            "protein_g": 12.492,
+            "sodium_mg": 714.6
+          }
+        },
+        "days": {
+          "day1": {
+            "price_krw": 26500,
+            "kcal": 1540.0,
+            "protein_g": 74.33,
+            "sodium_mg": 2799.0
+          },
+          "day2": {
+            "price_krw": 27000,
+            "kcal": 1523.6,
+            "protein_g": 83.26200000000001,
+            "sodium_mg": 2583.6
+          }
+        },
+        "total": {
+          "price_krw": 53500,
+          "kcal": 3063.6,
+          "protein_g": 157.592,
+          "sodium_mg": 5382.6
+        },
+        "unknown_codes": []
+      },
+      "offline_metric_checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": false,
+          "detail": "53500 > 45000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1_lunch': 18000, 'day2_lunch': 21000}"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1_lunch': 990.0, 'day2_lunch': 1070.0}"
+        },
+        {
+          "name": "sodium_per_day",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1': 2799.0, 'day2': 2583.6}"
+        }
+      ],
+      "recorded_compute_count": 1
+    },
+    {
+      "id": 2,
+      "plan": {
+        "day1_lunch": [
+          "F008",
+          "F023"
+        ],
+        "day1_dinner": [
+          "F045"
+        ],
+        "day2_lunch": [
+          "F020",
+          "F010"
+        ],
+        "day2_dinner": [
+          "F046"
+        ]
+      },
+      "names": {
+        "day1_lunch": [
+          "콩나물국밥",
+          "잡채밥"
+        ],
+        "day1_dinner": [
+          "통새우버거"
+        ],
+        "day2_lunch": [
+          "제육볶음",
+          "콩국수"
+        ],
+        "day2_dinner": [
+          "와퍼버거"
+        ]
+      },
+      "computed": {
+        "slots": {
+          "day1_lunch": {
+            "price_krw": 18000,
+            "kcal": 990.0,
+            "protein_g": 35.78,
+            "sodium_mg": 894.0
+          },
+          "day1_dinner": {
+            "price_krw": 6000,
+            "kcal": 453.6,
+            "protein_g": 12.492,
+            "sodium_mg": 714.6
+          },
+          "day2_lunch": {
+            "price_krw": 21000,
+            "kcal": 1070.0,
+            "protein_g": 70.77000000000001,
+            "sodium_mg": 1869.0
+          },
+          "day2_dinner": {
+            "price_krw": 7400,
+            "kcal": 619.9399999999999,
+            "protein_g": 28.995399999999997,
+            "sodium_mg": 808.9799999999999
+          }
+        },
+        "days": {
+          "day1": {
+            "price_krw": 24000,
+            "kcal": 1443.6,
+            "protein_g": 48.272000000000006,
+            "sodium_mg": 1608.6
+          },
+          "day2": {
+            "price_krw": 28400,
+            "kcal": 1689.94,
+            "protein_g": 99.7654,
+            "sodium_mg": 2677.98
+          }
+        },
+        "total": {
+          "price_krw": 52400,
+          "kcal": 3133.54,
+          "protein_g": 148.03740000000002,
+          "sodium_mg": 4286.58
+        },
+        "unknown_codes": []
+      },
+      "offline_metric_checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": true,
+          "detail": "4 slots"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "budget_total",
+          "category": "constraint",
+          "passed": false,
+          "detail": "52400 > 45000"
+        },
+        {
+          "name": "budget_per_meal",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1_lunch': 18000, 'day2_lunch': 21000}"
+        },
+        {
+          "name": "kcal_per_meal",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1_lunch': 990.0, 'day2_lunch': 1070.0}"
+        },
+        {
+          "name": "sodium_per_day",
+          "category": "constraint",
+          "passed": false,
+          "detail": "{'day1': 1608.6, 'day2': 2678.0}"
+        }
+      ],
+      "recorded_compute_count": 8
+    }
+  ],
+  "gpt5_reference": {
+    "status": "approved",
+    "rounds": 1,
+    "plan": {
+      "day1_lunch": [
+        "F023"
+      ],
+      "day1_dinner": [
+        "F008"
+      ],
+      "day2_lunch": [
+        "F035"
+      ],
+      "day2_dinner": [
+        "F049"
+      ]
+    },
+    "computed": {
+      "slots": {
+        "day1_lunch": {
+          "price_krw": 9500,
+          "kcal": 510.0,
+          "protein_g": 14.5,
+          "sodium_mg": 430.0
+        },
+        "day1_dinner": {
+          "price_krw": 8500,
+          "kcal": 480.0,
+          "protein_g": 21.28,
+          "sodium_mg": 464.0
+        },
+        "day2_lunch": {
+          "price_krw": 10000,
+          "kcal": 396.0,
+          "protein_g": 30.6,
+          "sodium_mg": 826.0
+        },
+        "day2_dinner": {
+          "price_krw": 10000,
+          "kcal": 504.0,
+          "protein_g": 24.93,
+          "sodium_mg": 617.4
+        }
+      },
+      "days": {
+        "day1": {
+          "price_krw": 18000,
+          "kcal": 990.0,
+          "protein_g": 35.78,
+          "sodium_mg": 894.0
+        },
+        "day2": {
+          "price_krw": 20000,
+          "kcal": 900.0,
+          "protein_g": 55.53,
+          "sodium_mg": 1443.4
+        }
+      },
+      "total": {
+        "price_krw": 38000,
+        "kcal": 1890.0,
+        "protein_g": 91.31,
+        "sodium_mg": 2337.4
+      },
+      "unknown_codes": []
+    }
+  },
+  "observations": [
+    "The second computed plan was repeated eight times despite four failed constraint checks.",
+    "All three planner attempts exhausted their per-agent call limit; no verifier tool was executed.",
+    "The final output was absent, so the official report failed slots_complete.",
+    "Passing numeric checks on the empty final plan are vacuous; they do not validate intermediate plans."
+  ],
+  "interpretation": "Observed failure of repairing coupled meal/day/total constraints, followed by a repeated-tool loop and no planner-to-verifier handoff. Internal model reasoning is not available.",
+  "proposed_experiments_not_executed": [
+    "Detect repeated identical plans and hand the computed candidate to the verifier.",
+    "Return explicit numerical violations to the planner during repair.",
+    "Compare call-limit-only changes with early-verification changes under a fixed spend budget.",
+    "Report absent plans as not-evaluated for per-constraint diagnostics, retaining the original official score."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "summary": {
+    "n_cases": 1,
+    "overall_pass": 0,
+    "requirement_pass": 0,
+    "revision_pass": "0/0",
+    "safety_violations": "0/0",
+    "per_check": {
+      "slots_complete": {
+        "passed": 0,
+        "total": 1
+      },
+      "foods_in_db": {
+        "passed": 1,
+        "total": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "test_id": "T01",
+      "plan": null,
+      "checks": [
+        {
+          "name": "slots_complete",
+          "category": "structure",
+          "passed": false,
+          "detail": "{'missing': ['day1_breakfast', 'day1_lunch', 'day1_dinner', 'day2_breakfast', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+        },
+        {
+          "name": "foods_in_db",
+          "category": "structure",
+          "passed": true,
+          "detail": "ok"
+        }
+      ],
+      "requirement_pass": false,
+      "revision_pass": null,
+      "safety_pass": null,
+      "overall_pass": false
+    }
+  ]
+}

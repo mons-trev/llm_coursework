@@ -1,0 +1,159 @@
+{
+  "calls": 15,
+  "completed_calls": 15,
+  "token_based_cost_usd": 0.0092237,
+  "accounted_cost_usd": 0.0092237,
+  "cumulative_accounted_cost_usd": 0.19197570000000008,
+  "requests": [
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0007405,
+      "status": "completed",
+      "input_bound": 10692,
+      "output_bound": 6000,
+      "input_tokens": 1426,
+      "output_tokens": 192,
+      "cached_tokens": 0
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.000647,
+      "status": "completed",
+      "input_bound": 14299,
+      "output_bound": 6000,
+      "input_tokens": 1628,
+      "output_tokens": 264,
+      "cached_tokens": 1280
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0011499000000000001,
+      "status": "completed",
+      "input_bound": 18929,
+      "output_bound": 6000,
+      "input_tokens": 1902,
+      "output_tokens": 510,
+      "cached_tokens": 1536
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0007633,
+      "status": "completed",
+      "input_bound": 26844,
+      "output_bound": 6000,
+      "input_tokens": 2482,
+      "output_tokens": 273,
+      "cached_tokens": 1792
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0006780499999999999,
+      "status": "completed",
+      "input_bound": 33095,
+      "output_bound": 6000,
+      "input_tokens": 3285,
+      "output_tokens": 202,
+      "cached_tokens": 2432
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0004367,
+      "status": "completed",
+      "input_bound": 37435,
+      "output_bound": 6000,
+      "input_tokens": 3694,
+      "output_tokens": 131,
+      "cached_tokens": 3328
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.001095,
+      "status": "completed",
+      "input_bound": 13241,
+      "output_bound": 6000,
+      "input_tokens": 1900,
+      "output_tokens": 310,
+      "cached_tokens": 0
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.00026005,
+      "status": "completed",
+      "input_bound": 17906,
+      "output_bound": 6000,
+      "input_tokens": 2229,
+      "output_tokens": 53,
+      "cached_tokens": 1792
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.001172,
+      "status": "completed",
+      "input_bound": 41320,
+      "output_bound": 6000,
+      "input_tokens": 2840,
+      "output_tokens": 231,
+      "cached_tokens": 0
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.00029385,
+      "status": "completed",
+      "input_bound": 45361,
+      "output_bound": 6000,
+      "input_tokens": 3081,
+      "output_tokens": 93,
+      "cached_tokens": 2944
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0004966,
+      "status": "completed",
+      "input_bound": 47241,
+      "output_bound": 6000,
+      "input_tokens": 3604,
+      "output_tokens": 129,
+      "cached_tokens": 2944
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.0002291,
+      "status": "completed",
+      "input_bound": 50900,
+      "output_bound": 6000,
+      "input_tokens": 3942,
+      "output_tokens": 25,
+      "cached_tokens": 3584
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.00088655,
+      "status": "completed",
+      "input_bound": 13507,
+      "output_bound": 6000,
+      "input_tokens": 1975,
+      "output_tokens": 398,
+      "cached_tokens": 1792
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.000252,
+      "status": "completed",
+      "input_bound": 19324,
+      "output_bound": 6000,
+      "input_tokens": 2392,
+      "output_tokens": 43,
+      "cached_tokens": 1920
+    },
+    {
+      "model": "gpt-5-mini",
+      "cost_usd": 0.00012309999999999998,
+      "status": "completed",
+      "input_bound": 19897,
+      "output_bound": 6000,
+      "input_tokens": 2454,
+      "output_tokens": 14,
+      "cached_tokens": 2304
+    }
+  ]
+}

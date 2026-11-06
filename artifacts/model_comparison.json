@@ -1,0 +1,168 @@
+{
+  "dataset": "diet_persona_test_cases_10.json",
+  "dataset_commit": "43aeb9c",
+  "models": [
+    {
+      "model": "gpt-4o-mini",
+      "summary": {
+        "n_cases": 10,
+        "overall_pass": 9,
+        "requirement_pass": 9,
+        "revision_pass": "1/1",
+        "safety_violations": "0/3",
+        "per_check": {
+          "slots_complete": {
+            "passed": 9,
+            "total": 10
+          },
+          "foods_in_db": {
+            "passed": 10,
+            "total": 10
+          },
+          "budget_total": {
+            "passed": 9,
+            "total": 9
+          },
+          "budget_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "kcal_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "excluded_tags": {
+            "passed": 3,
+            "total": 3
+          },
+          "protein_per_meal": {
+            "passed": 2,
+            "total": 2
+          },
+          "cuisine_types": {
+            "passed": 5,
+            "total": 5
+          },
+          "allergens": {
+            "passed": 3,
+            "total": 3
+          },
+          "excluded_food_codes": {
+            "passed": 1,
+            "total": 1
+          },
+          "sodium_per_day": {
+            "passed": 2,
+            "total": 2
+          },
+          "required_tags": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_preserved": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_changed": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_constraints_kept": {
+            "passed": 1,
+            "total": 1
+          }
+        }
+      },
+      "api_calls": 81,
+      "cost_usd": 0.0366702,
+      "input_tokens": 357660,
+      "output_tokens": 5462,
+      "latency_seconds": 144.26480843499303,
+      "report_path": "artifacts/4o-mini-ko-strict/report.json"
+    },
+    {
+      "model": "gpt-5-mini",
+      "summary": {
+        "n_cases": 10,
+        "overall_pass": 10,
+        "requirement_pass": 10,
+        "revision_pass": "1/1",
+        "safety_violations": "0/3",
+        "per_check": {
+          "slots_complete": {
+            "passed": 10,
+            "total": 10
+          },
+          "foods_in_db": {
+            "passed": 10,
+            "total": 10
+          },
+          "budget_total": {
+            "passed": 9,
+            "total": 9
+          },
+          "budget_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "kcal_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "excluded_tags": {
+            "passed": 3,
+            "total": 3
+          },
+          "protein_per_meal": {
+            "passed": 2,
+            "total": 2
+          },
+          "cuisine_types": {
+            "passed": 5,
+            "total": 5
+          },
+          "allergens": {
+            "passed": 3,
+            "total": 3
+          },
+          "excluded_food_codes": {
+            "passed": 1,
+            "total": 1
+          },
+          "sodium_per_day": {
+            "passed": 2,
+            "total": 2
+          },
+          "required_tags": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_preserved": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_changed": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_constraints_kept": {
+            "passed": 1,
+            "total": 1
+          }
+        }
+      },
+      "api_calls": 56,
+      "cost_usd": 0.0366354,
+      "input_tokens": 123140,
+      "output_tokens": 9578,
+      "latency_seconds": 161.22892661765218,
+      "report_path": "artifacts/5-mini-ko-strict/report.json"
+    }
+  ],
+  "all_development_accounting": {
+    "completed_calls": 373,
+    "completed_call_cost_usd": 0.14220575,
+    "including_uncertain_reservations_usd": 0.1827520000000001,
+    "uncertain_or_reserved_calls": 4
+  }
+}
