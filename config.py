@@ -16,6 +16,7 @@ class Settings:
     budget_usd: float = 15.0
     ledger_path: str = ".usage/ledger.json"
     reasoning_effort: str = "low"
+    mode: str = "planner_verifier"
 
     @classmethod
     def from_env(cls):
@@ -23,9 +24,12 @@ class Settings:
         return cls(planner_model=os.getenv("PLANNER_MODEL", model),
                    verifier_model=os.getenv("VERIFIER_MODEL", model),
                    budget_usd=float(os.getenv("API_BUDGET_USD", "15")),
-                   ledger_path=os.getenv("API_LEDGER_PATH", ".usage/ledger.json"))
+                   ledger_path=os.getenv("API_LEDGER_PATH", ".usage/ledger.json"),
+                   mode=os.getenv("EXECUTION_MODE", "planner_verifier"))
 
     def __post_init__(self):
+        if self.mode not in {"planner_only", "planner_verifier"}:
+            raise ValueError("mode must be planner_only or planner_verifier")
         families = {model_family(self.planner_model), model_family(self.verifier_model)}
         if min(self.max_rounds, self.max_agent_calls, self.max_turn_calls,
                self.max_output_tokens) < 1:

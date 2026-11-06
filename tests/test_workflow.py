@@ -164,7 +164,7 @@ class WorkflowTests(unittest.TestCase):
             def respond(self, session, query):
                 from orchestrator import TurnResult
                 self.queries.append(query)
-                return TurnResult("approved", "{}")
+                return TurnResult("approved", "{}", {"day1_lunch": ["F048"]})
         spy = SpyBot()
         with redirect_stdout(io.StringIO()):
             run_cases(spy, [CASES[9]])

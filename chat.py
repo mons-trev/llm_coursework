@@ -24,15 +24,19 @@ def main(argv=None):
         client = OpenAIClient(ledger, settings)
     except (ValueError, RuntimeError) as exc:
         parser.error(str(exc))
-    bot, session = MealChatbot(client, settings), Session()
+    bot, session = MealChatbot(client, settings), Session(mode=settings.mode)
     if args.session_file and args.session_file.exists():
         session = Session(**json.loads(args.session_file.read_text(encoding="utf-8")))
+    try:
+        session.ensure_mode(settings.mode)
+    except ValueError as exc:
+        parser.error(str(exc))
     print("식단 도우미")
     print("예산, 알레르기, 음식 선호 등을 포함해 원하는 식단을 말씀해 주세요.")
     print("이어서 '점심은 그대로 두고 저녁만 바꿔줘'처럼 수정할 수 있어요.")
     print("/new 새 대화 · /quit 종료")
     if args.debug:
-        print(f"Planner={settings.planner_model}, Verifier={settings.verifier_model}")
+        print(f"Mode={settings.mode}, Planner={settings.planner_model}, Verifier={settings.verifier_model}")
     while True:
         try:
             query = args.query if args.query is not None else input("\n사용자> ")
@@ -47,7 +51,7 @@ def main(argv=None):
                 break
             continue
         if query.strip() == "/new":
-            session = Session()
+            session = Session(mode=settings.mode)
             if args.query is not None:
                 break
             continue
@@ -55,7 +59,7 @@ def main(argv=None):
             if args.query is not None:
                 parser.error("query cannot be empty")
             continue
-        print("\n식단을 찾고 요청하신 조건을 확인하고 있어요...", flush=True)
+        print("\n식단을 생성하고 있어요...", flush=True)
         result = bot.respond(session, query)
         print(f"\n식단 도우미> {result.answer}")
         if args.debug:
@@ -65,9 +69,12 @@ def main(argv=None):
             write_json(args.session_file, {"user_turns": session.user_turns,
                        "accepted_plan": session.accepted_plan,
                        "accepted_at_turn": session.accepted_at_turn,
+                       "last_returned_plan": session.last_returned_plan,
+                       "returned_at_turn": session.returned_at_turn,
+                       "mode": session.mode,
                        "results": session.results})
         if args.query is not None or result.status in {"budget_exceeded", "api_error"}:
-            return 0 if result.status == "approved" else 1
+            return 0 if result.status in {"approved", "generated"} else 1
     return 0
 
 

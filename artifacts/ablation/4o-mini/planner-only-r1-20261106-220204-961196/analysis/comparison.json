@@ -1,0 +1,2755 @@
+{
+  "runs": [
+    {
+      "run_dir": "artifacts/ablation/4o-mini/planner-only-r1-20261106-220204-961196",
+      "model": "gpt-4o-mini",
+      "verifier_model": "gpt-4o-mini",
+      "mode": "planner_only",
+      "repetition": 1,
+      "kind": "live_model_evaluation",
+      "conditions": "8e46736ea4f98908",
+      "summary": {
+        "n_cases": 10,
+        "overall_pass": 5,
+        "requirement_pass": 5,
+        "revision_pass": "1/1",
+        "safety_violations": "0/3",
+        "per_check": {
+          "slots_complete": {
+            "passed": 5,
+            "total": 10
+          },
+          "foods_in_db": {
+            "passed": 10,
+            "total": 10
+          },
+          "budget_total": {
+            "passed": 9,
+            "total": 9
+          },
+          "budget_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "kcal_per_meal": {
+            "passed": 7,
+            "total": 7
+          },
+          "excluded_tags": {
+            "passed": 3,
+            "total": 3
+          },
+          "protein_per_meal": {
+            "passed": 2,
+            "total": 2
+          },
+          "cuisine_types": {
+            "passed": 5,
+            "total": 5
+          },
+          "allergens": {
+            "passed": 3,
+            "total": 3
+          },
+          "excluded_food_codes": {
+            "passed": 1,
+            "total": 1
+          },
+          "sodium_per_day": {
+            "passed": 2,
+            "total": 2
+          },
+          "required_tags": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_preserved": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_changed": {
+            "passed": 1,
+            "total": 1
+          },
+          "revision_constraints_kept": {
+            "passed": 1,
+            "total": 1
+          }
+        }
+      },
+      "case_results": [
+        {
+          "test_id": "T01",
+          "plan": {
+            "day1_breakfast": [
+              "F005"
+            ],
+            "day1_lunch": [
+              "F009"
+            ],
+            "day1_dinner": [
+              "F048"
+            ],
+            "day2_breakfast": [
+              "F039"
+            ],
+            "day2_lunch": [
+              "F024"
+            ],
+            "day2_dinner": [
+              "F020"
+            ]
+          },
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": true,
+              "detail": "6 slots"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": true,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": true
+        },
+        {
+          "test_id": "T02",
+          "plan": {
+            "day1_lunch": [
+              "F009"
+            ],
+            "day1_dinner": [
+              "F005"
+            ],
+            "day2_lunch": [
+              "F039"
+            ],
+            "day2_dinner": [
+              "F006"
+            ],
+            "day3_lunch": [
+              "F045"
+            ],
+            "day3_dinner": [
+              "F024"
+            ]
+          },
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": true,
+              "detail": "6 slots"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "27500 <= 42000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": true,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": true
+        },
+        {
+          "test_id": "T03",
+          "plan": {
+            "day1_lunch": [
+              "F005"
+            ],
+            "day1_dinner": [
+              "F048"
+            ],
+            "day2_lunch": [
+              "F020"
+            ],
+            "day2_dinner": [
+              "F003"
+            ]
+          },
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": true,
+              "detail": "4 slots"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "25600 <= 42000"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "excluded_tags",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": true,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": true
+        },
+        {
+          "test_id": "T04",
+          "plan": null,
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "0 <= 45000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "protein_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "cuisine_types",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": false,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": false
+        },
+        {
+          "test_id": "T05",
+          "plan": null,
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner'], 'extra': []}"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "0 <= 25000"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "allergens",
+              "category": "safety",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "cuisine_types",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": false,
+          "revision_pass": null,
+          "safety_pass": true,
+          "overall_pass": false
+        },
+        {
+          "test_id": "T06",
+          "plan": null,
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "0 <= 48000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "excluded_food_codes",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "cuisine_types",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": false,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": false
+        },
+        {
+          "test_id": "T07",
+          "plan": {
+            "day1_lunch": [
+              "F008"
+            ],
+            "day1_dinner": [
+              "F015"
+            ]
+          },
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": true,
+              "detail": "2 slots"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "30500 <= 34000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "protein_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "sodium_per_day",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "allergens",
+              "category": "safety",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": true,
+          "revision_pass": null,
+          "safety_pass": true,
+          "overall_pass": true
+        },
+        {
+          "test_id": "T08",
+          "plan": null,
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "0 <= 45000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "sodium_per_day",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": false,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": false
+        },
+        {
+          "test_id": "T09",
+          "plan": null,
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "0 <= 48000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "cuisine_types",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "required_tags",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "excluded_tags",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": false,
+          "revision_pass": null,
+          "safety_pass": null,
+          "overall_pass": false
+        },
+        {
+          "test_id": "T10",
+          "plan": {
+            "day1_lunch": [
+              "F033"
+            ],
+            "day1_dinner": [
+              "F047"
+            ]
+          },
+          "checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": true,
+              "detail": "2 slots"
+            },
+            {
+              "name": "foods_in_db",
+              "category": "structure",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "budget_total",
+              "category": "constraint",
+              "passed": true,
+              "detail": "15000 <= 21000"
+            },
+            {
+              "name": "budget_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "kcal_per_meal",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "allergens",
+              "category": "safety",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "cuisine_types",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "excluded_tags",
+              "category": "constraint",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "revision_preserved",
+              "category": "revision",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "revision_changed",
+              "category": "revision",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "revision_constraints_kept",
+              "category": "revision",
+              "passed": true,
+              "detail": "ok"
+            }
+          ],
+          "requirement_pass": true,
+          "revision_pass": true,
+          "safety_pass": true,
+          "overall_pass": true
+        }
+      ],
+      "turn_metrics": {
+        "expected_turns": 11,
+        "attempted_turns": 11,
+        "returned": 6,
+        "not_returned": 5,
+        "returned_failed": 0,
+        "returned_passed": 6,
+        "allergy_applicable_turns": 4,
+        "allergy_returned": 3,
+        "allergy_violations": 0,
+        "api_calls": 67,
+        "input_tokens": 221462,
+        "output_tokens": 4051
+      },
+      "turns": [
+        {
+          "case_id": "T01",
+          "turn": 1,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 10.481137202000127,
+          "model_calls": 3,
+          "categories": []
+        },
+        {
+          "case_id": "T02",
+          "turn": 1,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 11.2740671009999,
+          "model_calls": 3,
+          "categories": []
+        },
+        {
+          "case_id": "T03",
+          "turn": 1,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 10.372802858000114,
+          "model_calls": 4,
+          "categories": []
+        },
+        {
+          "case_id": "T04",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 15.732730988000185,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ]
+        },
+        {
+          "case_id": "T05",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 20.911965148000036,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ]
+        },
+        {
+          "case_id": "T06",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 14.087602939999897,
+          "model_calls": 6,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ]
+        },
+        {
+          "case_id": "T07",
+          "turn": 1,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 6.8163123599999835,
+          "model_calls": 3,
+          "categories": []
+        },
+        {
+          "case_id": "T08",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "call_limit",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 56.12236043300004,
+          "model_calls": 18,
+          "categories": [
+            "call_limit",
+            "candidate_not_submitted"
+          ]
+        },
+        {
+          "case_id": "T09",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 17.99750664699991,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ]
+        },
+        {
+          "case_id": "T10",
+          "turn": 1,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 9.52800161999994,
+          "model_calls": 5,
+          "categories": []
+        },
+        {
+          "case_id": "T10",
+          "turn": 2,
+          "returned": true,
+          "passed": true,
+          "status": "generated",
+          "termination_reason": "returned_unverified",
+          "failed_checks": [],
+          "elapsed_seconds": 6.986583911000025,
+          "model_calls": 4,
+          "categories": []
+        }
+      ],
+      "termination_counts": {
+        "returned_unverified": 6,
+        "technical_execution_failure": 4,
+        "call_limit": 1
+      },
+      "failed_checks": {
+        "slots_complete": 5
+      },
+      "error_categories": {
+        "candidate_not_submitted": 5,
+        "technical_execution_failure": 4,
+        "call_limit": 1
+      },
+      "cost_usd": 0.0226419,
+      "roles": {
+        "planner": {
+          "api_calls": 67,
+          "budget_denials": 0,
+          "input_tokens": 221462,
+          "output_tokens": 4051,
+          "unknown_token_calls": 0,
+          "cost_usd": 0.0226419,
+          "unsettled_reservation_usd": 0,
+          "api_seconds": 179.96547778200056
+        }
+      },
+      "usage_totals": {
+        "api_calls": 67,
+        "input_tokens": 221462,
+        "output_tokens": 4051,
+        "cost_usd": 0.0226419,
+        "unknown_token_calls": 0,
+        "unsettled_reservation_usd": 0,
+        "api_seconds": 179.96547778200056
+      },
+      "turn_seconds_total": 180.31107120800016,
+      "turn_seconds_mean": 16.39191556436365,
+      "timed_turns": 11,
+      "warnings": [],
+      "evidence": [
+        {
+          "case_id": "T04",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 15.732730988000185,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ],
+          "user_requests": [
+            "근력운동 중인 대학원생이야. 이틀 동안 점심과 저녁을 한식으로만 추천해 줘. 각 끼니마다 단백질은 최소 30g, 열량은 350~750kcal여야 해. 4끼 총예산은 45,000원 이하, 한 끼에 11,000원 이하로 해줘."
+          ],
+          "gold_constraint": {
+            "plan": {
+              "days": 2,
+              "meals_per_day": [
+                "lunch",
+                "dinner"
+              ]
+            },
+            "constraints": {
+              "budget_krw": {
+                "total_max": 45000,
+                "per_meal_max": 11000
+              },
+              "nutrition": {
+                "per_meal": {
+                  "energy_kcal": {
+                    "min": 350,
+                    "max": 750
+                  },
+                  "protein_g": {
+                    "min": 30,
+                    "max": null
+                  }
+                },
+                "per_day": {
+                  "sodium_mg": {
+                    "min": null,
+                    "max": null
+                  }
+                }
+              },
+              "excluded_allergens": [],
+              "excluded_food_codes": [],
+              "cuisine_types": [
+                "한식"
+              ],
+              "excluded_cuisine_types": [],
+              "required_tags": [],
+              "excluded_tags": []
+            }
+          },
+          "expected_revision": null,
+          "baseline": null,
+          "rounds": [
+            {
+              "round": 1,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 2,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 3,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            }
+          ],
+          "final_returned_plan": null,
+          "final_actual_values": null
+        },
+        {
+          "case_id": "T05",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 20.911965148000036,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ],
+          "user_requests": [
+            "새우 알레르기가 있어서 새우가 들어간 음식은 먹을 수 없어. 오늘 점심과 저녁을 한식으로 추천해 줘. 한 끼 350~750kcal로 맞추고 두 끼 합쳐서 25,000원 이하여야 해. 음식 DB에 새우가 표시된 메뉴는 절대 추천하지 마."
+          ],
+          "gold_constraint": {
+            "plan": {
+              "days": 1,
+              "meals_per_day": [
+                "lunch",
+                "dinner"
+              ]
+            },
+            "constraints": {
+              "budget_krw": {
+                "total_max": 25000,
+                "per_meal_max": null
+              },
+              "nutrition": {
+                "per_meal": {
+                  "energy_kcal": {
+                    "min": 350,
+                    "max": 750
+                  },
+                  "protein_g": {
+                    "min": null,
+                    "max": null
+                  }
+                },
+                "per_day": {
+                  "sodium_mg": {
+                    "min": null,
+                    "max": null
+                  }
+                }
+              },
+              "excluded_allergens": [
+                "새우"
+              ],
+              "excluded_food_codes": [],
+              "cuisine_types": [
+                "한식"
+              ],
+              "excluded_cuisine_types": [],
+              "required_tags": [],
+              "excluded_tags": []
+            }
+          },
+          "expected_revision": null,
+          "baseline": null,
+          "rounds": [
+            {
+              "round": 1,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 2,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 3,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            }
+          ],
+          "final_returned_plan": null,
+          "final_actual_values": null
+        },
+        {
+          "case_id": "T06",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 14.087602939999897,
+          "model_calls": 6,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ],
+          "user_requests": [
+            "나는 인도 출신 힌두교 신자이고 소고기는 먹지 않아. 한국 음식은 좋아하니까 이틀 동안 점심과 저녁을 한식으로만 추천해 줘. 소고기가 들어간 메뉴는 전부 제외하고, 한 끼 250~700kcal, 한 끼 최대 13,000원, 4끼 합계 48,000원 이하로 해줘."
+          ],
+          "gold_constraint": {
+            "plan": {
+              "days": 2,
+              "meals_per_day": [
+                "lunch",
+                "dinner"
+              ]
+            },
+            "constraints": {
+              "budget_krw": {
+                "total_max": 48000,
+                "per_meal_max": 13000
+              },
+              "nutrition": {
+                "per_meal": {
+                  "energy_kcal": {
+                    "min": 250,
+                    "max": 700
+                  },
+                  "protein_g": {
+                    "min": null,
+                    "max": null
+                  }
+                },
+                "per_day": {
+                  "sodium_mg": {
+                    "min": null,
+                    "max": null
+                  }
+                }
+              },
+              "excluded_allergens": [],
+              "excluded_food_codes": [
+                "F001",
+                "F002",
+                "F015",
+                "F025",
+                "F029",
+                "F034",
+                "F040",
+                "F046",
+                "F047"
+              ],
+              "cuisine_types": [
+                "한식"
+              ],
+              "excluded_cuisine_types": [],
+              "required_tags": [],
+              "excluded_tags": []
+            }
+          },
+          "expected_revision": null,
+          "baseline": null,
+          "rounds": [
+            {
+              "round": 1,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 2,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 3,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            }
+          ],
+          "final_returned_plan": null,
+          "final_actual_values": null
+        },
+        {
+          "case_id": "T08",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "call_limit",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 56.12236043300004,
+          "model_calls": 18,
+          "categories": [
+            "call_limit",
+            "candidate_not_submitted"
+          ],
+          "user_requests": [
+            "평소 외식을 자주 해서 나트륨 섭취량을 줄이려고 해. 이틀 동안 점심과 저녁을 추천해 줘. 하루에 먹는 두 끼의 나트륨 합계는 1,600mg 이하여야 하고, 각 끼니는 350~750kcal여야 해. 전체 45,000원 이하, 한 끼 15,000원 이하로 해줘."
+          ],
+          "gold_constraint": {
+            "plan": {
+              "days": 2,
+              "meals_per_day": [
+                "lunch",
+                "dinner"
+              ]
+            },
+            "constraints": {
+              "budget_krw": {
+                "total_max": 45000,
+                "per_meal_max": 15000
+              },
+              "nutrition": {
+                "per_meal": {
+                  "energy_kcal": {
+                    "min": 350,
+                    "max": 750
+                  },
+                  "protein_g": {
+                    "min": null,
+                    "max": null
+                  }
+                },
+                "per_day": {
+                  "sodium_mg": {
+                    "min": null,
+                    "max": 1600
+                  }
+                }
+              },
+              "excluded_allergens": [],
+              "excluded_food_codes": [],
+              "cuisine_types": null,
+              "excluded_cuisine_types": [],
+              "required_tags": [],
+              "excluded_tags": []
+            }
+          },
+          "expected_revision": null,
+          "baseline": null,
+          "rounds": [
+            {
+              "round": 1,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "planner exceeded per-agent model call limit"
+              ],
+              "failure_phase": "planner",
+              "failure_reason": "call_limit",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F020"
+                      ],
+                      "day2_lunch": [
+                        "F045"
+                      ],
+                      "day2_dinner": [
+                        "F031"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_lunch": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      },
+                      "day2_dinner": {
+                        "price_krw": 12000,
+                        "kcal": 454.5,
+                        "protein_g": 14.22,
+                        "sodium_mg": 1170.0
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 18500,
+                        "kcal": 850.0,
+                        "protein_g": 59.78,
+                        "sodium_mg": 1654.0
+                      },
+                      "day2": {
+                        "price_krw": 18000,
+                        "kcal": 908.1,
+                        "protein_g": 26.712000000000003,
+                        "sodium_mg": 1884.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 36500,
+                      "kcal": 1758.1,
+                      "protein_g": 86.492,
+                      "sodium_mg": 3538.6
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F045"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F031"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 12000,
+                        "kcal": 454.5,
+                        "protein_g": 14.22,
+                        "sodium_mg": 1170.0
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 14500,
+                        "kcal": 933.6,
+                        "protein_g": 33.772000000000006,
+                        "sodium_mg": 1178.6
+                      },
+                      "day2": {
+                        "price_krw": 22000,
+                        "kcal": 824.5,
+                        "protein_g": 52.72,
+                        "sodium_mg": 2360.0
+                      }
+                    },
+                    "total": {
+                      "price_krw": 36500,
+                      "kcal": 1758.1,
+                      "protein_g": 86.492,
+                      "sodium_mg": 3538.6
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F031"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 12000,
+                        "kcal": 454.5,
+                        "protein_g": 14.22,
+                        "sodium_mg": 1170.0
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 22000,
+                        "kcal": 824.5,
+                        "protein_g": 52.72,
+                        "sodium_mg": 2360.0
+                      }
+                    },
+                    "total": {
+                      "price_krw": 37900,
+                      "kcal": 1924.44,
+                      "protein_g": 102.99539999999999,
+                      "sodium_mg": 3632.98
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F045"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F046"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 14500,
+                        "kcal": 933.6,
+                        "protein_g": 33.772000000000006,
+                        "sodium_mg": 1178.6
+                      },
+                      "day2": {
+                        "price_krw": 17400,
+                        "kcal": 989.9399999999999,
+                        "protein_g": 67.49539999999999,
+                        "sodium_mg": 1998.98
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.26740000000001,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                }
+              ],
+              "planner_output": null
+            },
+            {
+              "round": 2,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "planner exceeded per-agent model call limit"
+              ],
+              "failure_phase": "planner",
+              "failure_reason": "call_limit",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F031"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 12000,
+                        "kcal": 454.5,
+                        "protein_g": 14.22,
+                        "sodium_mg": 1170.0
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 22000,
+                        "kcal": 824.5,
+                        "protein_g": 52.72,
+                        "sodium_mg": 2360.0
+                      }
+                    },
+                    "total": {
+                      "price_krw": 37900,
+                      "kcal": 1924.44,
+                      "protein_g": 102.99539999999999,
+                      "sodium_mg": 3632.98
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F045"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F046"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 14500,
+                        "kcal": 933.6,
+                        "protein_g": 33.772000000000006,
+                        "sodium_mg": 1178.6
+                      },
+                      "day2": {
+                        "price_krw": 17400,
+                        "kcal": 989.9399999999999,
+                        "protein_g": 67.49539999999999,
+                        "sodium_mg": 1998.98
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.26740000000001,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                }
+              ],
+              "planner_output": null
+            },
+            {
+              "round": 3,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "planner exceeded per-agent model call limit"
+              ],
+              "failure_phase": "planner",
+              "failure_reason": "call_limit",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                },
+                {
+                  "name": "compute_plan",
+                  "arguments": {
+                    "plan": {
+                      "day1_lunch": [
+                        "F008"
+                      ],
+                      "day1_dinner": [
+                        "F046"
+                      ],
+                      "day2_lunch": [
+                        "F020"
+                      ],
+                      "day2_dinner": [
+                        "F045"
+                      ]
+                    }
+                  },
+                  "result": {
+                    "slots": {
+                      "day1_lunch": {
+                        "price_krw": 8500,
+                        "kcal": 480.0,
+                        "protein_g": 21.28,
+                        "sodium_mg": 464.0
+                      },
+                      "day1_dinner": {
+                        "price_krw": 7400,
+                        "kcal": 619.9399999999999,
+                        "protein_g": 28.995399999999997,
+                        "sodium_mg": 808.9799999999999
+                      },
+                      "day2_lunch": {
+                        "price_krw": 10000,
+                        "kcal": 370.0,
+                        "protein_g": 38.5,
+                        "sodium_mg": 1190.0
+                      },
+                      "day2_dinner": {
+                        "price_krw": 6000,
+                        "kcal": 453.6,
+                        "protein_g": 12.492,
+                        "sodium_mg": 714.6
+                      }
+                    },
+                    "days": {
+                      "day1": {
+                        "price_krw": 15900,
+                        "kcal": 1099.94,
+                        "protein_g": 50.2754,
+                        "sodium_mg": 1272.98
+                      },
+                      "day2": {
+                        "price_krw": 16000,
+                        "kcal": 823.6,
+                        "protein_g": 50.992000000000004,
+                        "sodium_mg": 1904.6
+                      }
+                    },
+                    "total": {
+                      "price_krw": 31900,
+                      "kcal": 1923.54,
+                      "protein_g": 101.2674,
+                      "sodium_mg": 3177.58
+                    },
+                    "unknown_codes": []
+                  }
+                }
+              ],
+              "planner_output": null
+            }
+          ],
+          "final_returned_plan": null,
+          "final_actual_values": null
+        },
+        {
+          "case_id": "T09",
+          "turn": 1,
+          "returned": false,
+          "passed": false,
+          "status": "not_verified",
+          "termination_reason": "technical_execution_failure",
+          "failed_checks": [
+            {
+              "name": "slots_complete",
+              "category": "structure",
+              "passed": false,
+              "detail": "{'missing': ['day1_lunch', 'day1_dinner', 'day2_lunch', 'day2_dinner'], 'extra': []}"
+            }
+          ],
+          "elapsed_seconds": 17.99750664699991,
+          "model_calls": 7,
+          "categories": [
+            "candidate_not_submitted",
+            "technical_execution_failure"
+          ],
+          "user_requests": [
+            "나는 매운 음식을 좋아하는데 국물요리는 싫어해. 이틀 동안 점심과 저녁으로 한식만 추천해 줘. 네 끼니 모두 반드시 DB의 매운맛 태그가 붙은 메뉴로 하고, 국물요리 태그가 붙은 메뉴는 제외해 줘. 4끼 총 48,000원 이하, 한 끼 13,000원 이하로 해줘."
+          ],
+          "gold_constraint": {
+            "plan": {
+              "days": 2,
+              "meals_per_day": [
+                "lunch",
+                "dinner"
+              ]
+            },
+            "constraints": {
+              "budget_krw": {
+                "total_max": 48000,
+                "per_meal_max": 13000
+              },
+              "nutrition": {
+                "per_meal": {
+                  "energy_kcal": {
+                    "min": null,
+                    "max": null
+                  },
+                  "protein_g": {
+                    "min": null,
+                    "max": null
+                  }
+                },
+                "per_day": {
+                  "sodium_mg": {
+                    "min": null,
+                    "max": null
+                  }
+                }
+              },
+              "excluded_allergens": [],
+              "excluded_food_codes": [],
+              "cuisine_types": [
+                "한식"
+              ],
+              "excluded_cuisine_types": [],
+              "required_tags": [
+                "매운맛"
+              ],
+              "excluded_tags": [
+                "국물요리"
+              ]
+            }
+          },
+          "expected_revision": null,
+          "baseline": null,
+          "rounds": [
+            {
+              "round": 1,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 2,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            },
+            {
+              "round": 3,
+              "candidate": null,
+              "independent_checks": [],
+              "actual_values": null,
+              "verifier_tools": [],
+              "verifier_output": null,
+              "verifier_rejected_with_feedback": false,
+              "feedback": [
+                "전체 plan 을 포함한 JSON 객체를 반환하세요. 예: {\"plan\": {\"day1_lunch\": [\"F020\"]}}. root: {} should be non-empty"
+              ],
+              "failure_phase": "execution_conditions",
+              "failure_reason": "technical_execution_failure",
+              "error": null,
+              "interpretation_mismatch": [],
+              "diagnostic_computations": [],
+              "planner_output": "{\"plan\": {}}"
+            }
+          ],
+          "final_returned_plan": null,
+          "final_actual_values": null
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "model": "gpt-4o-mini",
+      "mode": "planner_only",
+      "conditions": "8e46736ea4f98908",
+      "kind": "live_model_evaluation",
+      "runs": 1,
+      "repetitions": [
+        1
+      ],
+      "statistics": {
+        "overall_rate": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5,
+          "n": 1
+        },
+        "requirement_rate": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5,
+          "n": 1
+        },
+        "revision_rate": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n": 1
+        },
+        "returned": {
+          "mean": 6,
+          "min": 6,
+          "max": 6,
+          "n": 1
+        },
+        "not_returned": {
+          "mean": 5,
+          "min": 5,
+          "max": 5,
+          "n": 1
+        },
+        "returned_failed": {
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "n": 1
+        },
+        "allergy_violations": {
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "n": 1
+        },
+        "api_calls": {
+          "mean": 67,
+          "min": 67,
+          "max": 67,
+          "n": 1
+        },
+        "input_tokens": {
+          "mean": 221462,
+          "min": 221462,
+          "max": 221462,
+          "n": 1
+        },
+        "output_tokens": {
+          "mean": 4051,
+          "min": 4051,
+          "max": 4051,
+          "n": 1
+        },
+        "cost_usd": {
+          "mean": 0.0226419,
+          "min": 0.0226419,
+          "max": 0.0226419,
+          "n": 1
+        },
+        "turn_seconds_total": {
+          "mean": 180.31107120800016,
+          "min": 180.31107120800016,
+          "max": 180.31107120800016,
+          "n": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "kind": "live_model_evaluation",
+  "mode": "planner_only",
+  "repetition": 1,
+  "settings": {
+    "planner_model": "gpt-4o-mini",
+    "verifier_model": "gpt-4o-mini",
+    "max_rounds": 3,
+    "max_agent_calls": 6,
+    "max_turn_calls": 24,
+    "max_output_tokens": 6000,
+    "budget_usd": 15.0,
+    "ledger_path": ".usage/ledger.json",
+    "reasoning_effort": "low",
+    "mode": "planner_only"
+  },
+  "started_at": "2026-11-06T22:02:05.661047+09:00",
+  "source": {
+    "commit": "d5c515fc53539dda1c2a5e8532ab466fd084fc67",
+    "branch": "planner-only",
+    "dirty": true,
+    "status": "M README.md\n M chat.py\n M cli_options.py\n M config.py\n M llm_client.py\n M orchestrator.py\n M presentation.py\n M replay.py\n M run_eval.py\n M session.py\n M tests/test_workflow.py\n?? compare_ablation.py\n?? tests/test_ablation.py"
+  },
+  "hashes": {
+    "db": "c31c9b276e6e0b9d3297ca8ea4a6a9e6f1679ceedbf960f959f335b1850d2558",
+    "test_file": "c009d71f4b91ba54619c6336be9745b086607a257f8df53f95c70c665ba62e3f",
+    "selected_cases": "e860dbc38ff98c66dc1281547e86a4fc725a2bfe49095d0752ce45e6b60d38a9",
+    "planner_prompt": "2dfe0d8ca29e34438eb33b4a4aeefe1cfdfee95574ca83f542eabbd9dca3709d",
+    "verifier_prompt": "2ade0b7d03e9b51e6afab34f9ac4ccb4bd71325ea9505d044d701bf06ce68ccd",
+    "planner_tools": "b1fc5a91197b9a13550887eed9d525ed878de09a476efd5d23660af539472026",
+    "source_files": {
+      "agents.py": "82af1ffbd8f077fff8e8dbaca1b6882425278d047ab572fb9191cb09c9658441",
+      "budget.py": "83fc45ccdac9582ead2ea9269aae1bdbb19083097e15a8813d2f586d309cf87a",
+      "chat.py": "47e6a95bcf55a7ac8daacd32e87b427eaa9ad7799f7a2293fac97c13699fa2a6",
+      "cli_options.py": "015472ce7f9adeb973199ddcdf3cc53a00c805321ce677e24d0d49f27cd6de3c",
+      "compare_ablation.py": "993728c9a1644ef84f6462262ded9efba00d44edebddf0a498d665f2eb4b4e9c",
+      "config.py": "77756956bfdbe962c9c419ea3acc3a34c402c5022660bca617acbb4cfc80c3f1",
+      "llm_client.py": "5796713c29b7428b53fe8c275db98822a4d8a4af42dbeb2d43503724f396e741",
+      "metric.py": "cadefedbc2143215094abbccfe657130da76ec302454aa2769862d2f2078bb79",
+      "orchestrator.py": "117670600a60fae00af25355a35320b77265206e22662b3623078d278958abae",
+      "presentation.py": "0628bb33bcec220d50c3e3be3214bd2e004ecdf906f0c5106ead01ef596c8df3",
+      "replay.py": "09f55c7a35514ee9f4cb4e8652dd3bde154b5e0031cd12389e19d3fbf7eade62",
+      "run_eval.py": "435fc20b7697c8e867c06c3ea453e2fd65449403eb5338328e62ec1b5dcaba01",
+      "schemas.py": "dc20ff1575b8ab2eee99d1f25f90c8998f1515b481b295fa965fea1f65087a55",
+      "session.py": "ea66a040e26ecf670375f53b550bc7b3684540f6e018c59e76be654948ee306f",
+      "tests/test_ablation.py": "0089d2dbc2244825c1d2b9496c1021625b0480b99ab20a92d6c881c4c0d50e6f",
+      "tests/test_workflow.py": "99c8e09827cd77e7c11d63518447e32cabb14145d462dd77f8c5653f1d0a711e",
+      "tool_calling_function.py": "7608fa221bdda33b8562c10d789b8ac4465ba3922e370a9d95c51a9609a559c7"
+    }
+  },
+  "case_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10"
+  ],
+  "rates_usd_per_million": {
+    "gpt-4o-mini": [
+      0.15,
+      0.075,
+      0.6
+    ],
+    "gpt-5-mini": [
+      0.25,
+      0.025,
+      2.0
+    ]
+  },
+  "cases_file": "/home/sehwa/llm_coursework/diet_persona_test_cases_10.json",
+  "finished_at": "2026-11-06T22:05:06.041346+09:00"
+}

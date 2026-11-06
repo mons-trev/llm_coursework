@@ -1,0 +1,212 @@
+{
+  "kind": "live_model_evaluation",
+  "model": "gpt-4o-mini",
+  "mode": "planner_only",
+  "repetition": 1,
+  "case_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10"
+  ],
+  "case_summary": {
+    "n_cases": 10,
+    "overall_pass": 5,
+    "requirement_pass": 5,
+    "revision_pass": "1/1",
+    "safety_violations": "0/3",
+    "per_check": {
+      "slots_complete": {
+        "passed": 5,
+        "total": 10
+      },
+      "foods_in_db": {
+        "passed": 10,
+        "total": 10
+      },
+      "budget_total": {
+        "passed": 9,
+        "total": 9
+      },
+      "budget_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "kcal_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "excluded_tags": {
+        "passed": 3,
+        "total": 3
+      },
+      "protein_per_meal": {
+        "passed": 2,
+        "total": 2
+      },
+      "cuisine_types": {
+        "passed": 5,
+        "total": 5
+      },
+      "allergens": {
+        "passed": 3,
+        "total": 3
+      },
+      "excluded_food_codes": {
+        "passed": 1,
+        "total": 1
+      },
+      "sodium_per_day": {
+        "passed": 2,
+        "total": 2
+      },
+      "required_tags": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_preserved": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_changed": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_constraints_kept": {
+        "passed": 1,
+        "total": 1
+      }
+    }
+  },
+  "turn_metrics": {
+    "expected_turns": 11,
+    "attempted_turns": 11,
+    "returned": 6,
+    "not_returned": 5,
+    "returned_failed": 0,
+    "returned_passed": 6,
+    "allergy_applicable_turns": 4,
+    "allergy_returned": 3,
+    "allergy_violations": 0,
+    "api_calls": 67,
+    "input_tokens": 221462,
+    "output_tokens": 4051
+  },
+  "termination_counts": {
+    "returned_unverified": 6,
+    "technical_execution_failure": 4,
+    "call_limit": 1
+  },
+  "roles": {
+    "planner": {
+      "api_calls": 67,
+      "budget_denials": 0,
+      "input_tokens": 221462,
+      "output_tokens": 4051,
+      "unknown_token_calls": 0,
+      "cost_usd": 0.0226419,
+      "unsettled_reservation_usd": 0,
+      "api_seconds": 179.96547778200056
+    }
+  },
+  "run_cost_usd": 0.0226419,
+  "cached_input_tokens": 173440,
+  "turn_seconds_total": 180.31107120800016,
+  "turn_seconds_mean": 16.39191556436365,
+  "initial_summary": {
+    "n_cases": 10,
+    "overall_pass": 5,
+    "requirement_pass": 5,
+    "revision_pass": "1/1",
+    "safety_violations": "0/3",
+    "per_check": {
+      "slots_complete": {
+        "passed": 5,
+        "total": 10
+      },
+      "foods_in_db": {
+        "passed": 10,
+        "total": 10
+      },
+      "budget_total": {
+        "passed": 9,
+        "total": 9
+      },
+      "budget_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "kcal_per_meal": {
+        "passed": 7,
+        "total": 7
+      },
+      "excluded_tags": {
+        "passed": 3,
+        "total": 3
+      },
+      "protein_per_meal": {
+        "passed": 2,
+        "total": 2
+      },
+      "cuisine_types": {
+        "passed": 5,
+        "total": 5
+      },
+      "allergens": {
+        "passed": 3,
+        "total": 3
+      },
+      "excluded_food_codes": {
+        "passed": 1,
+        "total": 1
+      },
+      "sodium_per_day": {
+        "passed": 2,
+        "total": 2
+      },
+      "required_tags": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_preserved": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_changed": {
+        "passed": 1,
+        "total": 1
+      },
+      "revision_constraints_kept": {
+        "passed": 1,
+        "total": 1
+      }
+    }
+  },
+  "ledger_after": {
+    "spent_usd": 0.06183979999999998,
+    "limit_usd": 15.0,
+    "calls": 146,
+    "uncertain_calls": 0
+  },
+  "successful_cases": [
+    "T01",
+    "T02",
+    "T03",
+    "T07",
+    "T10"
+  ],
+  "failed_cases": [
+    "T04",
+    "T05",
+    "T06",
+    "T08",
+    "T09"
+  ],
+  "note": "One independent Planner-only run. No Planner+Verifier comparison or causal verifier-effect claim."
+}

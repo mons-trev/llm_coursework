@@ -24,7 +24,11 @@ def slot_label(slot, multiple_days):
     return f"{int(day[3:])}일차 {label}" if multiple_days else label
 
 
-def render_plan(plan, *, previous_plan=None, user_constraint=None):
+def render_plan(plan, *, previous_plan=None, user_constraint=None, status="approved"):
+    if status not in {"approved", "generated"}:
+        raise ValueError("only returned plans can be displayed")
+    if status == "generated":
+        user_constraint = None
     validate(plan, PLAN_SCHEMA)
     totals = compute_plan(plan)
     if totals["unknown_codes"]:
@@ -33,7 +37,7 @@ def render_plan(plan, *, previous_plan=None, user_constraint=None):
     multiple_days = len(days) > 1
     constraints = user_constraint["constraints"] if user_constraint else None
     checked = bool(user_constraint and check_plan(plan, user_constraint)["passed"])
-    lines = []
+    lines = ["별도 검수 없이 생성한 식단입니다."] if status == "generated" else []
     if previous_plan:
         kept = [s for s in plan if s in previous_plan and sorted(plan[s]) == sorted(previous_plan[s])]
         changed = [s for s in plan if s in previous_plan and sorted(plan[s]) != sorted(previous_plan[s])]
@@ -44,8 +48,8 @@ def render_plan(plan, *, previous_plan=None, user_constraint=None):
             slot = changed[0]
             lines.append(f"{slot_label(slot, multiple_days)} 메뉴는 {food_names(previous_plan[slot])} 대신 "
                          f"{food_names(plan[slot])}입니다.")
-        if not lines:
-            lines.append("기존 식단을 유지했어요." if plan == previous_plan else "말씀하신 수정 사항을 반영했어요.")
+        if len(kept) != 1 and len(changed) != 1:
+            lines.append("기존 식단을 유지했어요." if plan == previous_plan else "다음과 같이 식단을 변경했어요.")
     else:
         lines.append("다음과 같이 식단을 추천해 드릴게요.")
 

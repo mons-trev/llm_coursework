@@ -3,6 +3,8 @@
 사용자가 예산·음식 선호·영양 조건·알레르기를 포함한 자연어 요청을 전달하면,
 Planner가 `food_DB.json`을 검색해 식단을 만들고 Verifier가 사후 검수합니다.
 사용자의 후속 요청에서는 변경한 조건을 적용하고 유지/변경할 끼니를 검사합니다.
+기본 모드는 `planner_verifier`이며, 같은 Planner에서 Verifier만 제외한
+`planner_only`를 `--mode`로 선택할 수 있습니다.
 
 기본 모델은 **gpt-4o-mini**입니다. 개발 중 도구 연결과 오류 처리를 확인한 뒤,
 같은 한국어 테스트를 **gpt-5-mini**로 실행해 모델별 성공률을 따로 확인할 수 있습니다.
@@ -154,12 +156,14 @@ Verifier가 조건을 잘못 해석할 가능성은 남아 있으며, 독립된 
 
 | 파일 | 내용 |
 |---|---|
-| `outputs.json` / `report.json` | 검수를 통과한 구조화 식단과 독립 평가 결과 |
+| `outputs.json` / `report.json` | 실제 반환한 구조화 식단(`approved` 또는 `generated`)과 독립 평가 결과 |
 | `initial_outputs.json` / `initial_report.json` | 첫 후보와 해당 후보의 평가 결과 |
 | `traces.json` | 사용자용 자연어 응답, 각 라운드의 도구 인자·결과, 후보, 검수 피드백, 종료 상태 |
 | `usage.json` | 모델 설정, 호출별 토큰·시간·비용, 누적 비용 |
+| `manifest.json` | 모드, 반복 번호, 실제 설정, 코드 커밋·작업 트리 상태, DB·테스트·프롬프트·도구·소스 해시 |
+| `cases.json` | 해당 실행의 독립 평가 데이터 스냅샷. 에이전트 입력으로 사용하지 않음 |
 
-실패 후보는 진단 기록에 남기고 승인된 응답으로 제공하지 않습니다. 재시도 소진은
+Planner + Verifier의 실패 후보는 진단 기록에 남기고 승인된 응답으로 제공하지 않습니다. 재시도 소진은
 조건이 수학적으로 불가능하다는 판정이 아닙니다. 실패한 후속 요청은 과거 승인 식단을
 현재 조건에서도 유효한 것처럼 제공하지 않습니다. 추천 다양성과 끼니 구성 품질은 현재 범위 밖입니다.
 
@@ -216,3 +220,102 @@ Standard 요금 기준(USD/100만 토큰, 2026-11-05 확인):
 로컬에서 형식을 검증한 뒤 DB 값으로 사용자용 설명을 생성합니다.
 `llm_client.py`는 모델별 API 옵션과 비용 정산, `session.py`는 대화 상태를 담당합니다.
 `presentation.py`는 사용자용 한국어 문장, `replay.py`는 과거 대화 기록의 재생을 담당합니다.
+
+## Planner-only ablation
+
+이번 변경의 완료 범위는 구현과 API 호출 없는 검증(요청 1~7번)입니다.
+실제 API smoke test와 모델별 3회 반복 실험(8번)은 아직 실행하지 않았습니다.
+아래 실제 실험 명령은 후속 실행용이며, 오프라인 테스트 결과를 모델 성적으로 해석하지 않습니다.
+
+| 모드 | 실행 흐름 | 반환 상태 | 반환 전 사용자 제약 검사 |
+|---|---|---|---|
+| `planner_verifier` (기본) | Planner → Verifier → 필요 시 피드백·재계획 | `approved` | Verifier가 사용자 원문에서 해석한 조건으로 검사 |
+| `planner_only` | 같은 Planner의 검색·계산·자체 수정 → 반환 | `generated` | 별도 검사 없음. 위반 후보도 공통 실행 조건을 만족하면 반환 |
+
+두 모드는 `agents.py`와 `tool_calling_function.py`의 기존 Planner 프롬프트·도구를
+그대로 사용합니다. Planner-only도 `search_foods`와 `compute_plan`을 여러 번 호출할 수 있습니다.
+두 모드 모두 최종 JSON 스키마, 성공한 검색 결과/직전 반환 식단의 코드 사용,
+최종 후보와 동일한 `compute_plan` 실행, 호출·출력 토큰·누적 비용 제한을 유지합니다.
+공통 실행 오류는 같은 피드백 문구와 `max_rounds` 한도로 재시도합니다.
+Verifier 피드백에 의한 추가 라운드는 검수 모드에만 존재합니다.
+모드 분기는 `orchestrator.py`에서 공통 실행 조건을 통과한 직후에 있습니다.
+
+Planner-only 반환 경로는 Verifier LLM, `check_plan`, `check_revision`을 실행하지 않습니다.
+표시할 때 `status="generated"`를 사용하며, `user_constraint`가 잘못 전달되더라도
+표시 함수가 이를 사용하지 않도록 했습니다. DB 가격·열량 표시는 유지하며 별도 검수 없는
+생성임을 표시합니다. 독립 평가 결과를 Planner에 피드백하지 않습니다.
+
+`Session.last_returned_plan` / `returned_at_turn`은 실제 반환한 식단만 보관합니다.
+`accepted_plan` / `accepted_at_turn`은 기존 승인 의미를 유지합니다.
+T10 첫 반환이 사후 평가에서 실패해도 그 식단을 그대로 비교 기준으로 사용하고 두 번째 턴을 실행합니다.
+실제 미반환 턴만 후속 실행을 중단하며, 실패 후보로 기준 식단을 덮어쓰지 않습니다.
+모드를 기록해 다른 모드의 세션 재사용을 거절합니다. 모드가 없는 기존 세션은
+`planner_verifier`로 읽고 과거 승인 식단을 반환 기준으로 이관합니다.
+`chat.py`도 저장·재개 및 `generated` 반환 처리를 지원합니다.
+
+`not_verified`는 기존 클라이언트 호환을 위해 유지하며, `termination_reason`이 종료 원인을 구분합니다.
+`candidate_not_submitted`, `technical_execution_failure`, `call_limit`, `verifier_rejected`,
+`api_error`, `budget_exceeded`를 기록하고, 정상 반환은 `verified` / `returned_unverified`입니다.
+라운드에는 실패 단계·피드백과 실제 기준 식단을, 턴에는 전체 소요 시간과 호출 시도 수를 저장합니다.
+실제 API 호출 수는 `usage.json`의 `api_called`로 세며 예약 단계에서 거절된 호출은 제외합니다.
+사용량의 `role`, `case_id`, `output_field`, `turn`, `round`, `mode`는 로깅 메타데이터로만
+기록합니다. 두 역할이 같은 모델이어도 구분 가능하며 이 메타데이터를 모델 요청에 추가하지 않습니다.
+API 오류는 미정산 최대 비용 예약액과 토큰 미상을 기록하고 기존 누적 장부는 유지합니다.
+
+```bash
+# API 호출 없는 검증
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python run_eval.py --check-only
+.venv/bin/python run_eval.py --mode planner_only --check-only
+
+# 후속 실제 실험: 키와 기존 장부의 잔여 예산을 확인한 뒤 실행
+.venv/bin/python run_eval.py --mode planner_only --model gpt-4o-mini --cases T05 T08 T10 --output-dir artifacts/ablation/4o-mini/smoke-planner-only
+.venv/bin/python run_eval.py --mode planner_verifier --model gpt-4o-mini --cases T05 T08 T10 --output-dir artifacts/ablation/4o-mini/smoke-planner-verifier
+
+# 1회차: 각각 새 세션·디렉터리, 동일 설정 사용
+.venv/bin/python run_eval.py --mode planner_only --model gpt-4o-mini --repetition 1 --output-dir artifacts/ablation/4o-mini/planner-only-r1
+.venv/bin/python run_eval.py --mode planner_verifier --model gpt-4o-mini --repetition 1 --output-dir artifacts/ablation/4o-mini/planner-verifier-r1
+
+# 저장 결과만 비교: 아래는 r1 예시. 전체 실험에서는 r1~r3의 모든 디렉터리를 전달
+.venv/bin/python compare_ablation.py artifacts/ablation/4o-mini/planner-only-r1 artifacts/ablation/4o-mini/planner-verifier-r1 --output-dir artifacts/ablation/compare-4o-mini-r1
+
+# Planner-only / 기존 검수 기록 모두 재생 가능. 저장 모드를 화면에 표시
+.venv/bin/python replay.py --run-dir artifacts/ablation/4o-mini/planner-only-r1 --case T10
+```
+
+2회차는 Verifier 모드부터, 3회차는 Planner-only부터 실행하고 `--repetition`과 디렉터리를 바꿉니다.
+잔여 승인 예산이 충분할 때 GPT-5 mini도 같은 방식으로 실행합니다. 평가 실패의 종료 코드 `1`은
+실험 결과이므로 다음 실행을 계속하며, `2`는 API·예산 실행 오류이므로 원인을 확인합니다.
+설정·입력 오류는 argparse도 `2`로 반환하므로 메시지와 `traces.json`을 함께 확인합니다.
+기존 디렉터리는 비어 있어도 재사용하지 않습니다. 한도를 높이거나 장부를 바꿔 한도를 우회하지 않습니다.
+
+`compare_ablation.py`는 `comparison.json`과 `comparison.md`를 새 디렉터리에 생성합니다.
+기존 `metric.py`의 케이스 단위 Overall/Requirement/Revision 정의를 유지하고, 별도로
+전체 예정 턴(기본 데이터 11턴) 대비 반환·미반환·반환 후 실패와 알레르기 위반을 집계합니다.
+알레르기 열은 **위반 수 / 알레르기 조건이 있는 반환 턴 수 / 알레르기 조건이 있는 전체 예정 턴 수**입니다.
+빈 출력의 개별 검사가 통과하더라도 미반환을 안전한 식단 성공으로 세지 않습니다.
+케이스/턴별 실패 검사, 종료 원인, 역할별 비용·토큰·호출 수, 턴 전체 시간도 기록합니다.
+반복 평균·최소·최대는 동일 코드·데이터·프롬프트·설정 해시 그룹 안에서 계산합니다.
+저장 DB가 현재 DB와 다르면 재평가를 거절하고, 저장 테스트 스냅샷의 해시도 확인합니다.
+
+오류 사례는 같은 실행 안의 후보 → 독립 평가/실제 검수 → 피드백 → 수정 후보 → 최종 상태를
+추적합니다. 요청·정답 범위·실제 계산값·검사 인자/결과·수정 전후 식단을 JSON 증거로 남깁니다.
+예산/영양/제외/멀티턴 위반과 후보 미제출·실행 오류를 구분하고, 잘못된 후보의 수정·차단·승인,
+올바른 후보의 거절, 검사 인자와 정답의 해석 불일치를 기록합니다. 독립 실행의 점수 차이만으로
+특정 오류의 수정 효과를 주장하지 않습니다. 중간 `compute_plan`은 진단 자료이며 최종 반환이 아닙니다.
+`initial_outputs.json`도 첫 후보 진단으로만 사용합니다. 특히 멀티턴 첫 후보는 이전 턴의 검수 이력을
+이미 받았을 수 있으므로 독립 Planner-only baseline으로 볼 수 없습니다.
+
+현재 저장된 `artifacts/4o-mini-ko-strict`, `artifacts/5-mini-ko-strict`를 재확인한 결과는 다음과 같습니다.
+두 기록은 현재 한국어 프롬프트 전의 **과거 검수 시스템 기록**이며 새 ablation의 주 비교 대상이 아닙니다.
+
+| 과거 모델 | 첫 후보 Overall | 최종 Overall | T08 |
+|---|---:|---:|---|
+| GPT-4o mini | 9/10 | 9/10 | 최종 후보 미제출, Verifier 시작 안 함 |
+| GPT-5 mini | 10/10 | 10/10 | 승인 |
+
+새 테스트는 가짜 응답으로 위반 후보 반환/차단/수정, 여러 도구 호출과 자체 수정,
+공통 실행 오류의 동등한 재시도, T10의 실제 반환 기준 유지, 정답 메타데이터 분리,
+세션/출력 저장·재생, 역할별 사용량, 오류 증거와 반복 집계를 검증합니다.
+테스트 통과만으로 실제 모델에서 Verifier가 성능을 높였다고 결론낼 수 없습니다.
+실제 반복 실험에서 차이가 없으면 그대로 보고하며, 추가 고난도 테스트는 별도 후속 실험으로 남깁니다.

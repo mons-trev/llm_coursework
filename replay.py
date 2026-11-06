@@ -16,6 +16,13 @@ def saved_conversation(run_dir, case):
     entries = json.loads((run_dir / "outputs.json").read_text(encoding="utf-8"))
     traces = json.loads((run_dir / "traces.json").read_text(encoding="utf-8"))
     usage = json.loads((run_dir / "usage.json").read_text(encoding="utf-8"))
+    settings = {"mode": "planner_verifier", **usage["settings"]}
+    manifest_path = run_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
+    settings["record_kind"] = manifest.get("kind", "legacy_record")
+    mode = settings["mode"]
+    if mode not in {"planner_only", "planner_verifier"}:
+        raise ValueError("unknown saved execution mode")
     entry = entries[case["test_id"]]
     messages, previous = [], None
     fields = [("output", "test_query")]
@@ -27,20 +34,22 @@ def saved_conversation(run_dir, case):
         messages.append(("사용자", case[query_field]))
         output = entry.get(output_field)
         if not output:
-            messages.append(("식단 도우미", "이 실험에서는 조건을 만족하는 식단을 반환하지 못했어요."))
+            messages.append(("식단 도우미", "이 실험에서는 식단을 반환하지 못했어요."))
             break
         plan = extract_plan(output)
         turns = traces.get(case["test_id"], [])
         turn = turns[index] if index < len(turns) else {}
-        if turn.get("status") != "approved":
-            raise ValueError("승인된 응답 기록이 아니어서 성공한 대화로 재생할 수 없습니다.")
+        expected_status = "generated" if mode == "planner_only" else "approved"
+        if turn.get("mode", mode) != mode or turn.get("status") != expected_status:
+            raise ValueError("저장 모드와 반환 상태가 일치하지 않습니다.")
         checks = [event for round_ in turn.get("rounds", [])
                   for event in round_.get("verifier_tools", []) if event["name"] == "check_plan"]
-        constraint = checks[-1]["arguments"]["user_constraint"] if checks else None
+        constraint = (checks[-1]["arguments"]["user_constraint"]
+                      if mode == "planner_verifier" and checks else None)
         messages.append(("식단 도우미", render_plan(plan, previous_plan=previous,
-                                                user_constraint=constraint)))
+                                                user_constraint=constraint, status=expected_status)))
         previous = plan
-    return usage["settings"], messages
+    return settings, messages
 
 
 def main(argv=None):
@@ -63,7 +72,8 @@ def main(argv=None):
         parser.error(str(exc))
     header = ("과거 실험 기록 재생 — 실시간 생성이 아닙니다.\n"
               "메뉴와 수치는 원본 실험 결과이며, 응답 표현은 현재 표시 함수로 변환했습니다.\n"
-              f"모델: {settings['planner_model']} / {settings['verifier_model']} · 테스트: {args.case}\n"
+              f"모드: {settings['mode']} · 모델: {settings['planner_model']} / {settings['verifier_model']} · 테스트: {args.case}\n"
+              f"기록 유형: {settings['record_kind']}\n"
               f"원본 기록: {args.run_dir}")
     transcript = header + "\n\n" + "\n\n".join(f"{role}> {text}" for role, text in messages) + "\n"
     if args.export:

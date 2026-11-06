@@ -3,7 +3,7 @@ import os
 import re
 import time
 
-from budget import input_reservation_tokens, model_family
+from budget import BudgetExceeded, input_reservation_tokens, model_family, token_cost
 
 
 class OpenAIClient:
@@ -18,6 +18,7 @@ class OpenAIClient:
             sdk_client = OpenAI(max_retries=0, timeout=45.0)
         self.sdk = sdk_client
         self.usage = []
+        self.call_context = {}
 
     def create(self, *, model, instructions, messages, tools):
         # The API's JSON-mode guard inspects input messages, not just instructions.
@@ -33,8 +34,14 @@ class OpenAIClient:
             request["include"] = ["reasoning.encrypted_content"]
         else:
             request["temperature"] = 0
-        key = self.ledger.reserve(model, input_reservation_tokens(request),
-                                  request["max_output_tokens"])
+        input_bound = input_reservation_tokens(request)
+        context = dict(self.call_context)
+        try:
+            key = self.ledger.reserve(model, input_bound, request["max_output_tokens"])
+        except BudgetExceeded:
+            self.usage.append({**context, "model": model, "status": "budget_exceeded",
+                               "api_called": False, "cost_usd": 0.0, "latency_seconds": 0.0})
+            raise
         start = time.monotonic()
         try:
             response = self.sdk.responses.create(**request)
@@ -46,6 +53,10 @@ class OpenAIClient:
                                       response.usage.output_tokens, cached)
         except Exception as exc:
             self.ledger.uncertain(key)
+            self.usage.append({**context, "model": model, "status": "api_error",
+                "api_called": True, "cost_usd": token_cost(model, input_bound, request["max_output_tokens"]),
+                "cost_is_reservation": True, "input_tokens": None, "output_tokens": None,
+                "latency_seconds": time.monotonic() - start})
             # Never dump requests, headers or error bodies that might contain secrets.
             body = getattr(exc, "body", None)
             detail = ""
@@ -57,7 +68,8 @@ class OpenAIClient:
                     detail = ": " + message[:600]
             raise RuntimeError(f"OpenAI request failed ({type(exc).__name__}); "
                                "its maximum cost reservation was retained" + detail) from None
-        self.usage.append({"model": model, "input_tokens": response.usage.input_tokens,
+        self.usage.append({**context, "model": model, "api_called": True,
+                           "input_tokens": response.usage.input_tokens,
                            "cached_tokens": cached, "output_tokens": response.usage.output_tokens,
                            "cost_usd": cost, "latency_seconds": time.monotonic() - start,
                            "status": response.status})

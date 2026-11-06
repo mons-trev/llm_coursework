@@ -5,6 +5,7 @@ from config import Settings
 
 
 def add_options(parser):
+    parser.add_argument("--mode", choices=["planner_only", "planner_verifier"])
     parser.add_argument("--model", help="Set both agents: gpt-4o-mini or gpt-5-mini")
     parser.add_argument("--planner-model")
     parser.add_argument("--verifier-model")
@@ -22,7 +23,7 @@ def settings_from_args(args):
     overrides = {}
     if args.model:
         overrides.update(planner_model=args.model, verifier_model=args.model)
-    for field in ("planner_model", "verifier_model", "budget_usd", "max_rounds",
+    for field in ("mode", "planner_model", "verifier_model", "budget_usd", "max_rounds",
                   "max_output_tokens", "max_agent_calls", "max_turn_calls", "reasoning_effort"):
         value = getattr(args, field, None)
         if value is not None:
