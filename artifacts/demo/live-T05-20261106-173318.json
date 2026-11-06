@@ -1,0 +1,537 @@
+{
+  "user_turns": [
+    "새우 알레르기가 있어서 새우가 들어간 음식은 먹을 수 없어. 오늘 점심과 저녁을 한식으로 추천해 줘. "
+  ],
+  "accepted_plan": {
+    "day1_lunch": [
+      "F020"
+    ],
+    "day1_dinner": [
+      "F048"
+    ]
+  },
+  "accepted_at_turn": 1,
+  "results": [
+    {
+      "status": "approved",
+      "answer": "다음과 같이 식단을 추천해 드릴게요.\n\n- 점심 메뉴는 제육볶음입니다. 가격은 10,000원, 열량은 370kcal예요.\n- 저녁 메뉴는 된장찌개입니다. 가격은 8,500원, 열량은 550kcal예요.\n\n총 식비는 18,500원이에요.\nDB에서 새우 표시가 있는 메뉴는 제외했어요.",
+      "plan": {
+        "day1_lunch": [
+          "F020"
+        ],
+        "day1_dinner": [
+          "F048"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "planner_output": "{\"plan\":{\"day1_lunch\":[\"F020\"],\"day1_dinner\":[\"F048\"]}}",
+          "planner_tools": [
+            {
+              "name": "search_foods",
+              "arguments": {
+                "cuisine_types": [
+                  "한식"
+                ],
+                "excluded_cuisine_types": null,
+                "excluded_allergens": [
+                  "새우"
+                ],
+                "excluded_food_codes": null,
+                "required_tags": null,
+                "excluded_tags": null,
+                "kcal_min": null,
+                "kcal_max": null,
+                "protein_min": null,
+                "protein_max": null,
+                "sodium_max": null,
+                "price_max": null
+              },
+              "result": [
+                {
+                  "food_code": "F009",
+                  "name": "콩나물무침",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "나물류",
+                    "반찬류"
+                  ],
+                  "allergy": [
+                    "대두",
+                    "참깨"
+                  ],
+                  "price_krw": 3500,
+                  "kcal": 103.5,
+                  "protein_g": 5.79,
+                  "sodium_mg": 580.5
+                },
+                {
+                  "food_code": "F006",
+                  "name": "표고버섯볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "반찬류"
+                  ],
+                  "allergy": [
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 4000,
+                  "kcal": 52.5,
+                  "protein_g": 2.55,
+                  "sodium_mg": 214.5
+                },
+                {
+                  "food_code": "F033",
+                  "name": "소시지볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "반찬류",
+                    "육류요리"
+                  ],
+                  "allergy": [
+                    "돼지고기",
+                    "닭고기",
+                    "대두",
+                    "밀",
+                    "우유",
+                    "알류",
+                    "토마토"
+                  ],
+                  "price_krw": 5000,
+                  "kcal": 560.0,
+                  "protein_g": 23.88,
+                  "sodium_mg": 1774.0
+                },
+                {
+                  "food_code": "F024",
+                  "name": "잔치국수",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "면류",
+                    "국물요리"
+                  ],
+                  "allergy": [
+                    "밀",
+                    "알류",
+                    "대두",
+                    "생선",
+                    "참깨"
+                  ],
+                  "price_krw": 7000,
+                  "kcal": 435.5,
+                  "protein_g": 15.275,
+                  "sodium_mg": 2002.0
+                },
+                {
+                  "food_code": "F014",
+                  "name": "쫄면",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "면류",
+                    "분식",
+                    "매운맛",
+                    "찬음식"
+                  ],
+                  "allergy": [
+                    "밀",
+                    "대두",
+                    "알류",
+                    "참깨"
+                  ],
+                  "price_krw": 8000,
+                  "kcal": 544.5,
+                  "protein_g": 15.48,
+                  "sodium_mg": 2704.5
+                },
+                {
+                  "food_code": "F048",
+                  "name": "된장찌개",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "찌개류",
+                    "국물요리"
+                  ],
+                  "allergy": [
+                    "대두",
+                    "밀",
+                    "조개류",
+                    "생선"
+                  ],
+                  "price_krw": 8500,
+                  "kcal": 550.0,
+                  "protein_g": 38.55,
+                  "sodium_mg": 1905.0
+                },
+                {
+                  "food_code": "F020",
+                  "name": "제육볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "육류요리",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "돼지고기",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 10000,
+                  "kcal": 370.0,
+                  "protein_g": 38.5,
+                  "sodium_mg": 1190.0
+                },
+                {
+                  "food_code": "F025",
+                  "name": "육개장",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "탕류",
+                    "국물요리",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "쇠고기",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 10000,
+                  "kcal": 282.0,
+                  "protein_g": 18.0,
+                  "sodium_mg": 1986.0
+                },
+                {
+                  "food_code": "F047",
+                  "name": "떡국",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "떡류",
+                    "국물요리"
+                  ],
+                  "allergy": [
+                    "쇠고기",
+                    "알류",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 10000,
+                  "kcal": 588.0,
+                  "protein_g": 24.01,
+                  "sodium_mg": 1232.0
+                },
+                {
+                  "food_code": "F010",
+                  "name": "콩국수",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "면류",
+                    "찬음식"
+                  ],
+                  "allergy": [
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 11000,
+                  "kcal": 700.0,
+                  "protein_g": 32.27,
+                  "sodium_mg": 679.0
+                },
+                {
+                  "food_code": "F012",
+                  "name": "추어탕",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "탕류",
+                    "국물요리",
+                    "생선요리"
+                  ],
+                  "allergy": [
+                    "생선",
+                    "대두",
+                    "밀"
+                  ],
+                  "price_krw": 11000,
+                  "kcal": 180.0,
+                  "protein_g": 18.54,
+                  "sodium_mg": 1104.0
+                },
+                {
+                  "food_code": "F011",
+                  "name": "코다리조림",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "조림류",
+                    "생선요리",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "생선",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 12000,
+                  "kcal": 258.0,
+                  "protein_g": 49.38,
+                  "sodium_mg": 1398.0
+                },
+                {
+                  "food_code": "F027",
+                  "name": "오징어볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "해산물요리",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "오징어",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 12000,
+                  "kcal": 246.0,
+                  "protein_g": 25.5,
+                  "sodium_mg": 810.0
+                },
+                {
+                  "food_code": "F031",
+                  "name": "순대볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "분식",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "돼지고기",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 12000,
+                  "kcal": 454.5,
+                  "protein_g": 14.22,
+                  "sodium_mg": 1170.0
+                },
+                {
+                  "food_code": "F019",
+                  "name": "쭈꾸미볶음",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "볶음류",
+                    "해산물요리",
+                    "매운맛"
+                  ],
+                  "allergy": [
+                    "주꾸미",
+                    "대두",
+                    "밀",
+                    "참깨"
+                  ],
+                  "price_krw": 13000,
+                  "kcal": 318.0,
+                  "protein_g": 27.48,
+                  "sodium_mg": 1377.0
+                },
+                {
+                  "food_code": "F021",
+                  "name": "전복죽",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "죽류",
+                    "해산물요리"
+                  ],
+                  "allergy": [
+                    "조개류",
+                    "참깨"
+                  ],
+                  "price_krw": 13000,
+                  "kcal": 840.0,
+                  "protein_g": 21.7,
+                  "sodium_mg": 1519.0
+                },
+                {
+                  "food_code": "F015",
+                  "name": "차돌박이구이",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "구이류",
+                    "육류요리"
+                  ],
+                  "allergy": [
+                    "쇠고기"
+                  ],
+                  "price_krw": 22000,
+                  "kcal": 732.0,
+                  "protein_g": 26.910000000000004,
+                  "sodium_mg": 139.5
+                },
+                {
+                  "food_code": "F034",
+                  "name": "소등심구이",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "구이류",
+                    "육류요리"
+                  ],
+                  "allergy": [
+                    "쇠고기"
+                  ],
+                  "price_krw": 30000,
+                  "kcal": 572.4,
+                  "protein_g": 28.62,
+                  "sodium_mg": 874.8000000000001
+                },
+                {
+                  "food_code": "F018",
+                  "name": "족발",
+                  "cuisine_type": "한식",
+                  "tags": [
+                    "찜류",
+                    "육류요리"
+                  ],
+                  "allergy": [
+                    "돼지고기",
+                    "대두",
+                    "밀"
+                  ],
+                  "price_krw": 38000,
+                  "kcal": 1320.0,
+                  "protein_g": 173.46,
+                  "sodium_mg": 1992.0
+                }
+              ]
+            },
+            {
+              "name": "compute_plan",
+              "arguments": {
+                "plan": {
+                  "day1_lunch": [
+                    "F020"
+                  ],
+                  "day1_dinner": [
+                    "F048"
+                  ]
+                }
+              },
+              "result": {
+                "slots": {
+                  "day1_lunch": {
+                    "price_krw": 10000,
+                    "kcal": 370.0,
+                    "protein_g": 38.5,
+                    "sodium_mg": 1190.0
+                  },
+                  "day1_dinner": {
+                    "price_krw": 8500,
+                    "kcal": 550.0,
+                    "protein_g": 38.55,
+                    "sodium_mg": 1905.0
+                  }
+                },
+                "days": {
+                  "day1": {
+                    "price_krw": 18500,
+                    "kcal": 920.0,
+                    "protein_g": 77.05,
+                    "sodium_mg": 3095.0
+                  }
+                },
+                "total": {
+                  "price_krw": 18500,
+                  "kcal": 920.0,
+                  "protein_g": 77.05,
+                  "sodium_mg": 3095.0
+                },
+                "unknown_codes": []
+              }
+            }
+          ],
+          "candidate": {
+            "day1_lunch": [
+              "F020"
+            ],
+            "day1_dinner": [
+              "F048"
+            ]
+          },
+          "verifier_output": "{\"passed\": true, \"feedback\": \"\"}",
+          "verifier_tools": [
+            {
+              "name": "check_plan",
+              "arguments": {
+                "user_constraint": {
+                  "plan": {
+                    "days": 1,
+                    "meals_per_day": [
+                      "lunch",
+                      "dinner"
+                    ]
+                  },
+                  "constraints": {
+                    "budget_krw": {
+                      "total_max": null,
+                      "per_meal_max": null
+                    },
+                    "nutrition": {
+                      "per_meal": {
+                        "energy_kcal": {
+                          "min": null,
+                          "max": null
+                        },
+                        "protein_g": {
+                          "min": null,
+                          "max": null
+                        }
+                      },
+                      "per_day": {
+                        "sodium_mg": {
+                          "min": null,
+                          "max": null
+                        }
+                      }
+                    },
+                    "excluded_allergens": [
+                      "새우"
+                    ],
+                    "excluded_food_codes": [],
+                    "cuisine_types": [
+                      "한식"
+                    ],
+                    "excluded_cuisine_types": [],
+                    "required_tags": [],
+                    "excluded_tags": []
+                  }
+                },
+                "plan": {
+                  "day1_lunch": [
+                    "F020"
+                  ],
+                  "day1_dinner": [
+                    "F048"
+                  ]
+                }
+              },
+              "result": {
+                "passed": true,
+                "violations": []
+              }
+            }
+          ],
+          "passed": true
+        }
+      ]
+    }
+  ]
+}
