@@ -3,6 +3,19 @@
 이 문서는 **planner 에이전트와 verifier 에이전트를 구현하거나 호출하는 쪽(LLM 에이전트 포함)** 이 두 모듈을 올바르게 쓰도록 정리한 참고 문서다.
 모든 수치 예시는 실제 `food_DB.json` 과 코드로 다시 계산해 확인한 값이다.
 
+> 실행 구현은 [README.md](README.md)를 참고한다. 기본 평가 데이터는 최신 한국어
+> `diet_persona_test_cases_10.json`이며, 영어 `diet_test_cases_10.json`도 선택 가능하다.
+> OpenAI Responses API 실행 루프는 `agents.py` / `orchestrator.py`, 실행 명령은
+> `chat.py` / `run_eval.py`에 있다. 아래 도구 규약에 더해 현재 런타임은 다음을 보장한다.
+>
+> - Planner가 먼저 요청을 해석하고 식단을 생성하며 Verifier는 사후 검수만 수행한다.
+> - `check_revision`이 유지·변경 슬롯과 음식 개수를 코드로 비교한다.
+> - 수정 후 계획 전체는 현재 유효한 조건으로 다시 검사한다.
+> - Verifier의 통과 답변만으로 승인하지 않으며, 실제 검사 함수 결과를 확인한다.
+> - 최종 승인 실패 후보는 `outputs.json`에 유효 식단으로 저장하지 않고 진단 기록에 남긴다.
+> - 영양 환산값은 내부에서 반올림하지 않아 `metric.py`와 동일한 정밀도를 유지한다.
+> - 모든 조건 키의 존재·타입·수치 범위를 로컬 JSON Schema로 검증한다.
+
 ---
 
 ## 0. 한눈에 보기
@@ -100,10 +113,10 @@ DB 의 `nutrition` 은 `nutrition_basis`(100 g 또는 100 ml) 기준이다. 두 
 
 | 이름 | 내용 |
 |---|---|
-| `FOOD_DB` | `{food_code: {food_code, name, cuisine_type, tags, allergy, price_krw, kcal, protein_g, sodium_mg}}` (serving 기준, 소수 1자리) |
-| `TOOL_SPECS` | LLM 에 넘기는 tool 정의 3개 (`name`, `description`, `input_schema`). 설명은 한국어, DB 어휘에 영어 병기 |
+| `FOOD_DB` | `{food_code: {food_code, name, cuisine_type, tags, allergy, price_krw, kcal, protein_g, sodium_mg}}` (serving 기준, 내부 계산 정밀도 유지) |
+| `TOOL_SPECS` | LLM 에 넘기는 tool 정의 4개 (`name`, `description`, `input_schema`). 설명은 한국어, DB 어휘에 영어 병기 |
 | `PLANNER_TOOLS` | `["search_foods", "compute_plan"]` |
-| `VERIFIER_TOOLS` | `["check_plan"]` |
+| `VERIFIER_TOOLS` | `["check_plan", "check_revision"]` |
 | `PLANNER_SYSTEM_PROMPT`, `VERIFIER_SYSTEM_PROMPT` | 각 에이전트 system prompt (한국어) |
 
 에이전트별 도구 목록 만들기:
